@@ -1,5 +1,6 @@
 import os
 import subprocess
+import json
 from RCAPI import RCAPI
 #from RCAPI.services.detection import Detection
 #from RCAPI.models.activity_monitor import NewActivityMonitor
@@ -23,10 +24,9 @@ key = pull_api_key()
 
 connection = RCAPI(url=url, key=key)
 
-results = connection.detection.list_detections()
+results = connection.activity_monitor.list_all_file_integrity_matches()
 
 print(results)
-
 #temp = UpdateRemedatedStatus(remediation_state='remediated')
 
 #connection.update_remedation_status(detection_id='153',remediation_info=temp)

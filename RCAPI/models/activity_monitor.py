@@ -1,60 +1,46 @@
 import six
+from .common import BaseObject
 
-class Activity_Monitor(object):
+class Activity_Monitor(BaseObject):
   def __init__(self, activitymonitor):
-    self._activitymonitor = activitymonitor
+    super().__init__(activitymonitor)
+    self._entry = activitymonitor
   
   @property
   def type(self):
-    return self._activitymonitor.get('type')
+    return self._entry.get('type')
 
   @property
   def id(self):
-    return self._activitymonitor.get('id')
-  
-  @property
-  def attributes(self):
-    return Attributes(self._activitymonitor.get('attributes'))
+    return self._entry.get('id')
 
-  @property
-  def activity_monitor(self):
-    return ((self._activitymonitor.get('links')).get('self')).get('href')
-
-  @property
-  def matches(self):
-    return ((self._activitymonitor.get('links')).get('matches')).get('href')
-
-class Attributes(object):
-  def __init__(self, attributes):
-    self._attributes = attributes
-  
   @property
   def name(self):
-    return self._attributes.get('name')
+    return (self._entry.get('attributes')).get('name')
   
   @property
   def active(self):
-    return self._attributes.get('active')
+    return (self._entry.get('attributes')).get('active')
   
   @property
   def type(self):
-    return self._attributes.get('type')
+    return (self._entry.get('attributes')).get('type')
   
   @property
   def file_modification_types_monitored(self):
-    return self._attributes.get('file_modification_types_monitored')
+    return (self._entry.get('attributes')).get('file_modification_types_monitored')
   
   @property
   def file_paths_monitored(self):
-    return self._attributes.get('file_paths_monitored')
+    return (self._entry.get('attributes')).get('file_paths_monitored')
 
   @property
   def usernames_monitored(self):
-    return self._attributes.get('usernames_monitored')
+    return (self._entry.get('attributes')).get('usernames_monitored')
 
   @property
   def usernames_ignored(self):
-    return self._attributes.get('usernames_ignored')
+    return (self._entry.get('attributes')).get('usernames_ignored')
 
 class NewActivityMonitor(object):
   def __init__(self, **kwargs):
@@ -78,3 +64,73 @@ class NewActivityMonitor(object):
     orig_json = self.__dict__
     non_empty_json = {'activity_monitor[' + k + ']': v for (k, v) in six.iteritems(orig_json) if v is not None}
     return non_empty_json
+
+class Match(BaseObject):
+  def __init__(self, match):
+    super().__init__(match)
+    self._entry = match
+  
+  @property
+  def id(self):
+    return self._entry.get('id')
+  
+  @property
+  def activity_monitor_id(self):
+    return (self._entry.get('attributes')).get('activity_monitor_id')  
+  
+  @property
+  def hit_at(self):
+    return (self._entry.get('attributes')).get('hit_at')
+  
+  @property
+  def process_native_id(self):
+    return (self._entry.get('attributes')).get('process_native_id')
+  
+  @property
+  def file_path(self):
+    return (self._entry.get('attributes')).get('file_path')
+  
+  @property
+  def modification_type(self):
+    return (self._entry.get('attributes')).get('modification_type')
+  
+  @property
+  def endpoint_id(self):
+    return (((self._entry.get('relationships')).get('affected_endpoint')).get('data')).get('id')
+  
+  @property
+  def identity_id(self):
+    return (((self._entry.get('relationships')).get('related_endpoint_user')).get('data')).get('id')
+
+class FileIntegrityMatch(BaseObject):
+  def __init__(self, fim):
+    super().__init__(fim)
+    self._entry = fim
+  
+  @property
+  def id(self):
+    return self._entry.get('id')
+  
+  @property
+  def file_path(self):
+    return (self._entry.get('attributes')).get('file_path')
+  
+  @property
+  def modification_type(self):
+    return (self._entry.get('attributes')).get('modification_type')
+  
+  @property
+  def edr_link(self):
+    return (self._entry.get('attributes')).get('edr_link_href')
+  
+  @property
+  def hit_at(self):
+    return (self._entry.get('attributes')).get('hit_at')
+
+  @property
+  def activity_monitor(self):
+    return Activity_Monitor(self._entry.get('attributes')).get('activity_monitor')
+  
+  @property
+  def endpoint(self):
+    return 

@@ -1,15 +1,13 @@
 import six
 
-class TacticTechnique(object):
+from .common import BaseObject
+
+class Tactic_Technique(BaseObject):
   def __init__(self,tactictechnique):
+    super().__init__(tactictechnique)
     self._item = tactictechnique
     self._tactic = 'AttackTactic'
     self._technique = 'AttackTechnique'
-
-  def to_json(self):
-    orig_json = self.__dict__
-    non_empty_json = {k: v for (k, v) in six.iteritems(orig_json) if v is not None}
-    return non_empty_json
 
   @property
   def type(self):
