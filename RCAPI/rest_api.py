@@ -1,4 +1,5 @@
-from .services import detection, activity_monitor, audit_log, tactic_technique
+from RCAPI.services import automate
+from RCAPI.models.common import BaseObject
 from RCAPI.client import Client
 
 class RCAPI():
@@ -11,10 +12,19 @@ class RCAPI():
 
   def __init__(self, url, key):
     self.base_url = url.rstrip('/')
-    self.headers = {"Content-Type": "application/json", "X-Api-Key": "{0}".format(key)}
+    self.headers = {"X-Api-Key": "{0}".format(key)}
     self.client = Client(self.base_url, self.headers)
 
-    self.detection = detection.Detection(self.client)
-    self.activity_monitor = activity_monitor.ActivityMonitor(self.client)
-    self.audit_log = audit_log.AuditLog(self.client)
-    self.tactic_technique = tactic_technique.TacticTechnique(self.client)
+    #self.detection = detection.Detections(self.client)
+    #self.activity_monitor = activity_monitor.ActivityMonitors(self.client)
+    #self.audit_log = audit_log.AuditLogs(self.client)
+    #self.tactic_technique = tactic_technique.TacticTechnique(self.client)
+    self.automate = automate.Automate(self.client)
+  
+  def TestConnection(self):
+    temp = self.client.get(service='/automate/configuration')
+
+    if isinstance(temp, BaseObject):
+      return True
+    else:
+      return False

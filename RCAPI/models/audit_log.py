@@ -1,16 +1,15 @@
-import six
-from .common import BaseObject
-from detection import UserInfo
+from common import BaseObject
+from general import PortalUser
 
-class Audit_Log(BaseObject):
-  def __init__(self, auditlog):
-    super().__init__(auditlog)
-    self._entry = auditlog
+class AduitLog(BaseObject):
+  def __init__(self, entry):
+    super().__init__(entry)
+    self._entry = entry
   
   @property
   def id(self):
     return self._entry.get('id')
-  
+
   @property
   def action(self):
     return (self._entry.get('attributes')).get('action')
@@ -25,11 +24,11 @@ class Audit_Log(BaseObject):
   
   @property
   def by_user(self):
-    return UserInfo((self._entry.get('attributes')).get('by_user'))
+    return PortalUser((self._entry.get('attributes')).get('by_user'))
   
   @property
   def web_request_user(self):
-    return UserInfo((self._entry.get('attributes')).get('web_request_user'))
+    return PortalUser((self._entry.get('attributes')).get('web_request_user'))
 
   @property
   def web_request_ip(self):
