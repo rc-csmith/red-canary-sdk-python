@@ -35,7 +35,7 @@ domain = "demo"
 
 connection = rcapi(url=f"https://{domain}.my.redcanary.co",api_key=api_key)
 
-# Using the "Detection" model
+# Using the object model
 Detection.get_item(connection, unique_id: 123)
 Detection.get_list(connection)
 
