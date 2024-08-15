@@ -1,5 +1,3 @@
-# primitive_activities
-
 Python Library Documentation: module rcapi.models.primitive_activities in rcapi.models
 
 NAME
@@ -172,6 +170,4 @@ FILE
     /Users/corismith/red-canary-sdk-python/rcapi/models/primitive_activities.py
 
 
-
----
 

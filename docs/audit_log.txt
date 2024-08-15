@@ -1,5 +1,3 @@
-# audit_log
-
 Python Library Documentation: module rcapi.models.audit_log in rcapi.models
 
 NAME
@@ -197,6 +195,4 @@ FILE
     /Users/corismith/red-canary-sdk-python/rcapi/models/audit_log.py
 
 
-
----
 

@@ -1,5 +1,3 @@
-# common
-
 Python Library Documentation: module rcapi.models.common in rcapi.models
 
 NAME
@@ -161,6 +159,4 @@ FILE
     /Users/corismith/red-canary-sdk-python/rcapi/models/common.py
 
 
-
----
 

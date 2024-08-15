@@ -1,5 +1,3 @@
-# primitives
-
 Python Library Documentation: module rcapi.models.primitives in rcapi.models
 
 NAME
@@ -401,6 +399,4 @@ FILE
     /Users/corismith/red-canary-sdk-python/rcapi/models/primitives.py
 
 
-
----
 

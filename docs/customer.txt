@@ -1,5 +1,3 @@
-# customer
-
 Python Library Documentation: module rcapi.models.customer in rcapi.models
 
 NAME
@@ -609,6 +607,4 @@ FILE
     /Users/corismith/red-canary-sdk-python/rcapi/models/customer.py
 
 
-
----
 

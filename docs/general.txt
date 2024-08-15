@@ -1,5 +1,3 @@
-# general
-
 Python Library Documentation: module rcapi.models.general in rcapi.models
 
 NAME
@@ -4153,6 +4151,4 @@ FILE
     /Users/corismith/red-canary-sdk-python/rcapi/models/general.py
 
 
-
----
 

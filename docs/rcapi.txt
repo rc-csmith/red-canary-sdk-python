@@ -1,5 +1,3 @@
-# rcapi
-
 Python Library Documentation: class rcapi in module rcapi.rest_api
 
 class rcapi(builtins.object)
@@ -44,6 +42,4 @@ class rcapi(builtins.object)
  |  __weakref__
  |      list of weak references to the object (if defined)
 
-
----
 
