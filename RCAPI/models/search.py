@@ -63,7 +63,7 @@ class ResultForEndpointHostnameCollection(Collection):
   def __init__(self, entry, client=None):
     super().__init__(entry,ResultForEndpointHostname, client=client)
 
-class Search(object):
+class SearchService(object):
   """
   Search class
   """

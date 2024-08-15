@@ -34,7 +34,7 @@ class PlaybookAction(BaseObject):
       dictionary containing attributes for playbook action
     """
     try:
-      return Automate(self.client).update_playbook_action(self.playbook_id, self.id, params)
+      return AutomateService(self.client).update_playbook_action(self.playbook_id, self.id, params)
     except Exception as e:
       raise SyntaxError(e)
 
@@ -59,7 +59,7 @@ class Playbook(SelectableObject):
     Get a list of playbooks
     """
     if hasattr(self,'client'):
-      return Automate(self.client).list_playbooks()
+      return AutomateService(self.client).list_playbooks()
     else:
       raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to generate a list")
 
@@ -73,7 +73,7 @@ class Playbook(SelectableObject):
       unique id for the playbook
     """
     if hasattr(self,'client'):
-      temp_list = Automate(self.client).list_playbooks()
+      temp_list = AutomateService(self.client).list_playbooks()
       for item in temp_list:
         if str(item.id) == unique_id:
            return item
@@ -90,7 +90,7 @@ class Playbook(SelectableObject):
       dictionary containing attributes for playbook
     """
     if hasattr(self,'client'):
-      return Automate(self.client).create_playbook(params)
+      return AutomateService(self.client).create_playbook(params)
     else:
       raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to create a new item")
     
@@ -104,7 +104,7 @@ class Playbook(SelectableObject):
       dictionary containing attributes for playbook
     """
     try:
-      return Automate(self.client).update_playbook(self.id, params)
+      return AutomateService(self.client).update_playbook(self.id, params)
     except Exception as e:
       raise SyntaxError(e)
   
@@ -113,7 +113,7 @@ class Playbook(SelectableObject):
     Delete current playbook
     """
     try:
-      return Automate(self.client).delete_playbook(self.id)
+      return AutomateService(self.client).delete_playbook(self.id)
     except Exception as e:
       raise SyntaxError(e)
   
@@ -122,7 +122,7 @@ class Playbook(SelectableObject):
     Copy current playbook
     """
     try:
-      return Automate(self.client).copy_playbook(self.id)
+      return AutomateService(self.client).copy_playbook(self.id)
     except Exception as e:
       raise SyntaxError(e)
 
@@ -136,7 +136,7 @@ class Playbook(SelectableObject):
       dictionary containing attributes for action
     """
     try:
-      return Automate(self.client).create_playbook_action(self.id, params)
+      return AutomateService(self.client).create_playbook_action(self.id, params)
     except Exception as e:
       raise SyntaxError(e)
   
@@ -150,7 +150,7 @@ class Playbook(SelectableObject):
       PlaybookAction object
     """
     try:
-      return Automate(self.client).delete_playbook_action(self.id, action.id)
+      return AutomateService(self.client).delete_playbook_action(self.id, action.id)
     except Exception as e:
       raise SyntaxError(e)
   
@@ -188,7 +188,7 @@ class Trigger(SelectableObject):
     Get a list of triggers
     """
     if hasattr(self,'client'):
-      return Automate(self.client).list_triggers()
+      return AutomateService(self.client).list_triggers()
     else:
       raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to generate a list")
 
@@ -202,7 +202,7 @@ class Trigger(SelectableObject):
       unique id for the trigger
     """
     if hasattr(self,'client'):
-      temp_list = Automate(self.client).list_triggers()
+      temp_list = AutomateService(self.client).list_triggers()
       for item in temp_list:
         if str(item.id) == unique_id:
           return item
@@ -219,7 +219,7 @@ class Trigger(SelectableObject):
       dictionary containing attributes for trigger
     """
     if hasattr(self,'client'):
-      return Automate(self.client).create_trigger(params)
+      return AutomateService(self.client).create_trigger(params)
     else:
       raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to create a new item")
 
@@ -233,7 +233,7 @@ class Trigger(SelectableObject):
       dictionary containing attributes for trigger
     """
     try:
-      return Automate(self.client).update_trigger(self.id, params)
+      return AutomateService(self.client).update_trigger(self.id, params)
     except Exception as e:
       raise SyntaxError(e)
 
@@ -242,7 +242,7 @@ class Trigger(SelectableObject):
     Delete current trigger
     """
     try:
-      return Automate(self.client).delete_trigger(self.id)
+      return AutomateService(self.client).delete_trigger(self.id)
     except Exception as e:
       raise SyntaxError(e)
   
@@ -251,7 +251,7 @@ class Trigger(SelectableObject):
     List conditions for current trigger
     """
     try:
-      return Automate(self.client).list_trigger_conditions(self.id)
+      return AutomateService(self.client).list_trigger_conditions(self.id)
     except Exception as e:
       raise SyntaxError(e)
 
@@ -265,7 +265,7 @@ class Trigger(SelectableObject):
       dictionary containing attributes for condition
     """
     try:
-      return Automate(self.client).create_trigger_condition(self.id, params)
+      return AutomateService(self.client).create_trigger_condition(self.id, params)
     except Exception as e:
       raise SyntaxError(e)
   
@@ -279,7 +279,7 @@ class Trigger(SelectableObject):
       TriggerCondition object
     """
     try:
-      return Automate(self.client).delete_trigger_condition(self.id, condition.id)
+      return AutomateService(self.client).delete_trigger_condition(self.id, condition.id)
     except Exception as e:
       raise SyntaxError(e)
   
@@ -293,7 +293,7 @@ class Trigger(SelectableObject):
       Playbook object
     """
     try:
-      return Automate(self.client).add_trigger_playbook(self.id, {'playbook[id]': playbook.id})
+      return AutomateService(self.client).add_trigger_playbook(self.id, {'playbook[id]': playbook.id})
     except Exception as e:
       raise SyntaxError(e)
 
@@ -307,7 +307,7 @@ class Trigger(SelectableObject):
       Playbook object
     """
     try:
-      return Automate(self.client).remove_trigger_playbook(self.id, playbook.id)
+      return AutomateService(self.client).remove_trigger_playbook(self.id, playbook.id)
     except Exception as e:
       raise SyntaxError(e)
 
@@ -426,9 +426,9 @@ class ConfigurationResource(Resource):
   def __init__(self, entry, client=None):
     super().__init__(entry, Configuration, client=client)
 
-class Automate(object):
+class AutomateService(object):
   """
-  Automate class
+  AutomateService class
   """
   def __init__(self, client):
     self.client = client

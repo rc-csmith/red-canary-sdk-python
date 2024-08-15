@@ -5,7 +5,7 @@ NAME
 
 CLASSES
     builtins.object
-        Search
+        SearchService
     rcapi.models.common.BaseObject(rcapi.models.common.FinishedObject)
         ResultForEndpointHostname
         ResultForIpAddress
@@ -204,8 +204,8 @@ CLASSES
      |  __weakref__
      |      list of weak references to the object (if defined)
     
-    class Search(builtins.object)
-     |  Search(client)
+    class SearchService(builtins.object)
+     |  SearchService(client)
      |  
      |  Search class
      |  

@@ -5,7 +5,7 @@ NAME
 
 CLASSES
     builtins.object
-        Automate
+        AutomateService
     rcapi.models.common.BaseObject(rcapi.models.common.FinishedObject)
         ActionExecution
         Configuration
@@ -125,10 +125,10 @@ CLASSES
      |  __weakref__
      |      list of weak references to the object (if defined)
     
-    class Automate(builtins.object)
-     |  Automate(client)
+    class AutomateService(builtins.object)
+     |  AutomateService(client)
      |  
-     |  Automate class
+     |  AutomateService class
      |  
      |  Methods defined here:
      |  

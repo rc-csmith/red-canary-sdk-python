@@ -5,14 +5,14 @@ import os
 from typing import Optional
 from .models.common import SelectableObject
 from .models.general import StandardErrorResponse
-from .models.exec import Automate
+from .models.exec import AutomateService
 from .models.audit_log import AuditLogService
 from .models.customer import CustomerService, ExternalAlertService
-from .models.search import Search
+from .models.search import SearchService
 from .models.general import ActivityMonitorService, DetectionService, DetectorService, \
                             EndpointService, EventService, EndpointUserService, \
                             SharedFileService, ManagedPortalUserService, \
-                            PortalRoleService, ReportLibrary, \
+                            PortalRoleService, ReportLibraryService, \
                             TargetedProductService, TelemetrySearchService, \
                             SuppressionRuleService
 
@@ -46,7 +46,7 @@ class rcapi():
 
     self.activity_monitor = ActivityMonitorService(self.client)
     self.audit_log = AuditLogService(self.client)
-    self.automate = Automate(self.client)
+    self.automate = AutomateService(self.client)
     self.customer = CustomerService(self.client)
     self.detection = DetectionService(self.client)
     self.detector = DetectorService(self.client)
@@ -56,8 +56,8 @@ class rcapi():
     self.external_alert = ExternalAlertService(self.client)
     self.managed_portal_user = ManagedPortalUserService(self.client)
     self.portal_role = PortalRoleService(self.client)
-    self.report = ReportLibrary(self.client)
-    self.search = Search(self.client)
+    self.report = ReportLibraryService(self.client)
+    self.search = SearchService(self.client)
     self.shared_file = SharedFileService(self.client)
     self.suppression_rule = SuppressionRuleService(self.client)
     self.targeted_product = TargetedProductService(self.client)

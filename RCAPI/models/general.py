@@ -1226,7 +1226,7 @@ class Report(SelectableObject):
     Get a list of reports
     """
     if hasattr(self,'client'):
-      return ReportLibrary(self.client).list_reports()
+      return ReportLibraryService(self.client).list_reports()
     else:
       raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to generate a list")
   
@@ -1240,7 +1240,7 @@ class Report(SelectableObject):
       unique id for the report
     """
     if hasattr(self,'client'):
-      return ReportLibrary(self.client).get(int(unique_id))
+      return ReportLibraryService(self.client).get(int(unique_id))
     else:
       raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to get an item")
   
@@ -1249,7 +1249,7 @@ class Report(SelectableObject):
     Unfavorite the current report
     """
     try:
-      return ReportLibrary(self.client).unfavorite(self.name)
+      return ReportLibraryService(self.client).unfavorite(self.name)
     except Exception as e:
       raise SyntaxError(e)
 
@@ -1258,7 +1258,7 @@ class Report(SelectableObject):
     Favorite the current report
     """
     try:
-      return ReportLibrary(self.client).favorite(self.name)
+      return ReportLibraryService(self.client).favorite(self.name)
     except Exception as e:
       raise SyntaxError(e)
 
@@ -2213,7 +2213,7 @@ class PortalRoleService(object):
     else:
       return self.client.RecurseList(service='/portal_roles', object_type=object_type, params=params)
 
-class ReportLibrary(object):
+class ReportLibraryService(object):
   """
   Report Library class
   """

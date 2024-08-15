@@ -16,4 +16,3 @@ list_of_model_methods = [func for func in dir(rcapi.models) if not func.startswi
 for method in list_of_model_methods:
   with (open(f'{OUTPUT_DIR}/{method}.txt','w')) as file:
     file.write(f'{pydoc.render_doc(getattr(rcapi.models,method), renderer=pydoc.plaintext)}\n\n')
-

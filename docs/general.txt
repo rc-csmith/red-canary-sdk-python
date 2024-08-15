@@ -15,7 +15,7 @@ CLASSES
         ExternalServicesService
         ManagedPortalUserService
         PortalRoleService
-        ReportLibrary
+        ReportLibraryService
         ReportingTagCollection
         SharedFileService
         SuppressionRuleService
@@ -3120,8 +3120,8 @@ CLASSES
      |  __weakref__
      |      list of weak references to the object (if defined)
     
-    class ReportLibrary(builtins.object)
-     |  ReportLibrary(client)
+    class ReportLibraryService(builtins.object)
+     |  ReportLibraryService(client)
      |  
      |  Report Library class
      |  
