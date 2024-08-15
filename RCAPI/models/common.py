@@ -1,22 +1,19 @@
 """
 Common
 """
-import six
-import json
-
 class FinishedObject(object):
   """
   Adds functionality to BaseObject or Resource to print in non-empty JSON format
   """
   def __init__(self, entry):
     self = entry
-    
+
   def to_json(self):
     """
     Return data in json format
     """
     orig_json = self.__dict__
-    non_empty_json = {k: v for (k, v) in six.iteritems(orig_json) if v is not None}
+    non_empty_json = {k: v for (k, v) in orig_json.items() if v is not None}
     return non_empty_json
     
 class BaseObject(FinishedObject):

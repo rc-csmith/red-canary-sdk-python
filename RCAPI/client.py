@@ -1,5 +1,5 @@
 """
-Client for RCAPI
+Client for rcapi
 """
 import os
 from datetime import datetime
@@ -13,7 +13,7 @@ from .models.common import BaseObject, Resource, Collection, SelectableObject
 
 class Client(object):
   """
-  Client class for RCAPI
+  Client class for rcapi
   """
   def __init__(self, url, headers):
     self.session = requests.Session()

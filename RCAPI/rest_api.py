@@ -1,5 +1,5 @@
 """
-Rest client for RCAPI
+Rest client for rcapi
 """
 import os
 from typing import Optional
@@ -18,9 +18,9 @@ from .models.general import ActivityMonitorService, DetectionService, DetectorSe
 
 from .client import Client
 
-class RCAPI():
+class rcapi():
   """
-  Initiate RCAPI
+  Initiate rcapi
 
   Parameters
   ----------

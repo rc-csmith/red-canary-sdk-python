@@ -3,20 +3,20 @@
 ## Example Usage
 
 ```
-from RCAPI import RCAPI
+from rcapi import rcapi
 url = 'https://demo.my.redcanary.co/'
 key = 'put_key_here'
 
-connection = RCAPI(url=url, key=key)
+connection = rcapi(url=url, key=key)
 
 # list all detections
-results = connection.detection.list()
+results = connection.detection.get_list()
 
 # Get THREAT-123
-print(connection.detection.get(123))
+print(connection.detection.get_item(123))
 
 # Get EVT-12234
-print(connection.event.get(12234))
+print(connection.event.get_item(12234))
 
 # List Automate playbooks
 print(connection.automate.list_playbooks())
@@ -25,15 +25,15 @@ print(connection.automate.list_playbooks())
 There are two ways to get an object:
 
 ```
-from RCAPI import RCAPI
-from RCAPI.models import Detection
+from rcapi import rcapi
+from rcapi.models import Detection
 
 # personal portal API key
 api_key = "ASDFASDFASDFASDFASDFASDF"
 # domain
 domain = "demo"
 
-connection = RCAPI(url=f"https://{domain}.my.redcanary.co",api_key=api_key)
+connection = rcapi(url=f"https://{domain}.my.redcanary.co",api_key=api_key)
 
 # Using the "Detection" model
 Detection.get_item(connection, unique_id: 123)

@@ -133,7 +133,7 @@ class ExternalAlert(SelectableObject):
     Get a list of external alerts
     """
     if hasattr(self,'client'):
-      return ExternalAlertService(self.client).list()
+      return ExternalAlertService(self.client).list_alerts()
     else:
       raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to generate a list")
   

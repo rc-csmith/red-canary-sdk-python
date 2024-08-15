@@ -111,7 +111,7 @@ class ActivityMonitor(SelectableObject):
   def deactivate(self):
     """
     Deactivate current activity monitor
-  """
+    """
     try:
       return ActivityMonitorService(self.client).deactivate(self.id)
     except Exception as e:
@@ -126,11 +126,12 @@ class ActivityMonitor(SelectableObject):
     params : dict
       parameters for the new activity monitor
     """
+
     if hasattr(self,'client'):
       return ActivityMonitorService(self.client).create(params)
     else:
       raise SyntaxError(f"Class {self.__class__.name__} cannot be used to create a new item")
-  
+
   def list_matches(self):
     """
     List matches for the current activity monitor
@@ -145,6 +146,7 @@ class ActivityMonitorMatch(SelectableObject):
   Activity Monitor Match object
   Includes affected_endpoint and related_endpoint_user
   """
+
   def __init__(self, entry=None, client=None):
     type_mapping = {
       'affected_endpoint': ResourceRelationship,
@@ -938,7 +940,7 @@ class ExternalService(SelectableObject):
     Get a list of external services
     """
     if hasattr(self,'client'):
-      return ExternalServicesService(self.client).list()
+      return ExternalServicesService(self.client).list_external_services()
     else:
       raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to generate a list")
 
@@ -979,17 +981,21 @@ class ExternalService(SelectableObject):
     else:
       raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to get an item")
 
-  def create_aws_item(self, params: dict):
+  def create_aws_item(self, description: list[str], aws_account_id: list[str], aws_assumed_role_arn: list[str]):
     """
     Create a new AWS service
     
     Parameters
     ----------
-    params : dict
-      parameters for the new AWS service
+    description : str
+      description for the AWS service
+    aws_account_id : str
+      AWS account id
+    aws_assumed_role_arn : str
+      AWS assumed role ARN
     """
     if hasattr(self, 'client'):
-      return ExternalServicesService(self.client).create_aws_service(params)
+      return ExternalServicesService(self.client).create_aws_service(description, aws_account_id, aws_assumed_role_arn)
     else:
       raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to create a new item")
 
@@ -1057,7 +1063,7 @@ class PortalRole(SelectableObject):
     Get a list of portal roles
     """
     if hasattr(self,'client'):
-      return PortalRoleService(self.client).list()
+      return PortalRoleService(self.client).list_portal_roles()
     else:
       raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to generate a list")
   
@@ -1071,7 +1077,7 @@ class PortalRole(SelectableObject):
       unique id for the portal role
     """
     if hasattr(self,'client'):
-      temp_list = PortalRoleService(self.client).list()
+      temp_list = PortalRoleService(self.client).list_portal_roles()
       for item in temp_list:
         if item.name == unique_id:
           return item
@@ -1220,7 +1226,7 @@ class Report(SelectableObject):
     Get a list of reports
     """
     if hasattr(self,'client'):
-      return ReportLibrary(self.client).list()
+      return ReportLibrary(self.client).list_reports()
     else:
       raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to generate a list")
   
@@ -2190,7 +2196,7 @@ class PortalRoleService(object):
   def __init__(self, client):
     self.client = client
 
-  def list(self, count_mode: bool = False) -> PortalRoleCollection:
+  def list_portal_roles(self, count_mode: bool = False) -> PortalRoleCollection:
     """
     List portal roles
 
@@ -2214,7 +2220,7 @@ class ReportLibrary(object):
   def __init__(self, client):
     self.client = client
 
-  def list(self) -> Report:
+  def list_reports(self) -> Report:
     """
     List all reports
     """
@@ -3127,7 +3133,7 @@ class ExternalServicesService(object):
   def __init__(self, client):
     self.client = client
 
-  def list(self) -> list[ExternalService]:
+  def list_external_services(self) -> list[ExternalService]:
     # TODO: Verify this is the correct format
     """
     List all external services
@@ -3152,7 +3158,7 @@ class ExternalServicesService(object):
     List all AWS services
     """
 
-    return self.client.RecurseList(service='/external_services/aws', object_type=ExternalService)
+    return self.client.RecurseList(service='/external_services/aws', object_type=ExternalServiceCollection)
   
   def create_aws_service(self, description: list[str], aws_account_id: list[str], aws_assumed_role_arn: list[str]) -> ExternalService:
     """

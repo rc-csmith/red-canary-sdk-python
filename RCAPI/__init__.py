@@ -1,9 +1,9 @@
 """
-Init section of RCAPI
+Init section of rcapi
 """
 from __future__ import absolute_import
 
-__title__ = 'RCAPI'
+__title__ = 'rcapi'
 
 from . import models, client
-from .rest_api import RCAPI
+from .rest_api import rcapi

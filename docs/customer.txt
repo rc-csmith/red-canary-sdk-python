@@ -1,0 +1,614 @@
+# customer
+
+Python Library Documentation: module rcapi.models.customer in rcapi.models
+
+NAME
+    rcapi.models.customer - Customer
+
+CLASSES
+    builtins.object
+        CustomerService
+        ExternalAlertService
+    rcapi.models.common.BaseObject(rcapi.models.common.FinishedObject)
+        IntelReporting
+        Statistics
+        SystemActivity
+    rcapi.models.common.Collection(rcapi.models.common.Resource)
+        ExternalAlertCollection
+        ExternalAlertSourceCollection
+        ExternalAlertSourcePlatformCollection
+    rcapi.models.common.Resource(rcapi.models.common.FinishedObject)
+        ExternalAlertResource
+        ExternalAlertSourcePlatformResource
+        ExternalAlertSourceResource
+    rcapi.models.common.SelectableObject(rcapi.models.common.BaseObject)
+        ExternalAlert
+        ExternalAlertSource
+        ExternalAlertSourcePlatform
+    
+    class CustomerService(builtins.object)
+     |  CustomerService(client)
+     |  
+     |  Customer Service class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_intel_reporting_stats(self) -> rcapi.models.customer.IntelReporting
+     |      Get intel reporting stats
+     |  
+     |  list_system_activities(self) -> list[rcapi.models.customer.SystemActivity]
+     |      List system activities
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExternalAlert(rcapi.models.common.SelectableObject)
+     |  ExternalAlert(entry=None, client=None)
+     |  
+     |  External Alert object
+     |  Includes ResourceRelationship
+     |  
+     |  Method resolution order:
+     |      ExternalAlert
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single external alert
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        ID of object
+     |  
+     |  get_list(self)
+     |      Get a list of external alerts
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExternalAlertCollection(rcapi.models.common.Collection)
+     |  ExternalAlertCollection(entry, client=None)
+     |  
+     |  External Alert collection object
+     |  
+     |  Method resolution order:
+     |      ExternalAlertCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExternalAlertResource(rcapi.models.common.Resource)
+     |  ExternalAlertResource(entry, client=None)
+     |  
+     |  External Alert resource object
+     |  
+     |  Method resolution order:
+     |      ExternalAlertResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExternalAlertService(builtins.object)
+     |  ExternalAlertService(client)
+     |  
+     |  External Alert Service class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  create_source(self, params: dict) -> rcapi.models.customer.ExternalAlertSource
+     |      Create a new external alert source
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        dict containing attributes of new source platform
+     |        required keys: name
+     |                       source_platform_id
+     |  
+     |  delete_source(self, external_alert_source_id: int) -> Union[rcapi.models.general.StandardErrorResponse, rcapi.models.general.StandardSuccessResponse]
+     |      Delete an external alert source
+     |      
+     |      Parameters
+     |      ----------
+     |      external_alert_source_id : int
+     |        external alert source id
+     |  
+     |  get(self, external_alert_id: int) -> rcapi.models.customer.ExternalAlert
+     |      Get a specific external alert
+     |      
+     |      Parameters
+     |      ----------
+     |      external_alert_id : int
+     |        ID of object
+     |  
+     |  get_native_id(self, external_alert_native_id: int) -> rcapi.models.customer.ExternalAlert
+     |      Get a specific external alert by its native ID
+     |      
+     |      Parameters
+     |      ----------
+     |      external_alert_native_id : int
+     |        Native ID of object
+     |  
+     |  get_source(self, external_alert_source_id: int) -> rcapi.models.customer.ExternalAlertSource
+     |      Get a specific external alert source
+     |      
+     |      Parameters
+     |      ----------
+     |      external_alert_source_id : int
+     |        external alert source id
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  get_source_platform(self, external_alert_source_platform_id: int) -> rcapi.models.customer.ExternalAlertSourcePlatform
+     |      Get a specific external alert source platform
+     |      
+     |      Parameters
+     |      ----------
+     |      external_alert_source_platform_id : int
+     |        external alert source platform id
+     |  
+     |  list_alerts(self, count_mode: bool = False, q: str = '') -> Union[int, list[rcapi.models.customer.ExternalAlert]]
+     |      List all external alerts
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |      q : str
+     |        query string for search/filter
+     |  
+     |  list_source_platforms(self, count_mode: bool = False) -> Union[int, list[rcapi.models.customer.ExternalAlertSourcePlatform]]
+     |      List all external alert source platforms
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_sources(self, alert_aggregator_id: int = -1, count_mode: bool = False) -> Union[int, list[rcapi.models.customer.ExternalAlertSource]]
+     |      "
+     |      List all external alert sources
+     |      
+     |      Parameters
+     |      ----------
+     |      alert_aggregator_idv : int
+     |        alert aggregator id
+     |        optional - defaults to all
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExternalAlertSource(rcapi.models.common.SelectableObject)
+     |  ExternalAlertSource(entry=None, client=None)
+     |  
+     |  External Alert Source object
+     |  Includes Statistics and ResourceRelationship
+     |  
+     |  Method resolution order:
+     |      ExternalAlertSource
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  create_item(self, params)
+     |      Create a new external alert source
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        dict containing attributes of new source platform
+     |        required keys: name
+     |                       source_platform_id
+     |  
+     |  delete(self)
+     |      Delete current external alert source
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single external alert source
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        ID of object
+     |  
+     |  get_list(self)
+     |      Get a list of external alert sources
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExternalAlertSourceCollection(rcapi.models.common.Collection)
+     |  ExternalAlertSourceCollection(entry, client=None)
+     |  
+     |  External Alert Source collection object
+     |  
+     |  Method resolution order:
+     |      ExternalAlertSourceCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExternalAlertSourcePlatform(rcapi.models.common.SelectableObject)
+     |  ExternalAlertSourcePlatform(entry=None, client=None)
+     |  
+     |  External Alert Source Platform object
+     |  
+     |  Method resolution order:
+     |      ExternalAlertSourcePlatform
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single external alert source platform
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        ID of object
+     |  
+     |  get_list(self)
+     |      Get a list of external alert source platforms
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExternalAlertSourcePlatformCollection(rcapi.models.common.Collection)
+     |  ExternalAlertSourcePlatformCollection(entry, client=None)
+     |  
+     |  External Alert Source Platform collection object
+     |  
+     |  Method resolution order:
+     |      ExternalAlertSourcePlatformCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExternalAlertSourcePlatformResource(rcapi.models.common.Resource)
+     |  ExternalAlertSourcePlatformResource(entry, client=None)
+     |  
+     |  External Alert Source Platform resource object
+     |  
+     |  Method resolution order:
+     |      ExternalAlertSourcePlatformResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExternalAlertSourceResource(rcapi.models.common.Resource)
+     |  ExternalAlertSourceResource(entry, client=None)
+     |  
+     |  External Alert Source resource object
+     |  
+     |  Method resolution order:
+     |      ExternalAlertSourceResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IntelReporting(rcapi.models.common.BaseObject)
+     |  IntelReporting(entry, type_mapping={})
+     |  
+     |  Intel Reporting object
+     |  
+     |  Method resolution order:
+     |      IntelReporting
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Statistics(rcapi.models.common.BaseObject)
+     |  Statistics(entry, type_mapping={})
+     |  
+     |  Statistics object
+     |  
+     |  Method resolution order:
+     |      Statistics
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class SystemActivity(rcapi.models.common.BaseObject)
+     |  SystemActivity(entry, type_mapping={})
+     |  
+     |  System Activity object
+     |  
+     |  Method resolution order:
+     |      SystemActivity
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+DATA
+    Union = typing.Union
+        Union type; Union[X, Y] means either X or Y.
+        
+        To define a union, use e.g. Union[int, str].  Details:
+        - The arguments must be types and there must be at least one.
+        - None as an argument is a special case and is replaced by
+          type(None).
+        - Unions of unions are flattened, e.g.::
+        
+            Union[Union[int, str], float] == Union[int, str, float]
+        
+        - Unions of a single argument vanish, e.g.::
+        
+            Union[int] == int  # The constructor actually returns int
+        
+        - Redundant arguments are skipped, e.g.::
+        
+            Union[int, str, int] == Union[int, str]
+        
+        - When comparing unions, the argument order is ignored, e.g.::
+        
+            Union[int, str] == Union[str, int]
+        
+        - You cannot subclass or instantiate a union.
+        - You can use Optional[X] as a shorthand for Union[X, None].
+
+FILE
+    /Users/corismith/red-canary-sdk-python/rcapi/models/customer.py
+
+
+
+---
+

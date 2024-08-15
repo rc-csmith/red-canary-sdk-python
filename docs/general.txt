@@ -1,0 +1,4158 @@
+# general
+
+Python Library Documentation: module rcapi.models.general in rcapi.models
+
+NAME
+    rcapi.models.general - General
+
+CLASSES
+    builtins.object
+        ActivityMonitorService
+        CloudResourceScansService
+        DetectionService
+        DetectorService
+        EndpointService
+        EndpointUserService
+        EventService
+        ExternalServicesService
+        ManagedPortalUserService
+        PortalRoleService
+        ReportLibrary
+        ReportingTagCollection
+        SharedFileService
+        SuppressionRuleService
+        TargetedProductService
+        TelemetrySearchService
+    rcapi.models.common.BaseObject(rcapi.models.common.FinishedObject)
+        Abilities
+        Classification
+        DetectionDetails
+        DetectionSummary
+        Detector
+        DownloadResponse
+        EndpointNetworkAddress
+        EndpointSensorMetadata
+        EventActivity
+        EventTimelineActivity
+        Indicator
+        IndicatorOfCompromiseCollection
+        LastRemediatedStatus
+        LatestState
+        PortalUser
+        PortalUserRole
+        RequestedCsvResponse
+        ResourceLink
+        ResourceRelationship
+        Sensor
+        StandardErrorResponse
+        StandardSuccessResponse
+        TelemetrySearch
+    rcapi.models.common.Collection(rcapi.models.common.Resource)
+        ActivityMonitorCollection
+        ActivityMonitorMatchCollection
+        AttackTacticCollection
+        AttackTechniqueCollection
+        DetectionCollection
+        DetectionSummaryCollection
+        DetectorCollection
+        EndpointCollection
+        EndpointUserCollection
+        EventCollection
+        FileIntegrityMatchCollection
+        FileIntegrityMonitoringMatchCollection
+        IgnoredTargetedProductCollection
+        ManagedPortalUserCollection
+        PortalRoleCollection
+        PortalUserRoleCollection
+        ReportingTagAssociationCollection
+        SharedFileCollection
+        SuppressionRuleCollection
+        TargetedProductCollection
+        TelemetrySearchCollection
+    rcapi.models.common.Resource(rcapi.models.common.FinishedObject)
+        ActivityMonitorResource
+        AttackTacticResource
+        AttackTechniqueResource
+        DetectionResource
+        EndpointResource
+        EndpointUserResource
+        EventActivityResource
+        EventResource
+        ExternalServiceResource
+        IgnoredTargetedProductResource
+        ReportResource
+        SharedFileResource
+        SuppressionRuleResource
+        TargetedProductResource
+    rcapi.models.common.SelectableObject(rcapi.models.common.BaseObject)
+        ActivityMonitor
+        ActivityMonitorMatch
+        AttackTactic
+        AttackTechnique
+        Detection
+        Endpoint
+        EndpointUser
+        Event
+        ExternalService
+        FileIntegrityMatch
+        IgnoredTargetedProduct
+        ManagedPortalUser
+        PortalRole
+        Report
+        ReportingTag
+        ReportingTagAssociation
+        SharedFile
+        SuppressionRule
+        TargetedProduct
+    
+    class Abilities(rcapi.models.common.BaseObject)
+     |  Abilities(entry, type_mapping={})
+     |  
+     |  Abilities object
+     |  
+     |  Method resolution order:
+     |      Abilities
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ActivityMonitor(rcapi.models.common.SelectableObject)
+     |  ActivityMonitor(entry=None, client=None)
+     |  
+     |  Activity Monitor object
+     |  
+     |  Method resolution order:
+     |      ActivityMonitor
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  create_item(self, params: Optional[str] = None)
+     |      Create a new activity monitor
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        parameters for the new activity monitor
+     |  
+     |  deactivate(self)
+     |      Deactivate current activity monitor
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single activity monitor
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the activity monitor
+     |  
+     |  get_list(self)
+     |      Get a list of activity monitors
+     |  
+     |  list_matches(self)
+     |      List matches for the current activity monitor
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ActivityMonitorCollection(rcapi.models.common.Collection)
+     |  ActivityMonitorCollection(entry, client=None)
+     |  
+     |  Activity Monitor collection object
+     |  
+     |  Method resolution order:
+     |      ActivityMonitorCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ActivityMonitorMatch(rcapi.models.common.SelectableObject)
+     |  ActivityMonitorMatch(entry=None, client=None)
+     |  
+     |  Activity Monitor Match object
+     |  Includes affected_endpoint and related_endpoint_user
+     |  
+     |  Method resolution order:
+     |      ActivityMonitorMatch
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single activity monitor match
+     |  
+     |  get_list(self)
+     |      Get a list of activity monitor matches
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ActivityMonitorMatchCollection(rcapi.models.common.Collection)
+     |  ActivityMonitorMatchCollection(entry, client=None)
+     |  
+     |  Activity Monitor Match collection object
+     |  
+     |  Method resolution order:
+     |      ActivityMonitorMatchCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ActivityMonitorResource(rcapi.models.common.Resource)
+     |  ActivityMonitorResource(entry, client=None)
+     |  
+     |  Activity Monitor resource object
+     |  
+     |  Method resolution order:
+     |      ActivityMonitorResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ActivityMonitorService(builtins.object)
+     |  ActivityMonitorService(client)
+     |  
+     |  Activity Monitor class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  create(self, params: Optional[str] = None) -> rcapi.models.general.ActivityMonitor
+     |      Create a new activity monitor
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dir
+     |        attributes of the new activity monitor
+     |        if not provided or incomplete, will throw an error
+     |        required keys: activity_monitor[name]
+     |                       activity_monitor[type]
+     |                       activity_monitor[active]
+     |                       activity_monitor[file_modification_types_monitored]
+     |                       activity_monitor[file_paths_monitored]
+     |  
+     |  deactivate(self, activity_monitor_id: int) -> rcapi.models.general.ActivityMonitor
+     |      Deactivate activity monitor
+     |      
+     |      Parameters
+     |      ----------
+     |      activity_monitor_id : int
+     |        activity monitor id
+     |  
+     |  download_fim_matches(self) -> rcapi.models.general.DownloadResponse
+     |      Download all file integrity monitoring matches to CSV
+     |  
+     |  get(self, activity_monitor_id: int) -> rcapi.models.general.ActivityMonitor
+     |      Get activity monitor
+     |      
+     |      Parameters
+     |      ----------
+     |      activity_monitor_id : int
+     |        activity monitor id
+     |  
+     |  list_all_matches(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.ActivityMonitorMatch]]
+     |      List all matches for all activity monitors
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_fim_matches(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.FileIntegrityMatch]]
+     |      List all file integrity monitoring matches
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_matches(self, activity_monitor_id: int, count_mode: bool = False) -> Union[int, list[rcapi.models.general.ActivityMonitorMatch]]
+     |      List matches for an activity monitor
+     |      
+     |      Parameters
+     |      ----------
+     |      activity_monitor_id : int
+     |        activity monitor id
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_monitors(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.ActivityMonitor]]
+     |      List activity monitors
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class AttackTactic(rcapi.models.common.SelectableObject)
+     |  AttackTactic(entry=None, client=None)
+     |  
+     |  Attack Tactic object
+     |  Includes ResourceRelationship
+     |  
+     |  Method resolution order:
+     |      AttackTactic
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single attack tactic
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the attack tactic
+     |  
+     |  get_list(self)
+     |      Get a list of attack tactics
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class AttackTacticCollection(rcapi.models.common.Collection)
+     |  AttackTacticCollection(entry, client=None)
+     |  
+     |  Attack Tactic collection object
+     |  
+     |  Method resolution order:
+     |      AttackTacticCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class AttackTacticResource(rcapi.models.common.Resource)
+     |  AttackTacticResource(entry, client=None)
+     |  
+     |  Attack Tactic resource object
+     |  
+     |  Method resolution order:
+     |      AttackTacticResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class AttackTechnique(rcapi.models.common.SelectableObject)
+     |  AttackTechnique(entry=None, client=None)
+     |  
+     |  Attack Technique object
+     |  
+     |  Method resolution order:
+     |      AttackTechnique
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single attack technique
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the attack technique
+     |  
+     |  get_list(self)
+     |      Get a list of attack techniques
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class AttackTechniqueCollection(rcapi.models.common.Collection)
+     |  AttackTechniqueCollection(entry, client=None)
+     |  
+     |  Attack Technique collection object
+     |  
+     |  Method resolution order:
+     |      AttackTechniqueCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class AttackTechniqueResource(rcapi.models.common.Resource)
+     |  AttackTechniqueResource(entry, client=None)
+     |  
+     |  Attack Technique resource object
+     |  
+     |  Method resolution order:
+     |      AttackTechniqueResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Classification(rcapi.models.common.BaseObject)
+     |  Classification(entry, type_mapping={})
+     |  
+     |  Classification object
+     |  
+     |  Method resolution order:
+     |      Classification
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class CloudResourceScansService(builtins.object)
+     |  CloudResourceScansService(client)
+     |  
+     |  Cloud Resource Scans Service class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  license_usage_csv(self) -> rcapi.models.general.RequestedCsvResponse
+     |      Download CSV of license usage
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Detection(rcapi.models.common.SelectableObject)
+     |  Detection(entry=None, client=None)
+     |  
+     |  Detection object
+     |  Includes DetectionDetails and ResourceRelationship
+     |  
+     |  Method resolution order:
+     |      Detection
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single detection
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the detection
+     |  
+     |  get_list(self)
+     |      Get a list of detections
+     |  
+     |  list_detectors(self)
+     |      List detectors for the current detection
+     |  
+     |  list_events(self)
+     |      List events for the current detection
+     |  
+     |  list_iocs(self)
+     |      List IOCs for the current detection
+     |  
+     |  list_related(self)
+     |      List related detections for the current detection
+     |  
+     |  list_timeline(self)
+     |      List the timeline for the current detection
+     |  
+     |  mark_acknowledged(self)
+     |      Mark the current detection as acknowledged
+     |  
+     |  update_remediation_status(self, params)
+     |      Update the remediation status for the current detection
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        parameters for the remediation status
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class DetectionCollection(rcapi.models.common.Collection)
+     |  DetectionCollection(entry, client=None)
+     |  
+     |  Detection collection object
+     |  
+     |  Method resolution order:
+     |      DetectionCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class DetectionDetails(rcapi.models.common.BaseObject)
+     |  DetectionDetails(entry)
+     |  
+     |  Detection Details object
+     |  Includes Classification and PortalUser and LastRemediatedStatus
+     |  
+     |  Method resolution order:
+     |      DetectionDetails
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class DetectionResource(rcapi.models.common.Resource)
+     |  DetectionResource(entry, client=None)
+     |  
+     |  Detection resource object
+     |  
+     |  Method resolution order:
+     |      DetectionResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class DetectionService(builtins.object)
+     |  DetectionService(client)
+     |  
+     |  Detection class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  download(self) -> rcapi.models.general.RequestedCsvResponse
+     |      Download a CSV of all detections
+     |  
+     |  get(self, detection_id: int) -> rcapi.models.general.Detection
+     |      Get detection
+     |      
+     |      Parameters
+     |      ----------
+     |      detection_id : int
+     |        detection id
+     |  
+     |  list_all_iocs(self, count_mode: bool = False) -> Union[int, list]
+     |      List all IOCs for all detections
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_contributing_intel(self, detection_id: int) -> dict
+     |      List contributing intel for detection
+     |      
+     |      Parameters
+     |      ----------
+     |      detection_id : int
+     |        detection id
+     |  
+     |  list_detections(self, since: str = '', count_mode: bool = False) -> Union[int, list]
+     |      List all detections
+     |      
+     |      Parameters
+     |      ----------
+     |      since : str
+     |        Start date for returned data
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_detectors(self, detection_id: int, count_mode: bool = False) -> Union[int, list]
+     |      List detectors for detection
+     |      
+     |      Parameters
+     |      ----------
+     |      detection_id : int
+     |        detection id
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_events(self, detection_id: int, count_mode: bool = False) -> Union[int, list]
+     |      List events for detection
+     |      
+     |      Parameters
+     |      ----------
+     |      detection_id : int
+     |        detection id
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_iocs(self, detection_id: int, count_mode: bool = False) -> Union[int, list]
+     |      List IOCs for detection
+     |      
+     |      Parameters
+     |      ----------
+     |      detection_id : int
+     |        detection id
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_related(self, detection_id: int, count_mode: bool = False) -> Union[int, list]
+     |      List related detections
+     |      
+     |      Parameters
+     |      ----------
+     |      detection_id : int
+     |        detection id
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_summaries(self, count_mode: bool = False) -> Union[int, list]
+     |      List all detection summaries
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_timeline(self, detection_id: int, count_mode: bool = False) -> Union[int, list]
+     |      List timeline for detection
+     |      
+     |      Parameters
+     |      ----------
+     |      detection_id : int
+     |        detection id
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  mark_acknowledged(self, detection_id: int) -> rcapi.models.general.DetectionResource
+     |      Mark detection as acknowledged
+     |      
+     |      Parameters
+     |      ----------
+     |      detection_id : int
+     |        detection id
+     |  
+     |  mark_activity_of_occurrence(self, detection_id: int, event_timeline_activity_id: int) -> rcapi.models.general.DetectionResource
+     |      Mark activity of occurrence
+     |      
+     |      Parameters
+     |      ----------
+     |      detection_id : int
+     |        detection id
+     |      event_timeline_activity_id : int
+     |        event timeline activity id
+     |  
+     |  update_remediation_status(self, detection_id: int, params: dict) -> rcapi.models.general.DetectionResource
+     |      Update remediation status for detection
+     |      
+     |      Parameters
+     |      ----------
+     |      detection_id : int
+     |        detection id
+     |      params : dict
+     |        dictionary containing 'remediated_state' key
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class DetectionSummary(rcapi.models.common.BaseObject)
+     |  DetectionSummary(entry)
+     |  
+     |  Detection Summary object
+     |  Includes LastRemediatedStatus
+     |  
+     |  Method resolution order:
+     |      DetectionSummary
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class DetectionSummaryCollection(rcapi.models.common.Collection)
+     |  DetectionSummaryCollection(entry, client=None)
+     |  
+     |  Detection Summary collection object
+     |  
+     |  Method resolution order:
+     |      DetectionSummaryCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Detector(rcapi.models.common.BaseObject)
+     |  Detector(entry)
+     |  
+     |  Detector object
+     |  Includes ResourceRelationship
+     |  
+     |  Method resolution order:
+     |      Detector
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class DetectorCollection(rcapi.models.common.Collection)
+     |  DetectorCollection(entry, client=None)
+     |  
+     |  Detector collection object
+     |  
+     |  Method resolution order:
+     |      DetectorCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class DetectorService(builtins.object)
+     |  DetectorService(client)
+     |  
+     |  Detector class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_tactic(self, tactic_identifier: str) -> rcapi.models.general.AttackTactic
+     |      Get a tactic
+     |      
+     |      Parameters
+     |      ----------
+     |      tactic_identifier : str
+     |        tactic identifier (capitalized)
+     |        example: Persistence
+     |  
+     |  get_technique(self, technique_identifier: str) -> rcapi.models.general.AttackTechnique
+     |      Get a technique
+     |      
+     |      Parameters
+     |      ----------
+     |      technique_identifier : str
+     |        technique identifier (uppercase)
+     |        example: T1234
+     |  
+     |  list_tactics(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.AttackTactic]]
+     |      List all tactics
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_techniques(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.AttackTechnique]]
+     |      List all techniques
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class DownloadResponse(rcapi.models.common.BaseObject)
+     |  DownloadResponse(entry, type_mapping={})
+     |  
+     |  Download Response object
+     |  
+     |  Method resolution order:
+     |      DownloadResponse
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Endpoint(rcapi.models.common.SelectableObject)
+     |  Endpoint(entry=None, client=None)
+     |  
+     |  Endpoint object
+     |  Includes Sensor
+     |  
+     |  Method resolution order:
+     |      Endpoint
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  activate_safe_mode(self)
+     |      Activate safe mode for the current endpoint
+     |  
+     |  add_reporting_tag(self, reporting_tag: rcapi.models.general.ReportingTag, params)
+     |      Add a reporting tag to the current endpoint
+     |      
+     |      Parameters
+     |      ----------
+     |      reporting_tag : ReportingTag
+     |        reporting tag to add
+     |      params : dict
+     |        parameters for the reporting tag
+     |  
+     |  deactivate_safe_mode(self)
+     |      Deactivate safe mode for the current endpoint
+     |  
+     |  decommission(self, uninstall: bool = False)
+     |      Decommission the current endpoint
+     |  
+     |  deisolate(self)
+     |      Deisolate the current endpoint
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single endpoint
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the endpoint
+     |  
+     |  get_list(self)
+     |      Get a list of endpoints
+     |  
+     |  isolate(self)
+     |      Isolate the current endpoint
+     |  
+     |  list_endpoint_users(self, fromdate: Optional[str] = None, include_system_accounts: bool = True)
+     |      List endpoint users for the current endpoint
+     |      
+     |      Parameters
+     |      ----------
+     |      fromdate : str
+     |        date to start from
+     |      include_system_accounts : bool
+     |        include system accounts
+     |  
+     |  list_system_activities(self)
+     |      List system activities for the current endpoint
+     |  
+     |  reinstate(self)
+     |      Reinstate the current endpoint
+     |  
+     |  remove_reporting_tag(self, reporting_tag: rcapi.models.general.ReportingTag)
+     |      Remove a reporting tag from the current endpoint
+     |      
+     |      Parameters
+     |      ----------
+     |      reporting_tag : ReportingTag
+     |        reporting tag to remove
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EndpointCollection(rcapi.models.common.Collection)
+     |  EndpointCollection(entry, client=None)
+     |  
+     |  Endpoint collection object
+     |  
+     |  Method resolution order:
+     |      EndpointCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EndpointNetworkAddress(rcapi.models.common.BaseObject)
+     |  EndpointNetworkAddress(entry)
+     |  
+     |  Endpoint Network Address object
+     |  
+     |  Method resolution order:
+     |      EndpointNetworkAddress
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EndpointResource(rcapi.models.common.Resource)
+     |  EndpointResource(entry, client=None)
+     |  
+     |  Endpoint resource object
+     |  
+     |  Method resolution order:
+     |      EndpointResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EndpointSensorMetadata(rcapi.models.common.BaseObject)
+     |  EndpointSensorMetadata(entry, type_mapping={})
+     |  
+     |  Endpoint Sensor Metadata object
+     |  
+     |  Method resolution order:
+     |      EndpointSensorMetadata
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EndpointService(builtins.object)
+     |  EndpointService(client)
+     |  
+     |  Endpoint class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  activate_safe_mode(self, params: dict) -> Any
+     |      Activate safe mode for endpoints
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        dict containing key 'ids' with value of endpoint ids
+     |  
+     |  add_reporting_tag(self, endpoint_id: int, reporting_tag: str, params: dict) -> rcapi.models.general.EndpointResource
+     |      Add reporting tag to endpoint
+     |      
+     |      Parameters
+     |      ----------
+     |      endpoint_id : int
+     |        endpoint id
+     |      reporting_tag : str
+     |        reporting tag name
+     |      params : dict
+     |        dict containing key 'value' with value of reporting tag text
+     |  
+     |  deactivate_safe_mode(self, params: dict) -> Any
+     |      Deactivate safe mode for endpoints
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        dict containing key 'ids' with value of endpoint ids
+     |  
+     |  decommission(self, endpoint_id: int, uninstall_sensor: bool) -> rcapi.models.general.EndpointResource
+     |      Decommission endpoint
+     |      
+     |      Parameters
+     |      ----------
+     |      endpoint_id : int
+     |        endpoint id
+     |      uninstall_sensor: bool
+     |        uninstall sensor
+     |  
+     |  decommission_list(self, params: dict, uninstall_sensor: bool) -> Any
+     |      Decommission endpoints
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        dict containing key 'ids' with value of endpoint ids
+     |      uninstall_sensor : bool
+     |  
+     |  deisolate(self, params: dict) -> Any
+     |      Deisolate endpoints
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        dict containing key 'ids' with value of endpoint ids
+     |  
+     |  download(self) -> rcapi.models.general.RequestedCsvResponse
+     |      Download CSV of endpoints
+     |  
+     |  download_license_usage(self, year: int, month: int) -> rcapi.models.general.RequestedCsvResponse
+     |      Download CSV of license usage
+     |  
+     |  download_license_usage_server_counts(self, year: int, month: int) -> rcapi.models.general.RequestedCsvResponse
+     |      Download CSV of license usage server counts
+     |  
+     |  download_newly_observed(self) -> rcapi.models.general.RequestedCsvResponse
+     |      Download CSV of newly observed endpoints
+     |  
+     |  download_recently_decommissioned(self) -> rcapi.models.general.RequestedCsvResponse
+     |      Download CSV of recently decommissioned endpoints
+     |  
+     |  get(self, endpoint_id: int) -> rcapi.models.general.Endpoint
+     |      Get endpoint
+     |      
+     |      Parameters
+     |      ----------
+     |      endpoint_id : int
+     |        endpoint id
+     |  
+     |  get_by_sensor_id(self, sensor_id: int) -> rcapi.models.general.Endpoint
+     |      Get endpoint by sensor id
+     |      
+     |      Parameters
+     |      ----------
+     |      sensor_id : int
+     |        endpoint sensor id
+     |  
+     |  isolate(self, params: dict) -> Any
+     |      Isolate endpoints
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        dict containing key 'ids' with value of endpoint ids
+     |  
+     |  list_endpoint_users(self, endpoint_id: int, fromdate: Optional[str] = None, include_system_accounts: bool = True, count_mode: bool = False) -> Union[int, rcapi.models.general.EndpointUserCollection]
+     |      List endpoint users
+     |      
+     |      Parameters
+     |      ----------
+     |      endpoint_id : int
+     |        endpoint id
+     |      fromdate : str
+     |        initial/start date for search
+     |      include_system_accounts : bool
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_endpoints(self, query: Optional[str] = None, order_by: Optional[str] = None, filter_query: Optional[str] = None, count_mode: bool = False) -> Union[int, rcapi.models.general.EndpointCollection]
+     |      List all endpoints
+     |      
+     |      Parameters
+     |      ----------
+     |      query : str
+     |        query string
+     |      order_by : str
+     |        field to use when ordering
+     |      filter_query : str
+     |        filter query
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_reporting_tags(self) -> list
+     |      List reporting tags for all endpoints
+     |  
+     |  list_reporting_tags_associations(self) -> Union[int, list[rcapi.models.general.ReportingTagAssociation]]
+     |      List reporting tag associations for all endpoints
+     |  
+     |  list_system_activities(self, endpoint_id: int, params: dict) -> Any
+     |      List system activities for endpoint
+     |      
+     |      Parameters
+     |      ----------
+     |      id : int
+     |        endpoint id
+     |      params : dict
+     |        dict containing key 'types' with value system activity types
+     |  
+     |  reinstate(self, params: dict) -> Any
+     |      Reinstate endpoints
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        dict containing key 'ids' with value of endpoint ids
+     |  
+     |  remove_reporting_tag(self, endpoint_id: int, reporting_tag: str) -> Any
+     |      Remove reporting tag from endpoint
+     |      
+     |      Parameters
+     |      ----------
+     |      endpoint_id : int
+     |        endpoint id
+     |      reporting_tag : str
+     |        reporting tag name
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EndpointUser(rcapi.models.common.SelectableObject)
+     |  EndpointUser(entry=None, client=None)
+     |  
+     |  Endpoint User object
+     |  
+     |  Method resolution order:
+     |      EndpointUser
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  add_reporting_tag(self, reporting_tag: rcapi.models.general.ReportingTag, params: dict)
+     |      Add a reporting tag to the current endpoint user
+     |      
+     |      Parameters
+     |      ----------
+     |      reporting_tag : ReportingTag
+     |        reporting tag to add
+     |      params : dict
+     |        parameters for the reporting tag
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single endpoint user
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the endpoint user
+     |  
+     |  get_list(self)
+     |      Get a list of endpoint users
+     |  
+     |  list_system_activities(self, params: Optional[dict])
+     |      List system activities for the current endpoint user
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        parameters for the system activities
+     |  
+     |  remove_reporting_tag(self, reporting_tag: rcapi.models.general.ReportingTag)
+     |      Remove a reporting tag from the current endpoint user
+     |      
+     |      Parameters
+     |      ----------
+     |      reporting_tag : ReportingTag
+     |        reporting tag to remove
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EndpointUserCollection(rcapi.models.common.Collection)
+     |  EndpointUserCollection(entry, client=None)
+     |  
+     |  Endpoint User collection object
+     |  
+     |  Method resolution order:
+     |      EndpointUserCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EndpointUserResource(rcapi.models.common.Resource)
+     |  EndpointUserResource(entry, client=None)
+     |  
+     |  Endpoint User resource object
+     |  
+     |  Method resolution order:
+     |      EndpointUserResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EndpointUserService(builtins.object)
+     |  EndpointUserService(client)
+     |  
+     |  Endpoint User class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  add_reporting_tag(self, reporting_tag: str, endpoint_user_id: int, params: dict) -> Any
+     |      Add reporting tag to endpoint user
+     |      
+     |      Parameters
+     |      ----------
+     |      reporting_tag : str
+     |        reporting tag name
+     |      endpoint_user_id : int
+     |        endpoint user id
+     |      params : dict
+     |        dict containing key 'value' and value of reporting tag text
+     |  
+     |  get(self, endpoint_user_id: int) -> rcapi.models.general.EndpointUser
+     |      Get endpoint user
+     |      
+     |      Parameters
+     |      ----------
+     |      endpoint_user_id : int
+     |        endpoint user id
+     |  
+     |  list_reporting_tags(self) -> dict
+     |      List all reporting tags
+     |  
+     |  list_system_activities(self, endpoint_user_id: int, params: Optional[dict]) -> Any
+     |      List system activities for endpoint user
+     |      
+     |      Parameters
+     |      ----------
+     |      endpoint_user_id : int
+     |        endpoint user id
+     |      params : dict
+     |        dict containing key 'types' with value of system activity types
+     |  
+     |  list_users(self, query: str = '', count_mode: bool = False) -> Union[int, rcapi.models.general.EndpointUserCollection]
+     |      List endpoint users
+     |      
+     |      Parameters
+     |      ----------
+     |      query : str
+     |        query string
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  remove_reporting_tag(self, reporting_tag: str, endpoint_user_id: int) -> Any
+     |      Remove reporting tag from endpoint user
+     |      
+     |      Parameters
+     |      ----------
+     |      reporting_tag : str
+     |        reporting tag name
+     |      endpoint_user_id : int
+     |        endpoint user id
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Event(rcapi.models.common.SelectableObject)
+     |  Event(entry=None, client=None)
+     |  
+     |  Event object
+     |  Includes LatestState, OperatingSystemProcess, ResourceRelationship, and Detector
+     |  
+     |  Method resolution order:
+     |      Event
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  delete_timeline_activity(self, timeline_activity_id: int)
+     |      Delete a timeline activity for the current event
+     |      
+     |      Parameters
+     |      ----------
+     |      timeline_activity_id : int
+     |        timeline activity id
+     |  
+     |  get_activity(self, activity_id: int)
+     |      Get an activity for the current event
+     |      
+     |      Parameters
+     |      ----------
+     |      activity_id : int
+     |        activity id
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single event
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the event
+     |  
+     |  get_list(self)
+     |      Get a list of events
+     |  
+     |  list_cached_activity_enrichments(self)
+     |      List cached activity enrichments for the current event
+     |  
+     |  list_timeline_activites(self)
+     |      List timeline activities for the current event
+     |  
+     |  mark_activity_as_ioc(self, activity_id: int, activity_path: str = None, ioc_type: str = None, override_greylist: bool = False)
+     |      Mark an activity as an IOC for the current event
+     |      
+     |      Parameters
+     |      ----------
+     |      activity_id : int
+     |        activity id
+     |      activity_path : str
+     |        activity path
+     |      ioc_type : str
+     |        IOC type
+     |      override_greylist : bool
+     |        override greylist
+     |  
+     |  mark_activity_as_relevant(self, activity_id: int, activity_path: str = None)
+     |      Mark an activity as relevant for the current event
+     |      
+     |      Parameters
+     |      ----------
+     |      activity_id : int
+     |        activity id
+     |      activity_path : str
+     |        activity path
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EventActivity(rcapi.models.common.BaseObject)
+     |  EventActivity(entry, type_mapping={})
+     |  
+     |  Event Activity object
+     |  
+     |  Method resolution order:
+     |      EventActivity
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EventActivityResource(rcapi.models.common.Resource)
+     |  EventActivityResource(entry, client=None)
+     |  
+     |  Event Activity resource object
+     |  
+     |  Method resolution order:
+     |      EventActivityResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EventCollection(rcapi.models.common.Collection)
+     |  EventCollection(entry, client=None)
+     |  
+     |  Event collection object
+     |  
+     |  Method resolution order:
+     |      EventCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EventResource(rcapi.models.common.Resource)
+     |  EventResource(entry, client=None)
+     |  
+     |  Event resource object
+     |  
+     |  Method resolution order:
+     |      EventResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EventService(builtins.object)
+     |  EventService(client)
+     |  
+     |  Event class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  delete_timeline_activity(self, event_id: int, timeline_activity_id: int) -> rcapi.models.general.EventTimelineActivity
+     |      Delete timeline activity
+     |      
+     |      Parameters
+     |      ----------
+     |      event_id : int
+     |        event id
+     |      timeline_activity_id : int
+     |        timeline activity id
+     |  
+     |  download(self) -> rcapi.models.general.RequestedCsvResponse
+     |      Download CSV of analyzed events
+     |  
+     |  get(self, event_id: int) -> rcapi.models.general.Event
+     |      Get event
+     |      
+     |      Parameters
+     |      ----------
+     |      event_id : int
+     |        event id
+     |  
+     |  get_activity(self, event_id: int, activity_id: int) -> rcapi.models.general.EventActivity
+     |      Get activity
+     |      
+     |      Parameters
+     |      ----------
+     |      event_id : int
+     |        event id
+     |      activity_id : int
+     |        event activity id
+     |  
+     |  list_cached_activity_enrichments(self, event_id: int) -> dict
+     |      List cached activity enrichments
+     |      
+     |      Parameters
+     |      ----------
+     |      event_id : int
+     |        event id
+     |  
+     |  list_events(self, since: str = '', count_mode: bool = False) -> Union[int, list[rcapi.models.general.Event]]
+     |      List all events
+     |      
+     |      Parameters
+     |      ----------
+     |      since : str
+     |        Start date for query
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_timeline_activities(self, event_id: int) -> list[rcapi.models.general.EventTimelineActivity]
+     |      List timeline activities
+     |      
+     |      Parameters
+     |      ----------
+     |      event_id : int
+     |        event id
+     |  
+     |  mark_activity_as_ioc(self, event_id: int, activity_id: int, activity_path: str = None, ioc_type: str = None, override_greylist: bool = False) -> rcapi.models.general.EventActivity
+     |      Mark activity as IOC
+     |      
+     |      Parameters
+     |      ----------
+     |      event_id : int
+     |        event id
+     |      activity_id : int
+     |        event activity id
+     |      activity_path : str
+     |        comma separated activity path
+     |      ioc_type : str
+     |        ioc type
+     |      override_greylist : bool
+     |        override greylist
+     |  
+     |  mark_activity_as_relevant(self, event_id: int, activity_id: int, activity_path: str = None) -> rcapi.models.general.EventActivity
+     |      Mark activity as relevant
+     |      
+     |      Parameters
+     |      ----------
+     |      event_id : int
+     |        event id
+     |      activity_id : int
+     |        event activity id
+     |      activity_path : str
+     |        comma separated activity path
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EventTimelineActivity(rcapi.models.common.BaseObject)
+     |  EventTimelineActivity(entry, type_mapping={})
+     |  
+     |  Event Timeline Activity object
+     |  
+     |  Method resolution order:
+     |      EventTimelineActivity
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExternalService(rcapi.models.common.SelectableObject)
+     |  ExternalService(entry=None, client=None)
+     |  
+     |  External Service object
+     |  
+     |  Method resolution order:
+     |      ExternalService
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  create_aws_item(self, description: list[str], aws_account_id: list[str], aws_assumed_role_arn: list[str])
+     |      Create a new AWS service
+     |      
+     |      Parameters
+     |      ----------
+     |      description : str
+     |        description for the AWS service
+     |      aws_account_id : str
+     |        AWS account id
+     |      aws_assumed_role_arn : str
+     |        AWS assumed role ARN
+     |  
+     |  delete_aws_item(self)
+     |      Delete the current AWS service
+     |  
+     |  get_aws_item(self, unique_id: str)
+     |      Get a single AWS service
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the AWS service
+     |  
+     |  get_aws_list(self)
+     |      Get a list of AWS services
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single external service
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the external service
+     |  
+     |  get_list(self)
+     |      Get a list of external services
+     |  
+     |  update_aws_item(self, aws_account_id: str = None, description: str = None, aws_assumed_role_arn: str = None)
+     |      Update the current AWS service
+     |      
+     |      Parameters
+     |      ----------
+     |      aws_account_id : str
+     |        AWS account id
+     |      description : str
+     |        description for the AWS service
+     |      aws_assumed_role_arn : str
+     |        AWS assumed role ARN
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExternalServiceResource(rcapi.models.common.Resource)
+     |  ExternalServiceResource(entry, client=None)
+     |  
+     |  External Service resource object
+     |  
+     |  Method resolution order:
+     |      ExternalServiceResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ExternalServicesService(builtins.object)
+     |  ExternalServicesService(client)
+     |  
+     |  External Services class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  create_aws_service(self, description: list[str], aws_account_id: list[str], aws_assumed_role_arn: list[str]) -> rcapi.models.general.ExternalService
+     |      Create new AWS service
+     |      
+     |      Parameters
+     |      ----------
+     |      description : list
+     |        list of descriptions
+     |      aws_account_id : list
+     |        list of AWS account ids
+     |      aws_assumed_role_arn : list
+     |        list of AWS assumed role ARNs
+     |  
+     |  delete_aws_service(self, external_service_uuid: int) -> rcapi.models.general.ExternalService
+     |      Delete AWS service
+     |      
+     |      Parameters
+     |      ----------
+     |      external_service_uuid : int
+     |        external service uuid
+     |  
+     |  get(self, external_service_uuid: int) -> rcapi.models.general.ExternalService
+     |      Get external service
+     |      
+     |      Parameters
+     |      ----------
+     |      external_service_uuid : int
+     |        external service uuid
+     |  
+     |  get_aws_service(self, external_service_uuid: int) -> rcapi.models.general.ExternalService
+     |      Get AWS service
+     |      
+     |      Parameters
+     |      ----------
+     |      external_service_uuid : int
+     |        external service uuid
+     |  
+     |  list_aws_services(self) -> list[rcapi.models.general.ExternalService]
+     |      List all AWS services
+     |  
+     |  list_external_services(self) -> list[rcapi.models.general.ExternalService]
+     |      List all external services
+     |  
+     |  update_aws_service(self, external_service_uuid: int, aws_account_id: str = None, description: str = None, aws_assumed_role_arn: str = None) -> rcapi.models.general.ExternalService
+     |      Update AWS service
+     |      
+     |      Parameters
+     |      ----------
+     |      external_service_uuid : int
+     |        external service uuid
+     |      aws_account_id : str
+     |        AWS account id
+     |      description : str
+     |        description
+     |      aws_assumed_role_arn : str
+     |        AWS assumed role ARN
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class FileIntegrityMatch(rcapi.models.common.SelectableObject)
+     |  FileIntegrityMatch(entry=None, client=None)
+     |  
+     |  File Integrity Match object
+     |  Includes ActivityMonitor
+     |  
+     |  Method resolution order:
+     |      FileIntegrityMatch
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single file integrity match
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the file integrity match
+     |  
+     |  get_list(self)
+     |      Get a list of file integrity matches
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class FileIntegrityMatchCollection(rcapi.models.common.Collection)
+     |  FileIntegrityMatchCollection(entry, client=None)
+     |  
+     |  File Integrity Match collection object
+     |  
+     |  Method resolution order:
+     |      FileIntegrityMatchCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class FileIntegrityMonitoringMatchCollection(rcapi.models.common.Collection)
+     |  FileIntegrityMonitoringMatchCollection(entry, client=None)
+     |  
+     |  File Integrity Monitoring Match collection object
+     |  
+     |  Method resolution order:
+     |      FileIntegrityMonitoringMatchCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IgnoredTargetedProduct(rcapi.models.common.SelectableObject)
+     |  IgnoredTargetedProduct(entry=None, client=None)
+     |  
+     |  Ignored Target Product object
+     |  
+     |  Method resolution order:
+     |      IgnoredTargetedProduct
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  create_item(self, params: dict)
+     |      Create a new ignored targeted product
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        dict containing key 'justification' and value of justification
+     |  
+     |  delete(self)
+     |      Delete current ignored targeted product
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single ignored targeted product
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the ignored targeted product
+     |  
+     |  get_list(self)
+     |      Get a list of ignored targeted products
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IgnoredTargetedProductCollection(rcapi.models.common.Collection)
+     |  IgnoredTargetedProductCollection(entry, client=None)
+     |  
+     |  Ignored Targeted Product collection object
+     |  
+     |  Method resolution order:
+     |      IgnoredTargetedProductCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IgnoredTargetedProductResource(rcapi.models.common.Resource)
+     |  IgnoredTargetedProductResource(entry, client=None)
+     |  
+     |  Ignored Targeted Product resource object
+     |  
+     |  Method resolution order:
+     |      IgnoredTargetedProductResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Indicator(rcapi.models.common.BaseObject)
+     |  Indicator(entry, type_mapping={})
+     |  
+     |  Indicator object
+     |  
+     |  Method resolution order:
+     |      Indicator
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IndicatorOfCompromiseCollection(rcapi.models.common.BaseObject)
+     |  IndicatorOfCompromiseCollection(entry)
+     |  
+     |  Indicator of Compromise collection object
+     |  
+     |  Method resolution order:
+     |      IndicatorOfCompromiseCollection
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class LastRemediatedStatus(rcapi.models.common.BaseObject)
+     |  LastRemediatedStatus(entry)
+     |  
+     |  Last Remediated Status object
+     |  Includes PortalUser
+     |  
+     |  Method resolution order:
+     |      LastRemediatedStatus
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class LatestState(rcapi.models.common.BaseObject)
+     |  LatestState(entry, type_mapping={})
+     |  
+     |  Latest State object
+     |  
+     |  Method resolution order:
+     |      LatestState
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ManagedPortalUser(rcapi.models.common.SelectableObject)
+     |  ManagedPortalUser(entry=None, client=None)
+     |  
+     |  Managed Portal User object
+     |  
+     |  Method resolution order:
+     |      ManagedPortalUser
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  add_role(self, role: rcapi.models.general.PortalRole)
+     |      Add a role to the current managed portal user
+     |  
+     |  create_item(self, params: dict)
+     |      Create a new managed portal user
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        parameters for the new managed portal user
+     |  
+     |  delete(self)
+     |      Delete the current managed portal user
+     |  
+     |  delete_role(self, role: rcapi.models.general.PortalRole)
+     |      Delete a role from the current managed portal user
+     |  
+     |  disable_mfa(self)
+     |      Disable MFA for the current managed portal user
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single managed portal user
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str 
+     |        unique id for the managed portal user
+     |  
+     |  get_list(self)
+     |      Get a list of managed portal users
+     |  
+     |  reinvite(self)
+     |      Reinvite the current managed portal user
+     |  
+     |  uninvite(self)
+     |      Uninvite the current managed portal user
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ManagedPortalUserCollection(rcapi.models.common.Collection)
+     |  ManagedPortalUserCollection(entry, client=None)
+     |  
+     |  Managed Portal User collection object
+     |  
+     |  Method resolution order:
+     |      ManagedPortalUserCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ManagedPortalUserService(builtins.object)
+     |  ManagedPortalUserService(client)
+     |  
+     |  Managed Portal User Class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  add_role(self, role_name: str, user_id: int) -> rcapi.models.general.PortalUserRoleCollection
+     |      Add role to managed portal user
+     |      
+     |      Parameters
+     |      ----------
+     |      role_name : str
+     |        name of role
+     |      user_id : int
+     |        user id
+     |  
+     |  delete(self, user_id: int) -> rcapi.models.general.ManagedPortalUser
+     |      Delete managed portal user
+     |      
+     |      Parameters
+     |      ----------
+     |      user_id : int
+     |        user id
+     |  
+     |  delete_role(self, role_name: str, user_id: int) -> rcapi.models.general.PortalUserRoleCollection
+     |      Delete role from managed portal user
+     |      
+     |      Parameters
+     |      ----------
+     |      role_name : str
+     |        name of role
+     |      user_id : int
+     |        user id
+     |  
+     |  disable_mfa(self, user_id: int) -> rcapi.models.general.ManagedPortalUser
+     |      Disable MFA for managed portal user
+     |      
+     |      Parameters
+     |      ----------
+     |      user_id : int
+     |        user id
+     |  
+     |  get(self, user_id: int) -> rcapi.models.general.ManagedPortalUser
+     |      Get managed portal user
+     |      
+     |      Parameters
+     |      ----------
+     |      user_id : int
+     |        user id
+     |  
+     |  invite(self, email: str) -> rcapi.models.general.ManagedPortalUser
+     |      Invite a new user to the managed portal
+     |      
+     |      Parameters
+     |      ----------
+     |      email : str
+     |        email of invited user
+     |  
+     |  list_users(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.ManagedPortalUser]]
+     |      List all managed portal users
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  reinvite(self, user_id: int) -> rcapi.models.general.ManagedPortalUserCollection
+     |      Reinvite managed portal user
+     |      
+     |      Parameters
+     |      ----------
+     |      user_id : int
+     |        user id
+     |  
+     |  uninvite(self, user_id: int) -> rcapi.models.general.ManagedPortalUserCollection
+     |      Uninvite managed portal user
+     |      
+     |      Parameters
+     |      ----------
+     |      user_id : int
+     |        user id
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class PortalRole(rcapi.models.common.SelectableObject)
+     |  PortalRole(entry=None, client=None)
+     |  
+     |  Portal Role object
+     |  
+     |  Method resolution order:
+     |      PortalRole
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single portal role
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the portal role
+     |  
+     |  get_list(self)
+     |      Get a list of portal roles
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class PortalRoleCollection(rcapi.models.common.Collection)
+     |  PortalRoleCollection(entry, client=None)
+     |  
+     |  Portal Role collection object
+     |  
+     |  Method resolution order:
+     |      PortalRoleCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class PortalRoleService(builtins.object)
+     |  PortalRoleService(client)
+     |  
+     |  Portal Role class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  list_portal_roles(self, count_mode: bool = False) -> rcapi.models.general.PortalRoleCollection
+     |      List portal roles
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class PortalUser(rcapi.models.common.BaseObject)
+     |  PortalUser(entry, type_mapping={})
+     |  
+     |  Portal User object
+     |  
+     |  Method resolution order:
+     |      PortalUser
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class PortalUserRole(rcapi.models.common.BaseObject)
+     |  PortalUserRole(entry, type_mapping={})
+     |  
+     |  Portal User Role object
+     |  
+     |  Method resolution order:
+     |      PortalUserRole
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class PortalUserRoleCollection(rcapi.models.common.Collection)
+     |  PortalUserRoleCollection(entry, client=None)
+     |  
+     |  Portal User Role collection object
+     |  
+     |  Method resolution order:
+     |      PortalUserRoleCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Report(rcapi.models.common.SelectableObject)
+     |  Report(entry=None, client=None)
+     |  
+     |  Report object
+     |  
+     |  Method resolution order:
+     |      Report
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  favorite(self)
+     |      Favorite the current report
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single report
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the report
+     |  
+     |  get_list(self)
+     |      Get a list of reports
+     |  
+     |  unfavorite(self)
+     |      Unfavorite the current report
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ReportLibrary(builtins.object)
+     |  ReportLibrary(client)
+     |  
+     |  Report Library class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  download_detections_by_tactic(self) -> rcapi.models.general.RequestedCsvResponse
+     |      Download CSV of detections by observed tactic
+     |  
+     |  download_detections_by_technique(self) -> rcapi.models.general.RequestedCsvResponse
+     |      Download CSV of detections by observed technique
+     |  
+     |  download_users_on_endpoints(self) -> rcapi.models.general.RequestedCsvResponse
+     |      Download CSV of users on endpoints
+     |  
+     |  favorite(self, name: str) -> Any
+     |      Favorite report
+     |      
+     |      Parameters
+     |      ----------
+     |      name : str
+     |        name of report
+     |  
+     |  get(self, name: str) -> rcapi.models.general.Report
+     |      Get report
+     |      
+     |      Parameters
+     |      ----------
+     |      name : str
+     |        name of report
+     |  
+     |  list_reports(self) -> rcapi.models.general.Report
+     |      List all reports
+     |  
+     |  unfavorite(self, name: str) -> Any
+     |      Unfavorite report
+     |      
+     |      Parameters
+     |      ----------
+     |      name : str
+     |        name of report
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ReportResource(rcapi.models.common.Resource)
+     |  ReportResource(entry, client=None)
+     |  
+     |  Report resource object
+     |  
+     |  Method resolution order:
+     |      ReportResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ReportingTag(rcapi.models.common.SelectableObject)
+     |  ReportingTag(entry=None, client=None)
+     |  
+     |  Reporting Tag object
+     |  
+     |  Method resolution order:
+     |      ReportingTag
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single reporting tag
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the reporting tag
+     |  
+     |  get_list(self)
+     |      Get a list of reporting tags
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ReportingTagAssociation(rcapi.models.common.SelectableObject)
+     |  ReportingTagAssociation(entry=None, client=None)
+     |  
+     |  Reporting Tag Association object
+     |  
+     |  Method resolution order:
+     |      ReportingTagAssociation
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single reporting tag association
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the reporting tag association
+     |  
+     |  get_list(self)
+     |      Get a list of reporting tag associations
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ReportingTagAssociationCollection(rcapi.models.common.Collection)
+     |  ReportingTagAssociationCollection(entry, client=None)
+     |  
+     |  Reporting Tag Association Collection object
+     |  
+     |  Method resolution order:
+     |      ReportingTagAssociationCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ReportingTagCollection(builtins.object)
+     |  ReportingTagCollection(entry)
+     |  
+     |  Reporting Tag collection object
+     |  
+     |  Note: This is not formatted the same as other collections due to API weirdness
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class RequestedCsvResponse(rcapi.models.common.BaseObject)
+     |  RequestedCsvResponse(entry, type_mapping={})
+     |  
+     |  REquested CSV Response object
+     |  
+     |  Method resolution order:
+     |      RequestedCsvResponse
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ResourceLink(rcapi.models.common.BaseObject)
+     |  ResourceLink(entry, type_mapping={})
+     |  
+     |  Resource Link object
+     |  
+     |  Method resolution order:
+     |      ResourceLink
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ResourceRelationship(rcapi.models.common.BaseObject)
+     |  ResourceRelationship(entry, type_mapping={})
+     |  
+     |  Resource Relationship object
+     |  
+     |  Method resolution order:
+     |      ResourceRelationship
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class Sensor(rcapi.models.common.BaseObject)
+     |  Sensor(entry, type_mapping={})
+     |  
+     |  Sensor object
+     |  
+     |  Method resolution order:
+     |      Sensor
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class SharedFile(rcapi.models.common.SelectableObject)
+     |  SharedFile(entry=None, client=None)
+     |  
+     |  Shared File object
+     |  
+     |  Method resolution order:
+     |      SharedFile
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single shared file
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the shared file
+     |  
+     |  get_list(self)
+     |      Get a list of shared files
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class SharedFileCollection(rcapi.models.common.Collection)
+     |  SharedFileCollection(entry, client=None)
+     |  
+     |  Shared File collection object
+     |  
+     |  Method resolution order:
+     |      SharedFileCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class SharedFileResource(rcapi.models.common.Resource)
+     |  SharedFileResource(entry, client=None)
+     |  
+     |  Shared File resource object
+     |  
+     |  Method resolution order:
+     |      SharedFileResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class SharedFileService(builtins.object)
+     |  SharedFileService(client)
+     |  
+     |  Shared File class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  download(self, uuid: int) -> Any
+     |      Download shared file
+     |      
+     |      Parameters
+     |      ----------
+     |      uuid : int
+     |        unique id of shared file
+     |  
+     |  get(self, uuid: int) -> rcapi.models.general.SharedFile
+     |      Get shared file
+     |      
+     |      Parameters
+     |      ----------
+     |      uuid : int
+     |        unique id of shared file
+     |  
+     |  list_sharedfiles(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.SharedFile]]
+     |      List all shared files
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class StandardErrorResponse(rcapi.models.common.BaseObject)
+     |  StandardErrorResponse(entry, type_mapping={})
+     |  
+     |  Standard Error Response object
+     |  
+     |  Method resolution order:
+     |      StandardErrorResponse
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class StandardSuccessResponse(rcapi.models.common.BaseObject)
+     |  StandardSuccessResponse(entry, type_mapping={})
+     |  
+     |  Standard Success Response object
+     |  
+     |  Method resolution order:
+     |      StandardSuccessResponse
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class SuppressionRule(rcapi.models.common.SelectableObject)
+     |  SuppressionRule(entry=None, client=None)
+     |  
+     |  Suppression Rule object
+     |  
+     |  Method resolution order:
+     |      SuppressionRule
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  delete(self)
+     |      Delete current suppression rule
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single suppression rule
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the suppression rule
+     |  
+     |  get_list(self)
+     |      Get a list of suppression rules
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class SuppressionRuleCollection(rcapi.models.common.Collection)
+     |  SuppressionRuleCollection(entry, client=None)
+     |  
+     |  Suppression Rule collection object
+     |  
+     |  Method resolution order:
+     |      SuppressionRuleCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class SuppressionRuleResource(rcapi.models.common.Resource)
+     |  SuppressionRuleResource(entry, client=None)
+     |  
+     |  Suppression Rule resource object
+     |  
+     |  Method resolution order:
+     |      SuppressionRuleResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class SuppressionRuleService(builtins.object)
+     |  SuppressionRuleService(client)
+     |  
+     |  Suppression Rule Service class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  delete_suppression_rule(self, suppression_rule_id: int) -> Any
+     |      Delete suppression rule
+     |      
+     |      Parameters
+     |      ----------
+     |      suppression_rule_id : int
+     |        suppression rule id
+     |  
+     |  get_suppression_rule(self, suppression_rule_id: int) -> rcapi.models.general.SuppressionRule
+     |      Get suppression rule
+     |      
+     |      Parameters
+     |      ----------
+     |      suppression_rule_id : int
+     |        suppression rule id
+     |  
+     |  list_suppression_rules(self, detector_id: int = None, endpoint_id: int = None, permanent: bool = None, publisher: str = None, md5: str = None, parent_md5: str = None, command_line: str = None, uid: str = None, sensor_id: str = None) -> Union[int, list[rcapi.models.general.SuppressionRule]]
+     |      List all suppression rules
+     |      
+     |      Parameters
+     |      ----------
+     |      detector_id : int
+     |        detector id
+     |      endpoint_id : int
+     |        endpoint id
+     |      permanent : bool
+     |        permanent suppression
+     |      publisher : str
+     |        publisher
+     |      md5 : str
+     |        md5 hash
+     |      parent_md5 : str
+     |        parent md5 hash
+     |      command_line : str
+     |        command line
+     |      uid : str
+     |        uid
+     |      sensor_id : str
+     |        sensor id
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class TargetedProduct(rcapi.models.common.SelectableObject)
+     |  TargetedProduct(entry=None, client=None)
+     |  
+     |  Targeted Product object
+     |  
+     |  Method resolution order:
+     |      TargetedProduct
+     |      rcapi.models.common.SelectableObject
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry=None, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  get_item(self, unique_id: str)
+     |      Get a single targeted product
+     |      
+     |      Parameters
+     |      ----------
+     |      unique_id : str
+     |        unique id for the targeted product
+     |  
+     |  get_list(self)
+     |      Get a list of targeted products
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class TargetedProductCollection(rcapi.models.common.Collection)
+     |  TargetedProductCollection(entry, client=None)
+     |  
+     |  Targeted Product collection object
+     |  
+     |  Method resolution order:
+     |      TargetedProductCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class TargetedProductResource(rcapi.models.common.Resource)
+     |  TargetedProductResource(entry, client=None)
+     |  
+     |  Targeted Product resource object
+     |  
+     |  Method resolution order:
+     |      TargetedProductResource
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class TargetedProductService(builtins.object)
+     |  TargetedProductService(client)
+     |  
+     |  Targeted Product class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  create_ignored(self, params: dict) -> rcapi.models.general.IgnoredTargetedProduct
+     |      Create new ignored targeted product
+     |      
+     |      Parameters
+     |      ----------
+     |      params : dict
+     |        dict of attributes for new ignored targeted product
+     |        required keys: targeted_product_id
+     |                       justification
+     |  
+     |  delete_ignored(self, targeted_product_id: int) -> Union[rcapi.models.general.StandardErrorResponse, rcapi.models.general.StandardSuccessResponse]
+     |      Delete ignored targeted product
+     |      
+     |      Parameters
+     |      ----------
+     |      targeted_product_id : int
+     |        ignored targeted product id
+     |  
+     |  list_ignored(self, count_mode: bool = False) -> Union[int, rcapi.models.general.IgnoredTargetedProductCollection]
+     |      List ignored targeted products
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  list_products(self, count_mode: bool = False) -> Union[int, rcapi.models.general.TargetedProductCollection]
+     |      List all targeted products
+     |      
+     |      Parameters
+     |      ----------
+     |      count_mode : bool
+     |        show only a count and omit result details
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class TelemetrySearch(rcapi.models.common.BaseObject)
+     |  TelemetrySearch(entry, type_mapping={})
+     |  
+     |  Telemetry Search object
+     |  
+     |  Method resolution order:
+     |      TelemetrySearch
+     |      rcapi.models.common.BaseObject
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods inherited from rcapi.models.common.BaseObject:
+     |  
+     |  __init__(self, entry, type_mapping={})
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class TelemetrySearchCollection(rcapi.models.common.Collection)
+     |  TelemetrySearchCollection(entry, client=None)
+     |  
+     |  Telemetry Search collection
+     |  
+     |  Method resolution order:
+     |      TelemetrySearchCollection
+     |      rcapi.models.common.Collection
+     |      rcapi.models.common.Resource
+     |      rcapi.models.common.FinishedObject
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, entry, client=None)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  to_json(self)
+     |      Return data in json format
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class TelemetrySearchService(builtins.object)
+     |  TelemetrySearchService(client)
+     |  
+     |  TelemetrySearch class
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, client)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  download(self) -> rcapi.models.general.RequestedCsvResponse
+     |      Download audit logs to CSV
+     |  
+     |  list(self, filter_query: str = '', count_mode: bool = False) -> Union[int, rcapi.models.general.TelemetrySearchCollection]
+     |      List telemetry
+     |      
+     |      Parameters
+     |      ----------
+     |      filter_query : str
+     |        A string to fuzzy search by any telemetry attribute
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FUNCTIONS
+    ExternalServiceCollection(Collection)
+        External Service collection object
+
+DATA
+    Any = typing.Any
+        Special type indicating an unconstrained type.
+        
+        - Any is compatible with every type.
+        - Any assumed to have all methods.
+        - All values assumed to be instances of Any.
+        
+        Note that all the above statements are true from the point of view of
+        static type checkers. At runtime, Any should not be used with instance
+        or class checks.
+    
+    Optional = typing.Optional
+        Optional type.
+        
+        Optional[X] is equivalent to Union[X, None].
+    
+    Union = typing.Union
+        Union type; Union[X, Y] means either X or Y.
+        
+        To define a union, use e.g. Union[int, str].  Details:
+        - The arguments must be types and there must be at least one.
+        - None as an argument is a special case and is replaced by
+          type(None).
+        - Unions of unions are flattened, e.g.::
+        
+            Union[Union[int, str], float] == Union[int, str, float]
+        
+        - Unions of a single argument vanish, e.g.::
+        
+            Union[int] == int  # The constructor actually returns int
+        
+        - Redundant arguments are skipped, e.g.::
+        
+            Union[int, str, int] == Union[int, str]
+        
+        - When comparing unions, the argument order is ignored, e.g.::
+        
+            Union[int, str] == Union[str, int]
+        
+        - You cannot subclass or instantiate a union.
+        - You can use Optional[X] as a shorthand for Union[X, None].
+
+FILE
+    /Users/corismith/red-canary-sdk-python/rcapi/models/general.py
+
+
+
+---
+
