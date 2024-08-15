@@ -1,63 +1,56 @@
-from common import BaseObject
-from primitives import File,IpAddress,Domain,RegistryKey,OperatingSystemProcess
+"""
+Primitive Activities
+"""
+from .common import BaseObject
+from .primitives import File,IpAddress,Domain,RegistryKey,OperatingSystemProcess
 
 class FileModification(BaseObject):
+  """
+  File Modification object
+  """
   def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-  
-  @property
-  def modification_type(self):
-    return self._entry.get('modification_type')
-  
-  @property
-  def file(self):
-    return File(self._entry.get('file'))
-  
+    type_mapping = {
+      'file': File
+    }
+    super().__init__(entry, type_mapping)
+
 class NetworkConnection(BaseObject):
+  """
+  Network Connection object
+  """
   def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-  
-  @property
-  def ip_address(self):
-    return IpAddress(self._entry.get('ip_address'))
-  
-  @property
-  def port(self):
-    return self._entry.get('port')
-  
-  @property
-  def domain(self):
-    return Domain(self._entry.get('domain'))
+    type_mapping = {
+      'ip_address': IpAddress,
+      'domain': Domain
+    }
+    super().__init__(entry, type_mapping)
 
 class RegistryModification(BaseObject):
+  """
+  Registry Modification object
+  """
   def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-  
-  @property
-  def registry_key(self):
-    return RegistryKey(self._entry.get('registry_key'))
-  
-  @property
-  def modification_type(self):
-    return self._entry.get('modification_type')
+    type_mapping = {
+      'registry_key': RegistryKey
+    }
+    super().__init__(entry, type_mapping)
 
 class ProcessExecution(BaseObject):
+  """
+  Process Execution object
+  """
   def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-
-  @property
-  def operating_system_process(self):
-    return OperatingSystemProcess(self._entry.get('operating_system_process'))
+    type_mapping = {
+      'operating_system_process': OperatingSystemProcess
+    }
+    super().__init__(entry, type_mapping)
 
 class ModuleLoad(BaseObject):
+  """
+  Module Load object
+  """
   def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-  
-  @property
-  def module(self):
-    return File(self._entry.get('module'))
+    type_mapping = {
+      'module': File
+    }
+    super().__init__(entry, type_mapping)

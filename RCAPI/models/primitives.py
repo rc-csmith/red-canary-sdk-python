@@ -1,184 +1,104 @@
-from RCAPI.models.common import BaseObject
+"""
+Primitives
+"""
+from .common import BaseObject
 
 class File(BaseObject):
+  """
+  File object
+  """
   def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-  
-  @property
-  def md5(self):
-    return self._entry.get('md5')
-  
-  @property
-  def sha256(self):
-    return self._entry.get('sha256')
-
-  @property
-  def path(self):
-    return self._entry.get('path')
-  
-  @property
-  def file_type(self):
-    return self._entry.get('file_type')
-  
-  @property
-  def binary(self):
-    return Binary(self._entry.get('binary'))
+    type_mapping = {
+      'binary': Binary
+    }
+    super().__init__(entry, type_mapping)
 
 class Binary(BaseObject):
+  """
+  Binary object
+  """
   def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-  
-  @property
-  def md5(self):
-    return self._entry.get('md5')
-  
-  @property
-  def sha256(self):
-    return self._entry.get('sha256')
-  
-  @property
-  def digital_signature(self):
-    return BinaryDigitalSignature(self._entry.get('digital_signature'))
-  
-  @property
-  def internal_name(self):
-    return self._entry.get('internal_name')
+    type_mapping = {
+      'digital_signature': BinaryDigitalSignature
+    }
+    super().__init__(entry, type_mapping)
+
+class EDRLink(BaseObject):
+  """
+  EDR Link object
+  """
 
 class BinaryDigitalSignature(BaseObject):
-  def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-  
-  @property
-  def publisher(self):
-    return self._entry.get('publisher')
-  
-  @property
-  def issuer(self):
-    return self._entry.get('issuer')
-  
-  @property
-  def subject(self):
-    return self._entry.get('subject')
-  
-  @property
-  def product(self):
-    return self._entry.get('product')
-  
-  @property
-  def signing_time(self):
-    return self._entry.get('signing_time')
+  """
+  Binary Digital Signature object
+  """
 
 class IpAddress(BaseObject):
-  def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-
-  @property
-  def ip(self):
-    return self._entry.get('ip_address')
-  
-  @property
-  def defanged(self):
-    return self._entry.get('ip_address_defanged')
-  
-  @property
-  def reverse_dns(self):
-    return self._entry.get('ip_address_reverse_dns')
-
-  @property
-  def matches_rfc_1918(self):
-    return self._entry.get('ip_address_matches_rfc_1918?')
-  
-  @property
-  def matches_rfc_4193(self):
-    return self._entry.get('ip_address_matches_rfc_4193?')
-
-  @property
-  def is_link_local(self):
-    return self._entry.get('ip_address_is_link_local?')
+  """
+  IpAddress object
+  """
 
 class Domain(BaseObject):
-  def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-
-  @property
-  def name(self):
-    return self._entry.get('name')
-  
-  @property
-  def defanged(self):
-    return self._entry.get('name_defanged')
-  
-  @property
-  def whois_org(self):
-    return (self._entry.get('whois')).get('organization')
+  """
+  Domain object
+  """
 
 class RegistryKey(BaseObject):
-  def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-  
-  @property
-  def path(self):
-    return self._entry.get('path')
+  """
+  Registry Key object
+  """
 
 class OperatingSystemProcess(BaseObject):
+  """
+  Operating System Process object
+  """
   def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-  
-  @property
-  def started_at(self):
-    return self._entry.get('started_at')
-  
-  @property
-  def operating_system_pid(self):
-    return self._entry.get('operating_system_pid')
-  
-  @property
-  def native_id(self):
-    return self._entry.get('native_id')
-  
-  @property
-  def image(self):
-    return File(self._entry.get('image'))
-  
-  @property
-  def command_line(self):
-    return ProcessCommandLine(self._entry.get('command_line'))
-  
+    type_mapping = {
+      'image': File,
+      'command_line': ProcessCommandLine
+    }
+    super().__init__(entry, type_mapping)
+
 class ProcessCommandLine(BaseObject):
-  def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-  
-  @property
-  def raw(self):
-    return self._entry.get('command_line')
-  
-  @property
-  def decoded(self):
-    return self._entry.get('command_line_decoded')
-  
-  @property
-  def identified_encodings(self):
-    return self._entry.get('identified_encodings')
+  """
+  Process Command Line object
+  """
 
 class MacAddress(BaseObject):
-  def __init__(self, entry):
-    super().__init__(entry)
-    self._entry = entry.get('attributes')
-  
-  @property
-  def address(self):
-    return self._entry.get('address')
+  """
+  MacAddress object
+  """
 
 class EndpointHostname(BaseObject):
-  def __init__(self, entry):
-    super().__init__(entry)
-    for key in entry['attributes']:
-      self.__dict__[key] = entry['attributes'][key]
+  """
+  Endpoint Hostname object
+  """
+
+class BinaryService(object):
+  """
+  Binary Service class
+  """
+  def __init__(self, client):
+    self.client = client
+  
+  def get(self, binary_hash: str) -> Binary:
+    """
+    Get a binary
+
+    Parameters
+    ----------
+    binary_hash : str
+      The hash of the binary to retrieve
+    """
+    return self.client.call_api(method='get', service=f'/binaries/{binary_hash}', object_type=Binary)
+
+  def get_edr_link(self, binary_hash: str) -> EDRLink:  
+    """
+    Get the EDR link for a binary
+    
+    Parameters
+    ----------
+    binary_hash : str
+      The hash of the binary to retrieve
+    """
+    return self.client.call_api(method='get', service=f'/binaries/{binary_hash}/edr_link', object_type=Binary)
