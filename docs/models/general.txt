@@ -58,9 +58,21 @@ class ActivityMonitor(rcapi.models.common.SelectableObject)
  |      ----------
  |      params : dict
  |        parameters for the new activity monitor
+ |      
+ |      Returns
+ |      -------
+ |      An ActivityMonitor object
  |  
  |  deactivate(self)
  |      Deactivate current activity monitor
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      None
  |  
  |  get_item(self, unique_id: str)
  |      Get a single activity monitor
@@ -69,12 +81,32 @@ class ActivityMonitor(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the activity monitor
+ |      
+ |      Returns
+ |      -------
+ |      An ActivityMonitor object
  |  
  |  get_list(self)
  |      Get a list of activity monitors
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of ActivityMonitor objects
  |  
  |  list_matches(self)
  |      List matches for the current activity monitor
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of ActivityMonitorMatch objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -114,9 +146,25 @@ class ActivityMonitorMatch(rcapi.models.common.SelectableObject)
  |  
  |  get_item(self, unique_id: str)
  |      Get a single activity monitor match
+ |      
+ |      Parameters
+ |      ----------
+ |      unique_id : str
+ |      
+ |      Returns
+ |      -------
+ |      An ActivityMonitorMatch object
  |  
  |  get_list(self)
  |      Get a list of activity monitor matches
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of ActivityMonitorMatch objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -159,6 +207,10 @@ class ActivityMonitorService(builtins.object)
  |                       activity_monitor[active]
  |                       activity_monitor[file_modification_types_monitored]
  |                       activity_monitor[file_paths_monitored]
+ |      
+ |      Returns
+ |      -------
+ |      ActivityMonitor object
  |  
  |  deactivate(self, activity_monitor_id: int) -> rcapi.models.general.ActivityMonitor
  |      Deactivate activity monitor
@@ -167,9 +219,21 @@ class ActivityMonitorService(builtins.object)
  |      ----------
  |      activity_monitor_id : int
  |        activity monitor id
+ |      
+ |      Returns
+ |      -------
+ |      ActivityMonitor object
  |  
  |  download_fim_matches(self) -> rcapi.models.general.DownloadResponse
  |      Download all file integrity monitoring matches to CSV
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      DownloadResponse object
  |  
  |  get(self, activity_monitor_id: int) -> rcapi.models.general.ActivityMonitor
  |      Get activity monitor
@@ -178,6 +242,10 @@ class ActivityMonitorService(builtins.object)
  |      ----------
  |      activity_monitor_id : int
  |        activity monitor id
+ |      
+ |      Returns
+ |      -------
+ |      ActivityMonitor object
  |  
  |  list_all_matches(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.ActivityMonitorMatch]]
  |      List all matches for all activity monitors
@@ -186,6 +254,10 @@ class ActivityMonitorService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      list of ActivityMonitorMatch objects
  |  
  |  list_fim_matches(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.FileIntegrityMatch]]
  |      List all file integrity monitoring matches
@@ -194,6 +266,10 @@ class ActivityMonitorService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      list of FileIntegrityMatch objects
  |  
  |  list_matches(self, activity_monitor_id: int, count_mode: bool = False) -> Union[int, list[rcapi.models.general.ActivityMonitorMatch]]
  |      List matches for an activity monitor
@@ -204,6 +280,10 @@ class ActivityMonitorService(builtins.object)
  |        activity monitor id
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      list of ActivityMonitorMatch objects
  |  
  |  list_monitors(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.ActivityMonitor]]
  |      List activity monitors
@@ -212,6 +292,10 @@ class ActivityMonitorService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      list of ActivityMonitor objects
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -264,9 +348,21 @@ class AttackTactic(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the attack tactic
+ |      
+ |      Returns
+ |      -------
+ |      An AttackTactic object
  |  
  |  get_list(self)
  |      Get a list of attack tactics
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of AttackTactic objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -310,9 +406,21 @@ class AttackTechnique(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the attack technique
+ |      
+ |      Returns
+ |      -------
+ |      An AttackTechnique object
  |  
  |  get_list(self)
  |      Get a list of attack techniques
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of AttackTechnique objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -335,7 +443,9 @@ Python Library Documentation: class BaseObject in module rcapi.models.common
 class BaseObject(FinishedObject)
  |  BaseObject(entry, type_mapping={})
  |  
- |  Formats basic object returned from API into a FinishedObject
+ |  Formats basic object returned from API into a FinishedObject.
+ |  
+ |  Objects of this type can be called directly by the user.
  |  
  |  Method resolution order:
  |      BaseObject
@@ -411,6 +521,14 @@ class CloudResourceScansService(builtins.object)
  |  
  |  license_usage_csv(self) -> rcapi.models.general.RequestedCsvResponse
  |      Download CSV of license usage
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      RequestedCsvResponse object
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -449,27 +567,87 @@ class Detection(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the detection
+ |      
+ |      Returns
+ |      -------
+ |      A Detection object
  |  
  |  get_list(self)
  |      Get a list of detections
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of Detection objects
  |  
  |  list_detectors(self)
  |      List detectors for the current detection
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of Detector objects
  |  
  |  list_events(self)
  |      List events for the current detection
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of Event objects
  |  
  |  list_iocs(self)
  |      List IOCs for the current detection
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of IndicatorOfCompromise objects
  |  
  |  list_related(self)
  |      List related detections for the current detection
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of Detection objects
  |  
  |  list_timeline(self)
  |      List the timeline for the current detection
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of Timeline objects
  |  
  |  mark_acknowledged(self)
  |      Mark the current detection as acknowledged
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A Detection object
  |  
  |  update_remediation_status(self, params)
  |      Update the remediation status for the current detection
@@ -478,6 +656,10 @@ class Detection(rcapi.models.common.SelectableObject)
  |      ----------
  |      params : dict
  |        parameters for the remediation status
+ |      
+ |      Returns
+ |      -------
+ |      A Detection object
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -544,6 +726,14 @@ class DetectionService(builtins.object)
  |  
  |  download(self) -> rcapi.models.general.RequestedCsvResponse
  |      Download a CSV of all detections
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      RequestedCsvResponse object
  |  
  |  get(self, detection_id: int) -> rcapi.models.general.Detection
  |      Get detection
@@ -552,6 +742,10 @@ class DetectionService(builtins.object)
  |      ----------
  |      detection_id : int
  |        detection id
+ |      
+ |      Returns
+ |      -------
+ |      Detection object
  |  
  |  list_all_iocs(self, count_mode: bool = False) -> Union[int, list]
  |      List all IOCs for all detections
@@ -560,6 +754,10 @@ class DetectionService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      int or list of IndicatorOfCompromise objects
  |  
  |  list_contributing_intel(self, detection_id: int) -> dict
  |      List contributing intel for detection
@@ -568,6 +766,10 @@ class DetectionService(builtins.object)
  |      ----------
  |      detection_id : int
  |        detection id
+ |      
+ |      Returns
+ |      -------
+ |      dict
  |  
  |  list_detections(self, since: str = '', count_mode: bool = False) -> Union[int, list]
  |      List all detections
@@ -578,6 +780,10 @@ class DetectionService(builtins.object)
  |        Start date for returned data
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      int or list of Detection objects
  |  
  |  list_detectors(self, detection_id: int, count_mode: bool = False) -> Union[int, list]
  |      List detectors for detection
@@ -588,6 +794,10 @@ class DetectionService(builtins.object)
  |        detection id
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      int or list of Detector objects
  |  
  |  list_events(self, detection_id: int, count_mode: bool = False) -> Union[int, list]
  |      List events for detection
@@ -598,6 +808,10 @@ class DetectionService(builtins.object)
  |        detection id
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      int or list of Event objects
  |  
  |  list_iocs(self, detection_id: int, count_mode: bool = False) -> Union[int, list]
  |      List IOCs for detection
@@ -608,6 +822,10 @@ class DetectionService(builtins.object)
  |        detection id
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      int or list of IndicatorOfCompromise objects
  |  
  |  list_related(self, detection_id: int, count_mode: bool = False) -> Union[int, list]
  |      List related detections
@@ -618,6 +836,10 @@ class DetectionService(builtins.object)
  |        detection id
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      int or list of Detection objects
  |  
  |  list_summaries(self, count_mode: bool = False) -> Union[int, list]
  |      List all detection summaries
@@ -626,6 +848,10 @@ class DetectionService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      int or list of DetectionSummary objects
  |  
  |  list_timeline(self, detection_id: int, count_mode: bool = False) -> Union[int, list]
  |      List timeline for detection
@@ -636,6 +862,10 @@ class DetectionService(builtins.object)
  |        detection id
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      int or list of Timeline objects
  |  
  |  mark_acknowledged(self, detection_id: int) -> rcapi.models.general.DetectionResource
  |      Mark detection as acknowledged
@@ -644,6 +874,10 @@ class DetectionService(builtins.object)
  |      ----------
  |      detection_id : int
  |        detection id
+ |      
+ |      Returns
+ |      -------
+ |      DetectionResource object
  |  
  |  mark_activity_of_occurrence(self, detection_id: int, event_timeline_activity_id: int) -> rcapi.models.general.DetectionResource
  |      Mark activity of occurrence
@@ -654,6 +888,10 @@ class DetectionService(builtins.object)
  |        detection id
  |      event_timeline_activity_id : int
  |        event timeline activity id
+ |      
+ |      Returns
+ |      -------
+ |      DetectionResource object
  |  
  |  update_remediation_status(self, detection_id: int, params: dict) -> rcapi.models.general.DetectionResource
  |      Update remediation status for detection
@@ -664,6 +902,10 @@ class DetectionService(builtins.object)
  |        detection id
  |      params : dict
  |        dictionary containing 'remediated_state' key
+ |      
+ |      Returns
+ |      -------
+ |      DetectionResource object
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -765,6 +1007,10 @@ class DetectorService(builtins.object)
  |      tactic_identifier : str
  |        tactic identifier (capitalized)
  |        example: Persistence
+ |      
+ |      Returns
+ |      -------
+ |      AttackTactic object
  |  
  |  get_technique(self, technique_identifier: str) -> rcapi.models.general.AttackTechnique
  |      Get a technique
@@ -774,6 +1020,10 @@ class DetectorService(builtins.object)
  |      technique_identifier : str
  |        technique identifier (uppercase)
  |        example: T1234
+ |      
+ |      Returns
+ |      -------
+ |      AttackTechnique object
  |  
  |  list_tactics(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.AttackTactic]]
  |      List all tactics
@@ -782,6 +1032,10 @@ class DetectorService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      list of AttackTactic objects
  |  
  |  list_techniques(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.AttackTechnique]]
  |      List all techniques
@@ -790,6 +1044,10 @@ class DetectorService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      list of AttackTechnique objects
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -891,6 +1149,14 @@ class Endpoint(rcapi.models.common.SelectableObject)
  |  
  |  activate_safe_mode(self)
  |      Activate safe mode for the current endpoint
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      An Endpoint object
  |  
  |  add_reporting_tag(self, reporting_tag: rcapi.models.general.ReportingTag, params)
  |      Add a reporting tag to the current endpoint
@@ -901,15 +1167,44 @@ class Endpoint(rcapi.models.common.SelectableObject)
  |        reporting tag to add
  |      params : dict
  |        parameters for the reporting tag
+ |      
+ |      Returns
+ |      -------
+ |      Any object
  |  
  |  deactivate_safe_mode(self)
  |      Deactivate safe mode for the current endpoint
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      An Endpoint object
  |  
  |  decommission(self, uninstall: bool = False)
  |      Decommission the current endpoint
+ |      
+ |      Parameters
+ |      ----------
+ |      uninstall : bool
+ |        uninstall the endpoint
+ |      
+ |      Returns
+ |      -------
+ |      An Endpoint object
  |  
  |  deisolate(self)
  |      Deisolate the current endpoint
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      An Endpoint object
  |  
  |  get_item(self, unique_id: str)
  |      Get a single endpoint
@@ -918,12 +1213,32 @@ class Endpoint(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the endpoint
+ |      
+ |      Returns
+ |      -------
+ |      An Endpoint object
  |  
  |  get_list(self)
  |      Get a list of endpoints
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of Endpoint objects
  |  
  |  isolate(self)
  |      Isolate the current endpoint
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      An Endpoint object
  |  
  |  list_endpoint_users(self, fromdate: Optional[str] = None, include_system_accounts: bool = True)
  |      List endpoint users for the current endpoint
@@ -934,12 +1249,32 @@ class Endpoint(rcapi.models.common.SelectableObject)
  |        date to start from
  |      include_system_accounts : bool
  |        include system accounts
+ |      
+ |      Returns
+ |      -------
+ |      A list of EndpointUser objects
  |  
  |  list_system_activities(self)
  |      List system activities for the current endpoint
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of SystemActivity objects
  |  
  |  reinstate(self)
  |      Reinstate the current endpoint
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      An Endpoint object
  |  
  |  remove_reporting_tag(self, reporting_tag: rcapi.models.general.ReportingTag)
  |      Remove a reporting tag from the current endpoint
@@ -948,6 +1283,10 @@ class Endpoint(rcapi.models.common.SelectableObject)
  |      ----------
  |      reporting_tag : ReportingTag
  |        reporting tag to remove
+ |      
+ |      Returns
+ |      -------
+ |      Any object
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -1052,6 +1391,10 @@ class EndpointService(builtins.object)
  |      ----------
  |      params : dict
  |        dict containing key 'ids' with value of endpoint ids
+ |      
+ |      Returns
+ |      -------
+ |      Any
  |  
  |  add_reporting_tag(self, endpoint_id: int, reporting_tag: str, params: dict) -> rcapi.models.general.EndpointResource
  |      Add reporting tag to endpoint
@@ -1064,6 +1407,10 @@ class EndpointService(builtins.object)
  |        reporting tag name
  |      params : dict
  |        dict containing key 'value' with value of reporting tag text
+ |      
+ |      Returns
+ |      -------
+ |      EndpointResource object
  |  
  |  deactivate_safe_mode(self, params: dict) -> Any
  |      Deactivate safe mode for endpoints
@@ -1072,6 +1419,10 @@ class EndpointService(builtins.object)
  |      ----------
  |      params : dict
  |        dict containing key 'ids' with value of endpoint ids
+ |      
+ |      Returns
+ |      -------
+ |      Any
  |  
  |  decommission(self, endpoint_id: int, uninstall_sensor: bool) -> rcapi.models.general.EndpointResource
  |      Decommission endpoint
@@ -1082,6 +1433,10 @@ class EndpointService(builtins.object)
  |        endpoint id
  |      uninstall_sensor: bool
  |        uninstall sensor
+ |      
+ |      Returns
+ |      -------
+ |      EndpointResource object
  |  
  |  decommission_list(self, params: dict, uninstall_sensor: bool) -> Any
  |      Decommission endpoints
@@ -1091,6 +1446,11 @@ class EndpointService(builtins.object)
  |      params : dict
  |        dict containing key 'ids' with value of endpoint ids
  |      uninstall_sensor : bool
+ |        uninstall sensor
+ |      
+ |      Returns
+ |      -------
+ |      Any
  |  
  |  deisolate(self, params: dict) -> Any
  |      Deisolate endpoints
@@ -1099,21 +1459,71 @@ class EndpointService(builtins.object)
  |      ----------
  |      params : dict
  |        dict containing key 'ids' with value of endpoint ids
+ |      
+ |      Returns
+ |      -------
+ |      Any
  |  
  |  download(self) -> rcapi.models.general.RequestedCsvResponse
  |      Download CSV of endpoints
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      RequestedCsvResponse object
  |  
  |  download_license_usage(self, year: int, month: int) -> rcapi.models.general.RequestedCsvResponse
  |      Download CSV of license usage
+ |      
+ |      Parameters
+ |      ----------
+ |      year : int
+ |        year
+ |      month : int
+ |        month
+ |      
+ |      Returns
+ |      -------
+ |      RequestedCsvResponse object
  |  
  |  download_license_usage_server_counts(self, year: int, month: int) -> rcapi.models.general.RequestedCsvResponse
  |      Download CSV of license usage server counts
+ |      
+ |      Parameters
+ |      ----------
+ |      year : int
+ |        year
+ |      month : int
+ |        month
+ |      
+ |      Returns
+ |      -------
+ |      RequestedCsvResponse object
  |  
  |  download_newly_observed(self) -> rcapi.models.general.RequestedCsvResponse
  |      Download CSV of newly observed endpoints
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      RequestedCsvResponse object
  |  
  |  download_recently_decommissioned(self) -> rcapi.models.general.RequestedCsvResponse
  |      Download CSV of recently decommissioned endpoints
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      RequestedCsvResponse object
  |  
  |  get(self, endpoint_id: int) -> rcapi.models.general.Endpoint
  |      Get endpoint
@@ -1122,6 +1532,10 @@ class EndpointService(builtins.object)
  |      ----------
  |      endpoint_id : int
  |        endpoint id
+ |      
+ |      Returns
+ |      -------
+ |      Endpoint object
  |  
  |  get_by_sensor_id(self, sensor_id: int) -> rcapi.models.general.Endpoint
  |      Get endpoint by sensor id
@@ -1130,6 +1544,10 @@ class EndpointService(builtins.object)
  |      ----------
  |      sensor_id : int
  |        endpoint sensor id
+ |      
+ |      Returns
+ |      -------
+ |      Endpoint object
  |  
  |  isolate(self, params: dict) -> Any
  |      Isolate endpoints
@@ -1138,6 +1556,10 @@ class EndpointService(builtins.object)
  |      ----------
  |      params : dict
  |        dict containing key 'ids' with value of endpoint ids
+ |      
+ |      Returns
+ |      -------
+ |      Any
  |  
  |  list_endpoint_users(self, endpoint_id: int, fromdate: Optional[str] = None, include_system_accounts: bool = True, count_mode: bool = False) -> Union[int, rcapi.models.general.EndpointUserCollection]
  |      List endpoint users
@@ -1151,6 +1573,10 @@ class EndpointService(builtins.object)
  |      include_system_accounts : bool
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      int or list of EndpointUser objects
  |  
  |  list_endpoints(self, query: Optional[str] = None, order_by: Optional[str] = None, filter_query: Optional[str] = None, count_mode: bool = False) -> Union[int, rcapi.models.general.EndpointCollection]
  |      List all endpoints
@@ -1165,12 +1591,32 @@ class EndpointService(builtins.object)
  |        filter query
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      int or list of Endpoint objects
  |  
  |  list_reporting_tags(self) -> list
  |      List reporting tags for all endpoints
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      list of ReportingTag objects
  |  
  |  list_reporting_tags_associations(self) -> Union[int, list[rcapi.models.general.ReportingTagAssociation]]
  |      List reporting tag associations for all endpoints
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      list of ReportingTagAssociation objects
  |  
  |  list_system_activities(self, endpoint_id: int, params: dict) -> Any
  |      List system activities for endpoint
@@ -1181,6 +1627,10 @@ class EndpointService(builtins.object)
  |        endpoint id
  |      params : dict
  |        dict containing key 'types' with value system activity types
+ |      
+ |      Returns
+ |      -------
+ |      list of SystemActivity objects
  |  
  |  reinstate(self, params: dict) -> Any
  |      Reinstate endpoints
@@ -1189,6 +1639,10 @@ class EndpointService(builtins.object)
  |      ----------
  |      params : dict
  |        dict containing key 'ids' with value of endpoint ids
+ |      
+ |      Returns
+ |      -------
+ |      Any
  |  
  |  remove_reporting_tag(self, endpoint_id: int, reporting_tag: str) -> Any
  |      Remove reporting tag from endpoint
@@ -1199,6 +1653,10 @@ class EndpointService(builtins.object)
  |        endpoint id
  |      reporting_tag : str
  |        reporting tag name
+ |      
+ |      Returns
+ |      -------
+ |      Any
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -1238,6 +1696,10 @@ class EndpointUser(rcapi.models.common.SelectableObject)
  |        reporting tag to add
  |      params : dict
  |        parameters for the reporting tag
+ |      
+ |      Returns
+ |      -------
+ |      Any object
  |  
  |  get_item(self, unique_id: str)
  |      Get a single endpoint user
@@ -1246,9 +1708,21 @@ class EndpointUser(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the endpoint user
+ |      
+ |      Returns
+ |      -------
+ |      An EndpointUser object
  |  
  |  get_list(self)
  |      Get a list of endpoint users
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of EndpointUser objects
  |  
  |  list_system_activities(self, params: Optional[dict])
  |      List system activities for the current endpoint user
@@ -1257,6 +1731,10 @@ class EndpointUser(rcapi.models.common.SelectableObject)
  |      ----------
  |      params : dict
  |        parameters for the system activities
+ |      
+ |      Returns
+ |      -------
+ |      A list of SystemActivity objects
  |  
  |  remove_reporting_tag(self, reporting_tag: rcapi.models.general.ReportingTag)
  |      Remove a reporting tag from the current endpoint user
@@ -1265,6 +1743,10 @@ class EndpointUser(rcapi.models.common.SelectableObject)
  |      ----------
  |      reporting_tag : ReportingTag
  |        reporting tag to remove
+ |      
+ |      Returns
+ |      -------
+ |      Any object
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -1305,6 +1787,10 @@ class EndpointUserService(builtins.object)
  |        endpoint user id
  |      params : dict
  |        dict containing key 'value' and value of reporting tag text
+ |      
+ |      Returns
+ |      -------
+ |      Any
  |  
  |  get(self, endpoint_user_id: int) -> rcapi.models.general.EndpointUser
  |      Get endpoint user
@@ -1313,9 +1799,21 @@ class EndpointUserService(builtins.object)
  |      ----------
  |      endpoint_user_id : int
  |        endpoint user id
+ |      
+ |      Returns
+ |      -------
+ |      EndpointUser object
  |  
  |  list_reporting_tags(self) -> dict
  |      List all reporting tags
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      dict
  |  
  |  list_system_activities(self, endpoint_user_id: int, params: Optional[dict]) -> Any
  |      List system activities for endpoint user
@@ -1326,6 +1824,10 @@ class EndpointUserService(builtins.object)
  |        endpoint user id
  |      params : dict
  |        dict containing key 'types' with value of system activity types
+ |      
+ |      Returns
+ |      -------
+ |      SystemActivity object
  |  
  |  list_users(self, query: str = '', count_mode: bool = False) -> Union[int, rcapi.models.general.EndpointUserCollection]
  |      List endpoint users
@@ -1336,6 +1838,10 @@ class EndpointUserService(builtins.object)
  |        query string
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      int or EndpointUserCollection object
  |  
  |  remove_reporting_tag(self, reporting_tag: str, endpoint_user_id: int) -> Any
  |      Remove reporting tag from endpoint user
@@ -1346,6 +1852,10 @@ class EndpointUserService(builtins.object)
  |        reporting tag name
  |      endpoint_user_id : int
  |        endpoint user id
+ |      
+ |      Returns
+ |      -------
+ |      Any
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -1384,6 +1894,10 @@ class Event(rcapi.models.common.SelectableObject)
  |      ----------
  |      timeline_activity_id : int
  |        timeline activity id
+ |      
+ |      Returns
+ |      -------
+ |      An EventTimelineActivity object
  |  
  |  get_activity(self, activity_id: int)
  |      Get an activity for the current event
@@ -1392,6 +1906,10 @@ class Event(rcapi.models.common.SelectableObject)
  |      ----------
  |      activity_id : int
  |        activity id
+ |      
+ |      Returns
+ |      -------
+ |      An EventActivity object
  |  
  |  get_item(self, unique_id: str)
  |      Get a single event
@@ -1400,15 +1918,42 @@ class Event(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the event
+ |      
+ |      Returns
+ |      -------
+ |      An Event object
  |  
  |  get_list(self)
  |      Get a list of events
+ |      
+ |      Parameters
+ |      ----------
+ |      
+ |      Returns
+ |      -------
+ |      A list of Event objects
  |  
  |  list_cached_activity_enrichments(self)
  |      List cached activity enrichments for the current event
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A dict
  |  
  |  list_timeline_activites(self)
  |      List timeline activities for the current event
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of EventTimelineActivity objects
  |  
  |  mark_activity_as_ioc(self, activity_id: int, activity_path: str = None, ioc_type: str = None, override_greylist: bool = False)
  |      Mark an activity as an IOC for the current event
@@ -1423,6 +1968,10 @@ class Event(rcapi.models.common.SelectableObject)
  |        IOC type
  |      override_greylist : bool
  |        override greylist
+ |      
+ |      Returns
+ |      -------
+ |      An EventActivity object
  |  
  |  mark_activity_as_relevant(self, activity_id: int, activity_path: str = None)
  |      Mark an activity as relevant for the current event
@@ -1433,6 +1982,10 @@ class Event(rcapi.models.common.SelectableObject)
  |        activity id
  |      activity_path : str
  |        activity path
+ |      
+ |      Returns
+ |      -------
+ |      An EventActivity object
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -1505,9 +2058,21 @@ class EventService(builtins.object)
  |        event id
  |      timeline_activity_id : int
  |        timeline activity id
+ |      
+ |      Returns
+ |      -------
+ |      EventTimelineActivity object
  |  
  |  download(self) -> rcapi.models.general.RequestedCsvResponse
  |      Download CSV of analyzed events
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      RequestedCsvResponse object
  |  
  |  get(self, event_id: int) -> rcapi.models.general.Event
  |      Get event
@@ -1516,6 +2081,10 @@ class EventService(builtins.object)
  |      ----------
  |      event_id : int
  |        event id
+ |      
+ |      Returns
+ |      -------
+ |      Event object
  |  
  |  get_activity(self, event_id: int, activity_id: int) -> rcapi.models.general.EventActivity
  |      Get activity
@@ -1526,6 +2095,10 @@ class EventService(builtins.object)
  |        event id
  |      activity_id : int
  |        event activity id
+ |      
+ |      Returns
+ |      -------
+ |      EventActivity object
  |  
  |  list_cached_activity_enrichments(self, event_id: int) -> dict
  |      List cached activity enrichments
@@ -1534,6 +2107,10 @@ class EventService(builtins.object)
  |      ----------
  |      event_id : int
  |        event id
+ |      
+ |      Returns
+ |      -------
+ |      dict
  |  
  |  list_events(self, since: str = '', count_mode: bool = False) -> Union[int, list[rcapi.models.general.Event]]
  |      List all events
@@ -1544,6 +2121,10 @@ class EventService(builtins.object)
  |        Start date for query
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      list of Event objects
  |  
  |  list_timeline_activities(self, event_id: int) -> list[rcapi.models.general.EventTimelineActivity]
  |      List timeline activities
@@ -1552,6 +2133,10 @@ class EventService(builtins.object)
  |      ----------
  |      event_id : int
  |        event id
+ |      
+ |      Returns
+ |      -------
+ |      list of EventTimelineActivity objects
  |  
  |  mark_activity_as_ioc(self, event_id: int, activity_id: int, activity_path: str = None, ioc_type: str = None, override_greylist: bool = False) -> rcapi.models.general.EventActivity
  |      Mark activity as IOC
@@ -1568,6 +2153,10 @@ class EventService(builtins.object)
  |        ioc type
  |      override_greylist : bool
  |        override greylist
+ |      
+ |      Returns
+ |      -------
+ |      EventActivity object
  |  
  |  mark_activity_as_relevant(self, event_id: int, activity_id: int, activity_path: str = None) -> rcapi.models.general.EventActivity
  |      Mark activity as relevant
@@ -1580,6 +2169,10 @@ class EventService(builtins.object)
  |        event activity id
  |      activity_path : str
  |        comma separated activity path
+ |      
+ |      Returns
+ |      -------
+ |      EventActivity object
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -1655,9 +2248,21 @@ class ExternalService(rcapi.models.common.SelectableObject)
  |        AWS account id
  |      aws_assumed_role_arn : str
  |        AWS assumed role ARN
+ |      
+ |      Returns
+ |      -------
+ |      An ExternalService object
  |  
  |  delete_aws_item(self)
  |      Delete the current AWS service
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      None
  |  
  |  get_aws_item(self, unique_id: str)
  |      Get a single AWS service
@@ -1666,9 +2271,21 @@ class ExternalService(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the AWS service
+ |      
+ |      Returns
+ |      -------
+ |      An ExternalService object
  |  
  |  get_aws_list(self)
  |      Get a list of AWS services
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of ExternalService objects
  |  
  |  get_item(self, unique_id: str)
  |      Get a single external service
@@ -1677,9 +2294,21 @@ class ExternalService(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the external service
+ |      
+ |      Returns
+ |      -------
+ |      An ExternalService object
  |  
  |  get_list(self)
  |      Get a list of external services
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of ExternalService objects
  |  
  |  update_aws_item(self, aws_account_id: str = None, description: str = None, aws_assumed_role_arn: str = None)
  |      Update the current AWS service
@@ -1692,6 +2321,10 @@ class ExternalService(rcapi.models.common.SelectableObject)
  |        description for the AWS service
  |      aws_assumed_role_arn : str
  |        AWS assumed role ARN
+ |      
+ |      Returns
+ |      -------
+ |      An ExternalService object
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -1732,6 +2365,10 @@ class ExternalServicesService(builtins.object)
  |        list of AWS account ids
  |      aws_assumed_role_arn : list
  |        list of AWS assumed role ARNs
+ |      
+ |      Returns
+ |      -------
+ |      list of ExternalService objects
  |  
  |  delete_aws_service(self, external_service_uuid: int) -> rcapi.models.general.ExternalService
  |      Delete AWS service
@@ -1740,6 +2377,10 @@ class ExternalServicesService(builtins.object)
  |      ----------
  |      external_service_uuid : int
  |        external service uuid
+ |      
+ |      Returns
+ |      -------
+ |      ExternalService object
  |  
  |  get(self, external_service_uuid: int) -> rcapi.models.general.ExternalService
  |      Get external service
@@ -1748,6 +2389,10 @@ class ExternalServicesService(builtins.object)
  |      ----------
  |      external_service_uuid : int
  |        external service uuid
+ |      
+ |      Returns
+ |      -------
+ |      ExternalService object
  |  
  |  get_aws_service(self, external_service_uuid: int) -> rcapi.models.general.ExternalService
  |      Get AWS service
@@ -1756,12 +2401,32 @@ class ExternalServicesService(builtins.object)
  |      ----------
  |      external_service_uuid : int
  |        external service uuid
+ |      
+ |      Returns
+ |      -------
+ |      ExternalService object
  |  
  |  list_aws_services(self) -> list[rcapi.models.general.ExternalService]
  |      List all AWS services
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      list of ExternalService objects
  |  
  |  list_external_services(self) -> list[rcapi.models.general.ExternalService]
  |      List all external services
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      list of ExternalService objects
  |  
  |  update_aws_service(self, external_service_uuid: int, aws_account_id: str = None, description: str = None, aws_assumed_role_arn: str = None) -> rcapi.models.general.ExternalService
  |      Update AWS service
@@ -1776,6 +2441,10 @@ class ExternalServicesService(builtins.object)
  |        description
  |      aws_assumed_role_arn : str
  |        AWS assumed role ARN
+ |      
+ |      Returns
+ |      -------
+ |      ExternalService object
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -1848,9 +2517,21 @@ class FileIntegrityMatch(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the file integrity match
+ |      
+ |      Returns
+ |      -------
+ |      A FileIntegrityMatch object
  |  
  |  get_list(self)
  |      Get a list of file integrity matches
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of FileIntegrityMatch objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -1894,9 +2575,21 @@ class IgnoredTargetedProduct(rcapi.models.common.SelectableObject)
  |      ----------
  |      params : dict
  |        dict containing key 'justification' and value of justification
+ |      
+ |      Returns
+ |      -------
+ |      IgnoredTargetedProduct object
  |  
  |  delete(self)
  |      Delete current ignored targeted product
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      StandardSuccessResponse object
  |  
  |  get_item(self, unique_id: str)
  |      Get a single ignored targeted product
@@ -1905,9 +2598,21 @@ class IgnoredTargetedProduct(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the ignored targeted product
+ |      
+ |      Returns
+ |      -------
+ |      An IgnoredTargetedProduct object
  |  
  |  get_list(self)
  |      Get a list of ignored targeted products
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of IgnoredTargetedProduct objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -2117,6 +2822,15 @@ class ManagedPortalUser(rcapi.models.common.SelectableObject)
  |  
  |  add_role(self, role: rcapi.models.general.PortalRole)
  |      Add a role to the current managed portal user
+ |      
+ |      Parameters
+ |      ----------
+ |      role : PortalRole
+ |        role to add
+ |      
+ |      Returns
+ |      -------
+ |      A ManagedPortalUser object
  |  
  |  create_item(self, params: dict)
  |      Create a new managed portal user
@@ -2125,15 +2839,44 @@ class ManagedPortalUser(rcapi.models.common.SelectableObject)
  |      ----------
  |      params : dict
  |        parameters for the new managed portal user
+ |      
+ |      Returns
+ |      -------
+ |      A ManagedPortalUser object
  |  
  |  delete(self)
  |      Delete the current managed portal user
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A ManagedPortalUser object
  |  
  |  delete_role(self, role: rcapi.models.general.PortalRole)
  |      Delete a role from the current managed portal user
+ |      
+ |      Parameters
+ |      ----------
+ |      role : PortalRole
+ |        role to delete
+ |      
+ |      Returns
+ |      -------
+ |      A ManagedPortalUser object
  |  
  |  disable_mfa(self)
  |      Disable MFA for the current managed portal user
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A ManagedPortalUser object
  |  
  |  get_item(self, unique_id: str)
  |      Get a single managed portal user
@@ -2142,15 +2885,43 @@ class ManagedPortalUser(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str 
  |        unique id for the managed portal user
+ |      
+ |      Returns
+ |      -------
+ |      A ManagedPortalUser object
  |  
  |  get_list(self)
  |      Get a list of managed portal users
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of ManagedPortalUser objects
  |  
  |  reinvite(self)
  |      Reinvite the current managed portal user
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A ManagedPortalUser object
  |  
  |  uninvite(self)
  |      Uninvite the current managed portal user
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A ManagedPortalUser object
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -2189,6 +2960,10 @@ class ManagedPortalUserService(builtins.object)
  |        name of role
  |      user_id : int
  |        user id
+ |      
+ |      Returns
+ |      -------
+ |      PortalUserRoleCollection object
  |  
  |  delete(self, user_id: int) -> rcapi.models.general.ManagedPortalUser
  |      Delete managed portal user
@@ -2197,6 +2972,10 @@ class ManagedPortalUserService(builtins.object)
  |      ----------
  |      user_id : int
  |        user id
+ |      
+ |      Returns
+ |      -------
+ |      ManagedPortalUser object
  |  
  |  delete_role(self, role_name: str, user_id: int) -> rcapi.models.general.PortalUserRoleCollection
  |      Delete role from managed portal user
@@ -2207,6 +2986,10 @@ class ManagedPortalUserService(builtins.object)
  |        name of role
  |      user_id : int
  |        user id
+ |      
+ |      Returns
+ |      -------
+ |      PortalUserRoleCollection object
  |  
  |  disable_mfa(self, user_id: int) -> rcapi.models.general.ManagedPortalUser
  |      Disable MFA for managed portal user
@@ -2215,6 +2998,10 @@ class ManagedPortalUserService(builtins.object)
  |      ----------
  |      user_id : int
  |        user id
+ |      
+ |      Returns
+ |      -------
+ |      ManagedPortalUser object
  |  
  |  get(self, user_id: int) -> rcapi.models.general.ManagedPortalUser
  |      Get managed portal user
@@ -2223,6 +3010,10 @@ class ManagedPortalUserService(builtins.object)
  |      ----------
  |      user_id : int
  |        user id
+ |      
+ |      Returns
+ |      -------
+ |      ManagedPortalUser object
  |  
  |  invite(self, email: str) -> rcapi.models.general.ManagedPortalUser
  |      Invite a new user to the managed portal
@@ -2231,6 +3022,10 @@ class ManagedPortalUserService(builtins.object)
  |      ----------
  |      email : str
  |        email of invited user
+ |      
+ |      Returns
+ |      -------
+ |      ManagedPortalUser object
  |  
  |  list_users(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.ManagedPortalUser]]
  |      List all managed portal users
@@ -2239,6 +3034,10 @@ class ManagedPortalUserService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      list of ManagedPortalUser objects
  |  
  |  reinvite(self, user_id: int) -> rcapi.models.general.ManagedPortalUserCollection
  |      Reinvite managed portal user
@@ -2247,6 +3046,10 @@ class ManagedPortalUserService(builtins.object)
  |      ----------
  |      user_id : int
  |        user id
+ |      
+ |      Returns
+ |      -------
+ |      ManagedPortalUser object
  |  
  |  uninvite(self, user_id: int) -> rcapi.models.general.ManagedPortalUserCollection
  |      Uninvite managed portal user
@@ -2255,6 +3058,10 @@ class ManagedPortalUserService(builtins.object)
  |      ----------
  |      user_id : int
  |        user id
+ |      
+ |      Returns
+ |      -------
+ |      ManagedPortalUser object
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -2334,9 +3141,21 @@ class PortalRole(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the portal role
+ |      
+ |      Returns
+ |      -------
+ |      A PortalRole object
  |  
  |  get_list(self)
  |      Get a list of portal roles
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of PortalRole objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -2373,6 +3192,10 @@ class PortalRoleService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      PortalRoleCollection object
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -2507,6 +3330,13 @@ class Report(rcapi.models.common.SelectableObject)
  |  
  |  favorite(self)
  |      Favorite the current report
+ |      
+ |      Parameters
+ |      ----------
+ |      
+ |      Returns
+ |      -------
+ |      A Report object
  |  
  |  get_item(self, unique_id: str)
  |      Get a single report
@@ -2515,12 +3345,32 @@ class Report(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the report
+ |      
+ |      Returns
+ |      -------
+ |      A Report object
  |  
  |  get_list(self)
  |      Get a list of reports
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of Report objects
  |  
  |  unfavorite(self)
  |      Unfavorite the current report
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A Report object
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -2552,12 +3402,36 @@ class ReportLibraryService(builtins.object)
  |  
  |  download_detections_by_tactic(self) -> rcapi.models.general.RequestedCsvResponse
  |      Download CSV of detections by observed tactic
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      RequestedCsvResponse object
  |  
  |  download_detections_by_technique(self) -> rcapi.models.general.RequestedCsvResponse
  |      Download CSV of detections by observed technique
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      RequestedCsvResponse object
  |  
  |  download_users_on_endpoints(self) -> rcapi.models.general.RequestedCsvResponse
  |      Download CSV of users on endpoints
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      RequestedCsvResponse object
  |  
  |  favorite(self, name: str) -> Any
  |      Favorite report
@@ -2566,6 +3440,10 @@ class ReportLibraryService(builtins.object)
  |      ----------
  |      name : str
  |        name of report
+ |      
+ |      Returns
+ |      -------
+ |      Any
  |  
  |  get(self, name: str) -> rcapi.models.general.Report
  |      Get report
@@ -2574,9 +3452,21 @@ class ReportLibraryService(builtins.object)
  |      ----------
  |      name : str
  |        name of report
+ |      
+ |      Returns
+ |      -------
+ |      Report object
  |  
  |  list_reports(self) -> rcapi.models.general.Report
  |      List all reports
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      Report object
  |  
  |  unfavorite(self, name: str) -> Any
  |      Unfavorite report
@@ -2585,6 +3475,10 @@ class ReportLibraryService(builtins.object)
  |      ----------
  |      name : str
  |        name of report
+ |      
+ |      Returns
+ |      -------
+ |      Any
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -2622,9 +3516,21 @@ class ReportingTag(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the reporting tag
+ |      
+ |      Returns
+ |      -------
+ |      A ReportingTag object
  |  
  |  get_list(self)
  |      Get a list of reporting tags
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of ReportingTag objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -2668,9 +3574,21 @@ class ReportingTagAssociation(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the reporting tag association
+ |      
+ |      Returns
+ |      -------
+ |      A ReportingTagAssociation object
  |  
  |  get_list(self)
  |      Get a list of reporting tag associations
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of ReportingTagAssociation objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -2795,7 +3713,9 @@ Python Library Documentation: class SelectableObject in module rcapi.models.comm
 class SelectableObject(BaseObject)
  |  SelectableObject(entry, type_mapping={})
  |  
- |  Formats selectable object as a basic object
+ |  A SelectableObject is a BaseObject with the ability to select a specific object from the API.
+ |  
+ |  Objects of this type can be called directly by the user.
  |  
  |  Method resolution order:
  |      SelectableObject
@@ -2884,9 +3804,21 @@ class SharedFile(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the shared file
+ |      
+ |      Returns
+ |      -------
+ |      A SharedFile object
  |  
  |  get_list(self)
  |      Get a list of shared files
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of SharedFile objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -2923,6 +3855,10 @@ class SharedFileService(builtins.object)
  |      ----------
  |      uuid : int
  |        unique id of shared file
+ |      
+ |      Returns
+ |      -------
+ |      Any
  |  
  |  get(self, uuid: int) -> rcapi.models.general.SharedFile
  |      Get shared file
@@ -2931,6 +3867,10 @@ class SharedFileService(builtins.object)
  |      ----------
  |      uuid : int
  |        unique id of shared file
+ |        
+ |      Returns
+ |      -------
+ |      SharedFile object
  |  
  |  list_sharedfiles(self, count_mode: bool = False) -> Union[int, list[rcapi.models.general.SharedFile]]
  |      List all shared files
@@ -2939,6 +3879,10 @@ class SharedFileService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      list of SharedFile objects
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -3039,6 +3983,14 @@ class SuppressionRule(rcapi.models.common.SelectableObject)
  |  
  |  delete(self)
  |      Delete current suppression rule
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      None
  |  
  |  get_item(self, unique_id: str)
  |      Get a single suppression rule
@@ -3047,9 +3999,21 @@ class SuppressionRule(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the suppression rule
+ |      
+ |      Returns
+ |      -------
+ |      A SuppressionRule object
  |  
  |  get_list(self)
  |      Get a list of suppression rules
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of SuppressionRule objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -3086,6 +4050,10 @@ class SuppressionRuleService(builtins.object)
  |      ----------
  |      suppression_rule_id : int
  |        suppression rule id
+ |      
+ |      Returns
+ |      -------
+ |      Any
  |  
  |  get_suppression_rule(self, suppression_rule_id: int) -> rcapi.models.general.SuppressionRule
  |      Get suppression rule
@@ -3094,6 +4062,10 @@ class SuppressionRuleService(builtins.object)
  |      ----------
  |      suppression_rule_id : int
  |        suppression rule id
+ |      
+ |      Returns
+ |      -------
+ |      SuppressionRule object
  |  
  |  list_suppression_rules(self, detector_id: int = None, endpoint_id: int = None, permanent: bool = None, publisher: str = None, md5: str = None, parent_md5: str = None, command_line: str = None, uid: str = None, sensor_id: str = None) -> Union[int, list[rcapi.models.general.SuppressionRule]]
  |      List all suppression rules
@@ -3118,6 +4090,10 @@ class SuppressionRuleService(builtins.object)
  |        uid
  |      sensor_id : str
  |        sensor id
+ |      
+ |      Returns
+ |      -------
+ |      list of SuppressionRule objects
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -3155,9 +4131,21 @@ class TargetedProduct(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the targeted product
+ |      
+ |      Returns
+ |      -------
+ |      A TargetedProduct object
  |  
  |  get_list(self)
  |      Get a list of targeted products
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of TargetedProduct objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -3196,6 +4184,10 @@ class TargetedProductService(builtins.object)
  |        dict of attributes for new ignored targeted product
  |        required keys: targeted_product_id
  |                       justification
+ |      
+ |      Returns
+ |      -------
+ |      IgnoredTargetedProduct object
  |  
  |  delete_ignored(self, targeted_product_id: int) -> Union[rcapi.models.general.StandardErrorResponse, rcapi.models.general.StandardSuccessResponse]
  |      Delete ignored targeted product
@@ -3204,6 +4196,10 @@ class TargetedProductService(builtins.object)
  |      ----------
  |      targeted_product_id : int
  |        ignored targeted product id
+ |      
+ |      Returns
+ |      -------
+ |      StandardSuccessResponse object
  |  
  |  list_ignored(self, count_mode: bool = False) -> Union[int, rcapi.models.general.IgnoredTargetedProductCollection]
  |      List ignored targeted products
@@ -3212,6 +4208,10 @@ class TargetedProductService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      int or IgnoredTargetedProductCollection
  |  
  |  list_products(self, count_mode: bool = False) -> Union[int, rcapi.models.general.TargetedProductCollection]
  |      List all targeted products
@@ -3220,6 +4220,10 @@ class TargetedProductService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      int or TargetedProductCollection object
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -3279,6 +4283,14 @@ class TelemetrySearchService(builtins.object)
  |  
  |  download(self) -> rcapi.models.general.RequestedCsvResponse
  |      Download audit logs to CSV
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      RequestedCsvResponse object
  |  
  |  list(self, filter_query: str = '', count_mode: bool = False) -> Union[int, rcapi.models.general.TelemetrySearchCollection]
  |      List telemetry
@@ -3287,6 +4299,12 @@ class TelemetrySearchService(builtins.object)
  |      ----------
  |      filter_query : str
  |        A string to fuzzy search by any telemetry attribute
+ |      count_mode : bool
+ |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      Am int or a TelemetrySearchCollection object
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:

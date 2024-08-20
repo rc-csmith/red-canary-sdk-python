@@ -6,12 +6,12 @@ import rcapi
 OUTPUT_DIR = './docs'
 
 # Create output directory if it does not exist
-if not os.path.exists(OUTPUT_DIR):
-  os.makedirs(OUTPUT_DIR)
-  os.makedirs(f'{OUTPUT_DIR}/models')
-else:
+if os.path.exists(OUTPUT_DIR):
   shutil.rmtree(OUTPUT_DIR)
 
+os.makedirs(OUTPUT_DIR)
+os.makedirs(f'{OUTPUT_DIR}/models')
+  
 # Generate list of methods that should be documented
 list_of_root_methods = ['rcapi']
 

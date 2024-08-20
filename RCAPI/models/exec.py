@@ -32,6 +32,10 @@ class PlaybookAction(BaseObject):
     ----------
     params : dict
       dictionary containing attributes for playbook action
+
+    Returns
+    -------
+    A PlaybookAction object
     """
     try:
       return AutomateService(self.client).update_playbook_action(self.playbook_id, self.id, params)
@@ -57,6 +61,14 @@ class Playbook(SelectableObject):
   def get_list(self):
     """
     Get a list of playbooks
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of Playbook objects
     """
     if hasattr(self,'client'):
       return AutomateService(self.client).list_playbooks()
@@ -71,6 +83,10 @@ class Playbook(SelectableObject):
     ----------
     unique_id : str
       unique id for the playbook
+
+    Returns
+    -------
+    A Playbook object
     """
     if hasattr(self,'client'):
       temp_list = AutomateService(self.client).list_playbooks()
@@ -88,6 +104,10 @@ class Playbook(SelectableObject):
     ----------
     params : dict
       dictionary containing attributes for playbook
+
+    Returns
+    -------
+    A Playbook object
     """
     if hasattr(self,'client'):
       return AutomateService(self.client).create_playbook(params)
@@ -102,6 +122,10 @@ class Playbook(SelectableObject):
     ----------
     params : dict
       dictionary containing attributes for playbook
+
+    Returns
+    -------
+    A Playbook object
     """
     try:
       return AutomateService(self.client).update_playbook(self.id, params)
@@ -111,6 +135,14 @@ class Playbook(SelectableObject):
   def delete(self):
     """
     Delete current playbook
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A Playbook object
     """
     try:
       return AutomateService(self.client).delete_playbook(self.id)
@@ -120,6 +152,14 @@ class Playbook(SelectableObject):
   def copy(self):
     """
     Copy current playbook
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A Playbook object
     """
     try:
       return AutomateService(self.client).copy_playbook(self.id)
@@ -134,6 +174,10 @@ class Playbook(SelectableObject):
     ----------
     params : dict
       dictionary containing attributes for action
+
+    Returns
+    -------
+    A PlaybookAction object
     """
     try:
       return AutomateService(self.client).create_playbook_action(self.id, params)
@@ -148,6 +192,10 @@ class Playbook(SelectableObject):
     ----------
     action : PlaybookAction
       PlaybookAction object
+
+    Returns
+    -------
+    A PlaybookAction object
     """
     try:
       return AutomateService(self.client).delete_playbook_action(self.id, action.id)
@@ -157,6 +205,14 @@ class Playbook(SelectableObject):
   def list_actions(self):
     """
     List actions for current playbook
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of PlaybookAction objects
     """
     try:
       return self.actions
@@ -186,6 +242,14 @@ class Trigger(SelectableObject):
   def get_list(self):
     """
     Get a list of triggers
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of Trigger objects
     """
     if hasattr(self,'client'):
       return AutomateService(self.client).list_triggers()
@@ -200,6 +264,10 @@ class Trigger(SelectableObject):
     ----------
     unique_id : str
       unique id for the trigger
+
+    Returns
+    -------
+    A Trigger object
     """
     if hasattr(self,'client'):
       temp_list = AutomateService(self.client).list_triggers()
@@ -217,6 +285,10 @@ class Trigger(SelectableObject):
     ----------
     params : dict
       dictionary containing attributes for trigger
+    
+    Returns
+    -------
+    A Trigger object
     """
     if hasattr(self,'client'):
       return AutomateService(self.client).create_trigger(params)
@@ -231,6 +303,10 @@ class Trigger(SelectableObject):
     ----------
     params : dict
       dictionary containing attributes for trigger
+    
+    Returns
+    -------
+    A Trigger object
     """
     try:
       return AutomateService(self.client).update_trigger(self.id, params)
@@ -240,6 +316,14 @@ class Trigger(SelectableObject):
   def delete(self):
     """
     Delete current trigger
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A Trigger object
     """
     try:
       return AutomateService(self.client).delete_trigger(self.id)
@@ -249,6 +333,14 @@ class Trigger(SelectableObject):
   def list_conditions(self):
     """
     List conditions for current trigger
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of TriggerCondition objects
     """
     try:
       return AutomateService(self.client).list_trigger_conditions(self.id)
@@ -263,6 +355,10 @@ class Trigger(SelectableObject):
     ----------
     params : dict
       dictionary containing attributes for condition
+
+    Returns
+    -------
+    A TriggerCondition object
     """
     try:
       return AutomateService(self.client).create_trigger_condition(self.id, params)
@@ -277,6 +373,10 @@ class Trigger(SelectableObject):
     ----------
     condition : TriggerCondition
       TriggerCondition object
+    
+    Returns
+    -------
+    A TriggerCondition object
     """
     try:
       return AutomateService(self.client).delete_trigger_condition(self.id, condition.id)
@@ -291,6 +391,10 @@ class Trigger(SelectableObject):
     ----------
     playbook : Playbook
       Playbook object
+
+    Returns
+    -------
+    A Playbook object
     """
     try:
       return AutomateService(self.client).add_trigger_playbook(self.id, {'playbook[id]': playbook.id})
@@ -305,6 +409,10 @@ class Trigger(SelectableObject):
     ----------
     playbook : Playbook
       Playbook object
+    
+    Returns
+    -------
+    A Playbook object
     """
     try:
       return AutomateService(self.client).remove_trigger_playbook(self.id, playbook.id)
@@ -443,6 +551,10 @@ class AutomateService(object):
       dictionary containing json string to be tested and accessor
       required keys: json_str
                      accessor
+    
+    Returns
+    -------
+    An InterpolationResponse object
     """
     required_keys = ['json_str','accessor']
     self.client.CheckRequiredKeys(required_keys,params,'test_json')
@@ -459,6 +571,10 @@ class AutomateService(object):
       playbook id
     trigger_id: int
       trigger id
+
+    Returns
+    -------
+    A StandardSuccessResponse object
     """
     result = self.client.call_api(method='delete',service=f'/automate/triggers/{trigger_id}/playbooks?playbook[id]={playbook_id}',
                               object_type=PlaybookResource)
@@ -479,6 +595,10 @@ class AutomateService(object):
     params : dict
       dictionary containing playbook id and other attributes
       required keys: playbook[id]
+    
+    Returns
+    -------
+    A Playbook object
     """
     required_keys = ['playbook[id]']
     self.client.CheckRequiredKeys(required_keys, params, 'add_trigger_playbook')
@@ -503,6 +623,10 @@ class AutomateService(object):
       condition id
     count_mode : bool
       show only a count and omit result details
+    
+    Returns
+    -------
+    A StandardSuccessResponse object
     """
 
     result = self.client.call_api(method='delete',service=f'/automate/triggers/{trigger_id}/conditions/{condition_id}', object_type=TriggerConditionResource)
@@ -526,6 +650,10 @@ class AutomateService(object):
                      condition[attribute_name]
                      condition[matcher]
                      condition[value] OR condition[value][]
+
+    Returns
+    -------
+    A TriggerCondition object
     """
     required_keys = ['condition[model]','condition[attribute_name]','condition[matcher]']
 
@@ -561,6 +689,10 @@ class AutomateService(object):
       trigger id
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    A list of TriggerCondition objects or an integer count
     """
     
     params, object_type = self.client.CheckCountMode(count_mode, TriggerConditionCollection)
@@ -581,6 +713,10 @@ class AutomateService(object):
     params : dict
       dictionary containing details for trigger
       required keys: trigger[id]
+
+    Returns
+    -------
+    A Trigger object
     """
     required_keys = ['trigger[id]']
     self.client.CheckRequiredKeys(required_keys, params, 'update_trigger')
@@ -601,6 +737,10 @@ class AutomateService(object):
     ----------
     trigger_id : int
       trigger id
+
+    Returns
+    -------
+    A StandardSuccessResponse object
     """
     result = self.client.call_api(method='delete',service=f'/automate/triggers/{trigger_id}', object_type=TriggerResource)
 
@@ -618,6 +758,10 @@ class AutomateService(object):
     params : dict
       dictionary containing attributes for trigger
       required keys: trigger[trigger]
+
+    Returns
+    -------
+    A Trigger object
     """
     required_keys = ['trigger[trigger]']
     self.client.CheckRequiredKeys(required_keys, params, "create_trigger")
@@ -637,6 +781,10 @@ class AutomateService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    A list of Trigger objects or an integer count
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, TriggerCollection)
@@ -658,6 +806,10 @@ class AutomateService(object):
       action id
     runtime_attributes : int
       runtime attributes
+
+    Returns
+    -------
+    A dictionary of runtime attributes
     """
     return self.client.call_api(method='get',service=f'/automate/playbooks/{playbook_id}/actions/{action_id}/{runtime_attributes}',
                             object_type=dict)
@@ -672,6 +824,10 @@ class AutomateService(object):
       playbook id
     action_id : int
       action id
+
+    Returns
+    -------
+    A StandardSuccessResponse object
     """
     result = self.client.call_api(method='delete',service=f'/automate/playbooks/{playbook_id}/actions/{action_id}',
                               object_type=PlaybookActionResource)
@@ -693,6 +849,10 @@ class AutomateService(object):
       action id
     params : dict
       dictionary of attributes for action
+
+    Returns
+    -------
+    A PlaybookAction object
     """
     result = self.client.call_api(method='patch',service=f'/automate/playbooks/{playbook_id}/actions/{action_id}',
                              params=params, object_type=PlaybookActionResource)
@@ -714,6 +874,10 @@ class AutomateService(object):
       dictionary of action attributes
       required keys: action[type]
                      action[row_order]
+
+    Returns
+    -------
+    A PlaybookAction object
     """
     required_keys = ['action[type]','action[row_order]']
     self.client.CheckRequiredKeys(required_keys, params, 'create_playbook_action')
@@ -736,6 +900,10 @@ class AutomateService(object):
       playbook id
     execution_id : int
       execution id
+
+    Returns
+    -------
+    A list of ActionExecution objects
     """
 
     return self.client.RecurseList(service=f'/automate/playbooks/{playbook_id}/executions/{execution_id}/actions',
@@ -751,6 +919,10 @@ class AutomateService(object):
       playbook id
     execution_id : int
       execution id
+
+    Returns
+    -------
+    A PlaybookExecution object
     """
     return self.client.call_api(method='get',service=f'/automate/playbooks/{playbook_id}/executions/{execution_id}',
                             object_type=PlaybookExecutionResource)
@@ -764,6 +936,10 @@ class AutomateService(object):
     ----------
     playbook_id : int
       playbook id
+
+    Returns
+    -------
+    A list of PlaybookExecution objects
     """
     return self.client.RecurseList(service=f'/automate/playbooks/{playbook_id}/executions', object_type=PlaybookExecutionResource)
 
@@ -775,6 +951,10 @@ class AutomateService(object):
     ----------
     playbook_id : int
       playbook id
+
+    Returns
+    -------
+    A Playbook object
     """
     return self.client.call_api(method='get',service=f'/automate/playbooks/{playbook_id}/action_history', object_type=PlaybookResource)
 
@@ -786,6 +966,10 @@ class AutomateService(object):
     ----------
     playbook_id : int
       playbook id
+
+    Returns
+    -------
+    A Playbook object
     """
     return self.client.call_api(method='get',service=f'/automate/playbooks/{playbook_id}/history', object_type=PlaybookResource)
 
@@ -797,6 +981,10 @@ class AutomateService(object):
     ----------
     playbook_id : int
       playbook id
+
+    Returns
+    -------
+    A Playbook object
     """
     result = self.client.call_api(method='post',service=f'/automate/playbooks/{playbook_id}', object_type=PlaybookResource)
 
@@ -813,6 +1001,10 @@ class AutomateService(object):
     ----------
     playbook_id : int
       playbook id
+
+    Returns
+    -------
+    A Playbook object
     """
     result = self.client.call_api(method='delete',service=f'/automate/playbooks/{playbook_id}', object_type=PlaybookResource)
 
@@ -832,6 +1024,10 @@ class AutomateService(object):
     params : dict
       dictionary of playbook attributes
       required_keys : playbook[id]
+
+    Returns
+    -------
+    A Playbook object
     """
     required_keys = ['playbook[id]']
     self.client.CheckRequiredKeys(required_keys, params, 'update_playbook')
@@ -855,6 +1051,10 @@ class AutomateService(object):
       list of indicator ids
     action : list[str]
       list of actions
+
+    Returns
+    -------
+    A Playbook object
     """
 
     params = {
@@ -880,6 +1080,10 @@ class AutomateService(object):
       name of playbook
     description : str
       description of playbook
+
+    Returns
+    -------
+    A Playbook object
     """
     params = {}
 
@@ -895,9 +1099,17 @@ class AutomateService(object):
     except:
       return result
 
-  def list_playbooks(self) -> Union[int, list[Playbook]]:
+  def list_playbooks(self) -> list[Playbook]:
     """
     List all playbooks
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of Playbook objects
     """
   
     return self.client.RecurseList(service='/automate/playbooks', object_type=PlaybookCollection)
@@ -905,6 +1117,14 @@ class AutomateService(object):
   def get_configuration(self) -> Configuration:
     """
     Get configuration
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A Configuration object
     """
     return self.client.call_api(method='get',service='/automate/configuration', object_type=ConfigurationResource)
   
@@ -916,6 +1136,10 @@ class AutomateService(object):
     ----------
     playbook_id : int
       playbook id
+
+    Returns
+    -------
+    An ActionExecution object
     """
     return self.client.call_api(method='post',service=f'/automate/action_executions/{playbook_id}/deny', object_type=ActionExecutionResource)
   
@@ -927,6 +1151,10 @@ class AutomateService(object):
     ----------
     playbook_id : int
       playbook id
+
+    Returns
+    -------
+    An ActionExecution object
     """
     return self.client.call_api(method='post',service=f'/automate/action_executions/{playbook_id}/approve', object_type=ActionExecutionResource)
   
@@ -944,6 +1172,10 @@ class AutomateService(object):
       exclude playbook execution
     exclude_playbook_available_actions : bool
       exclude playbook available actions
+
+    Returns
+    -------
+    An ActionExecution object
     """
     query = []
 

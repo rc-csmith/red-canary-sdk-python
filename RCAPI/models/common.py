@@ -4,6 +4,8 @@ Common
 class FinishedObject(object):
   """
   Adds functionality to BaseObject or Resource to print in non-empty JSON format
+
+  Objects of this type can be called directly by the user.
   """
   def __init__(self, entry):
     self = entry
@@ -18,7 +20,9 @@ class FinishedObject(object):
     
 class BaseObject(FinishedObject):
   """
-  Formats basic object returned from API into a FinishedObject
+  Formats basic object returned from API into a FinishedObject.
+
+  Objects of this type can be called directly by the user.
   """
   def __init__(self, entry, type_mapping={}):
     known_keys = ['attributes', 'data', 'relationships', 'meta', 'error', 'flash']
@@ -62,14 +66,19 @@ class BaseObject(FinishedObject):
 
 class SelectableObject(BaseObject):
   """
-  Formats selectable object as a basic object
+  A SelectableObject is a BaseObject with the ability to select a specific object from the API.
+
+  Objects of this type can be called directly by the user.
   """
   def __init__(self, entry, type_mapping={}):
     super().__init__(entry, type_mapping)
 
 class Resource(FinishedObject):
   """
-  Formats Resource into an array of FinishedObjects with `api_version` defined
+  A Resource is a list of objects returned from the API with a `meta`, `data`, and `api_version` attribute.
+
+  Objects of this type are not called directly by the user.
+  This is an internal structure used by the API client.
   """
   def __init__(self, entry, object_type, base=None, client=None):
     if base is not None:
@@ -92,7 +101,11 @@ class Resource(FinishedObject):
 
 class Collection(Resource):
   """
-  Formats Collection into a Resource with `links` defined
+  A Collection is a Resource with a `links` attribute
+  This is used for paginated responses
+
+  Objects of this type are not called directly by the user.
+  This is an internal structure used by the API client.
   """
   def __init__(self, entry, object_type, client=None):
     temp_dict = {}

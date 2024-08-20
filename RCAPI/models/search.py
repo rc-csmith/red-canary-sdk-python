@@ -80,6 +80,10 @@ class SearchService(object):
       MAC address
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    A list of ResultForMacAddress objects or an integer count
     """
     params, object_type = self.client.CheckCountMode(count_mode, ResultForMacAddressCollection)
     params['mac_address'] = mac_address
@@ -101,6 +105,10 @@ class SearchService(object):
       IP address
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    A list of ResultForIpAddress objects or an integer count
     """
     params, object_type = self.client.CheckCountMode(count_mode, ResultForIpAddressCollection)
     params['ip_address'] = ip_address
@@ -122,6 +130,10 @@ class SearchService(object):
       endpoint hostname
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    A list of ResultForEndpointHostname objects or an integer count
     """
     params, object_type = self.client.CheckCountMode(count_mode, ResultForEndpointHostnameCollection)
     params['endpoint_hostname'] = endpoint_hostname

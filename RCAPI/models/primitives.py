@@ -89,6 +89,10 @@ class BinaryService(object):
     ----------
     binary_hash : str
       The hash of the binary to retrieve
+
+    Returns
+    -------
+    A Binary object
     """
     return self.client.call_api(method='get', service=f'/binaries/{binary_hash}', object_type=Binary)
 
@@ -100,5 +104,9 @@ class BinaryService(object):
     ----------
     binary_hash : str
       The hash of the binary to retrieve
+
+    Returns
+    -------
+    An EDRLink object
     """
     return self.client.call_api(method='get', service=f'/binaries/{binary_hash}/edr_link', object_type=Binary)

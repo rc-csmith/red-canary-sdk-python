@@ -23,6 +23,14 @@ class AuditLog(SelectableObject):
   def get_list(self):
     """
     Get a list of audit logs
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of AuditLog objects
     """
     if hasattr(self, 'client'):
       return AuditLogService(self.client).list_entries()
@@ -37,6 +45,10 @@ class AuditLog(SelectableObject):
     ----------
     unique_id : str
       unique id for the audit log
+
+    Returns
+    -------
+    An AuditLog object
     """
     if hasattr(self, 'client'):
       return AuditLogService(self.client).get(int(unique_id))
@@ -74,6 +86,10 @@ class AuditLogService(object):
       audit actions for search/filter
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    A list of AuditLog objects or an integer count
     """
     params, object_type = self.client.CheckCountMode(count_mode, AuditLogCollection)
 
@@ -93,6 +109,10 @@ class AuditLogService(object):
     ----------
     search_string : str
       query string to filter audit logs
+
+    Returns
+    -------
+    RequestedCsvResponse object
     """
     params = {}
     if search_string != '':
@@ -108,6 +128,10 @@ class AuditLogService(object):
     ----------
     id : int
       audit log id
+
+    Returns
+    -------
+    An AuditLog object
     """
     result = self.client.call_api(method='get',service=f'/audit_logs/{audit_log_id}',object_type=AuditLogResource)
 

@@ -1,5 +1,18 @@
 # red-canary-sdk-python
 
+## Installation & Setup
+
+1. Download a copy of this repo
+2. From the root of the repo directory, run the following command
+```bash
+pip install ./rcapi
+```
+1. Set environment variables or pass as optional parameters to the `rcapi` object:
+```bash
+RED_CANARY_CUSTOMER_ID=<YOUR CUSTOMER ID/NAME>
+RED_CANARY_AUTH_TOKEN=<YOUR API TOKEN>
+```
+
 ## Example Usage
 
 ```
@@ -43,3 +56,31 @@ Detection.get_list(connection)
 connection.detection.get(123)
 connection.detection.list_detections()
 ```
+
+## Architecture
+- All objects have the `.to_json()` function that can convert the custom object to non-empty JSON format.
+- Object models that support callable functions (e.g. `get_item`, `create`, etc.) are listed below. For a full list of callable functions for each object, see the [documentation](./docs/).
+  - ActivityMonitor
+  - ActivityMonitorMatch
+  - AttackTactic
+  - AttackTechnique
+  - AuditLog
+  - Detection
+  - Endpoint
+  - EndpointUser
+  - Event
+  - ExternalAlert
+  - ExternalAlertSourcePlatform
+  - ExternalService
+  - FileIntegrityMatch
+  - IgnoredTargetedProduct
+  - ManagedPortalUser
+  - Playbook
+  - PortalRole
+  - Report
+  - ReportingTag
+  - ReportingTagAssociation
+  - SharedFile
+  - SuppressionRule
+  - TargetedProduct
+  - Trigger

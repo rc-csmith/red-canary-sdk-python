@@ -3,7 +3,9 @@ Python Library Documentation: class BaseObject in module rcapi.models.common
 class BaseObject(FinishedObject)
  |  BaseObject(entry, type_mapping={})
  |  
- |  Formats basic object returned from API into a FinishedObject
+ |  Formats basic object returned from API into a FinishedObject.
+ |  
+ |  Objects of this type can be called directly by the user.
  |  
  |  Method resolution order:
  |      BaseObject
@@ -45,9 +47,25 @@ class CustomerService(builtins.object)
  |  
  |  get_intel_reporting_stats(self) -> rcapi.models.customer.IntelReporting
  |      Get intel reporting stats
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      An IntelReporting object
  |  
  |  list_system_activities(self) -> list[rcapi.models.customer.SystemActivity]
  |      List system activities
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of SystemActivity objects
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -86,9 +104,21 @@ class ExternalAlert(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        ID of object
+ |      
+ |      Returns
+ |      -------
+ |      An ExternalAlert object
  |  
  |  get_list(self)
  |      Get a list of external alerts
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of ExternalAlert objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -127,6 +157,10 @@ class ExternalAlertService(builtins.object)
  |        dict containing attributes of new source platform
  |        required keys: name
  |                       source_platform_id
+ |      
+ |      Returns
+ |      -------
+ |      An ExternalAlertSource object
  |  
  |  delete_source(self, external_alert_source_id: int) -> Union[rcapi.models.general.StandardErrorResponse, rcapi.models.general.StandardSuccessResponse]
  |      Delete an external alert source
@@ -135,6 +169,10 @@ class ExternalAlertService(builtins.object)
  |      ----------
  |      external_alert_source_id : int
  |        external alert source id
+ |      
+ |      Returns
+ |      -------
+ |      A StandardSuccessResponse object
  |  
  |  get(self, external_alert_id: int) -> rcapi.models.customer.ExternalAlert
  |      Get a specific external alert
@@ -143,6 +181,10 @@ class ExternalAlertService(builtins.object)
  |      ----------
  |      external_alert_id : int
  |        ID of object
+ |      
+ |      Returns
+ |      -------
+ |      An ExternalAlert object
  |  
  |  get_native_id(self, external_alert_native_id: int) -> rcapi.models.customer.ExternalAlert
  |      Get a specific external alert by its native ID
@@ -151,6 +193,10 @@ class ExternalAlertService(builtins.object)
  |      ----------
  |      external_alert_native_id : int
  |        Native ID of object
+ |      
+ |      Returns
+ |      -------
+ |      An ExternalAlert object
  |  
  |  get_source(self, external_alert_source_id: int) -> rcapi.models.customer.ExternalAlertSource
  |      Get a specific external alert source
@@ -161,6 +207,10 @@ class ExternalAlertService(builtins.object)
  |        external alert source id
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      An ExternalAlertSource object
  |  
  |  get_source_platform(self, external_alert_source_platform_id: int) -> rcapi.models.customer.ExternalAlertSourcePlatform
  |      Get a specific external alert source platform
@@ -169,6 +219,10 @@ class ExternalAlertService(builtins.object)
  |      ----------
  |      external_alert_source_platform_id : int
  |        external alert source platform id
+ |      
+ |      Returns
+ |      -------
+ |      An ExternalAlertSourcePlatform object
  |  
  |  list_alerts(self, count_mode: bool = False, q: str = '') -> Union[int, list[rcapi.models.customer.ExternalAlert]]
  |      List all external alerts
@@ -179,6 +233,10 @@ class ExternalAlertService(builtins.object)
  |        show only a count and omit result details
  |      q : str
  |        query string for search/filter
+ |      
+ |      Returns
+ |      -------
+ |      A list of ExternalAlert objects or an integer count
  |  
  |  list_source_platforms(self, count_mode: bool = False) -> Union[int, list[rcapi.models.customer.ExternalAlertSourcePlatform]]
  |      List all external alert source platforms
@@ -187,6 +245,10 @@ class ExternalAlertService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      A list of ExternalAlertSourcePlatform objects or an integer count
  |  
  |  list_sources(self, alert_aggregator_id: int = -1, count_mode: bool = False) -> Union[int, list[rcapi.models.customer.ExternalAlertSource]]
  |      "
@@ -199,6 +261,10 @@ class ExternalAlertService(builtins.object)
  |        optional - defaults to all
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      A list of ExternalAlertSource objects or an integer count
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -239,9 +305,21 @@ class ExternalAlertSource(rcapi.models.common.SelectableObject)
  |        dict containing attributes of new source platform
  |        required keys: name
  |                       source_platform_id
+ |      
+ |      Returns
+ |      -------
+ |      An ExternalAlertSource object
  |  
  |  delete(self)
  |      Delete current external alert source
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A StandardSuccessResponse object
  |  
  |  get_item(self, unique_id: str)
  |      Get a single external alert source
@@ -250,9 +328,21 @@ class ExternalAlertSource(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        ID of object
+ |      
+ |      Returns
+ |      -------
+ |      An ExternalAlertSource object
  |  
- |  get_list(self)
+ |  get_list(self) -> list
  |      Get a list of external alert sources
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of ExternalAlertSource objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -296,9 +386,21 @@ class ExternalAlertSourcePlatform(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        ID of object
+ |      
+ |      Returns
+ |      -------
+ |      An ExternalAlertSourcePlatform object
  |  
  |  get_list(self)
  |      Get a list of external alert source platforms
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of ExternalAlertSourcePlatform objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -457,7 +559,9 @@ Python Library Documentation: class SelectableObject in module rcapi.models.comm
 class SelectableObject(BaseObject)
  |  SelectableObject(entry, type_mapping={})
  |  
- |  Formats selectable object as a basic object
+ |  A SelectableObject is a BaseObject with the ability to select a specific object from the API.
+ |  
+ |  Objects of this type can be called directly by the user.
  |  
  |  Method resolution order:
  |      SelectableObject

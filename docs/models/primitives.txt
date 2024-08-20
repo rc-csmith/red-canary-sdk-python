@@ -3,7 +3,9 @@ Python Library Documentation: class BaseObject in module rcapi.models.common
 class BaseObject(FinishedObject)
  |  BaseObject(entry, type_mapping={})
  |  
- |  Formats basic object returned from API into a FinishedObject
+ |  Formats basic object returned from API into a FinishedObject.
+ |  
+ |  Objects of this type can be called directly by the user.
  |  
  |  Method resolution order:
  |      BaseObject
@@ -118,6 +120,10 @@ class BinaryService(builtins.object)
  |      ----------
  |      binary_hash : str
  |        The hash of the binary to retrieve
+ |      
+ |      Returns
+ |      -------
+ |      A Binary object
  |  
  |  get_edr_link(self, binary_hash: str) -> rcapi.models.primitives.EDRLink
  |      Get the EDR link for a binary
@@ -126,6 +132,10 @@ class BinaryService(builtins.object)
  |      ----------
  |      binary_hash : str
  |        The hash of the binary to retrieve
+ |      
+ |      Returns
+ |      -------
+ |      An EDRLink object
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:

@@ -19,6 +19,14 @@ class SuppressionRule(SelectableObject):
   def get_list(self):
     """
     Get a list of suppression rules
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of SuppressionRule objects
     """
     if hasattr(self,'client'):
       return SuppressionRuleService(self.client).list_suppression_rules()
@@ -33,6 +41,10 @@ class SuppressionRule(SelectableObject):
     ----------
     unique_id : str
       unique id for the suppression rule
+
+    Returns
+    -------
+    A SuppressionRule object
     """
     if hasattr(self,'client'):
       return SuppressionRuleService(self.client).get(int(unique_id))
@@ -42,6 +54,14 @@ class SuppressionRule(SelectableObject):
   def delete(self):
     """
     Delete current suppression rule
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
     """
     try:
       return SuppressionRuleService(self.client).delete(self.id)
@@ -88,6 +108,14 @@ class ActivityMonitor(SelectableObject):
   def get_list(self):
     """
     Get a list of activity monitors
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of ActivityMonitor objects
     """
     if hasattr(self,'client'):
       return ActivityMonitorService(self.client).list_monitors()
@@ -102,6 +130,10 @@ class ActivityMonitor(SelectableObject):
     ----------
     unique_id : str
       unique id for the activity monitor
+
+    Returns
+    -------
+    An ActivityMonitor object
     """
     if hasattr(self,'client'):
       return ActivityMonitorService(self.client).get(int(unique_id))
@@ -111,6 +143,14 @@ class ActivityMonitor(SelectableObject):
   def deactivate(self):
     """
     Deactivate current activity monitor
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
     """
     try:
       return ActivityMonitorService(self.client).deactivate(self.id)
@@ -125,6 +165,10 @@ class ActivityMonitor(SelectableObject):
     ----------
     params : dict
       parameters for the new activity monitor
+
+    Returns
+    -------
+    An ActivityMonitor object
     """
 
     if hasattr(self,'client'):
@@ -135,6 +179,14 @@ class ActivityMonitor(SelectableObject):
   def list_matches(self):
     """
     List matches for the current activity monitor
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of ActivityMonitorMatch objects
     """
     try:
       return ActivityMonitorService(self.client).list_matches(self.id)
@@ -161,6 +213,14 @@ class ActivityMonitorMatch(SelectableObject):
   def get_list(self):
     """
     Get a list of activity monitor matches
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of ActivityMonitorMatch objects
     """
     if hasattr(self,'client'):
       return ActivityMonitorService(self.client).list_all_matches()
@@ -170,6 +230,14 @@ class ActivityMonitorMatch(SelectableObject):
   def get_item(self, unique_id: str):
     """
     Get a single activity monitor match
+
+    Parameters
+    ----------
+    unique_id : str
+
+    Returns
+    -------
+    An ActivityMonitorMatch object
     """
     if hasattr(self,'client'):
       temp_list = ActivityMonitorService(self.client).list_all_matches()
@@ -197,6 +265,14 @@ class FileIntegrityMatch(SelectableObject): #TODO: Contains endpoint and endpoin
   def get_list(self):
     """
     Get a list of file integrity matches
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of FileIntegrityMatch objects
     """
     if hasattr(self,'client'):
       return ActivityMonitorService(self.client).list_fim_matches()
@@ -211,6 +287,10 @@ class FileIntegrityMatch(SelectableObject): #TODO: Contains endpoint and endpoin
     ----------
     unique_id : str
       unique id for the file integrity match
+
+    Returns
+    -------
+    A FileIntegrityMatch object
     """
     if hasattr(self,'client'):
       temp_list = ActivityMonitorService(self.client).list_fim_matches()
@@ -267,6 +347,14 @@ class Detection(SelectableObject):
   def get_list(self):
     """
     Get a list of detections
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of Detection objects
     """
     if hasattr(self,'client'):
       return DetectionService(self.client).list_detections()
@@ -281,6 +369,10 @@ class Detection(SelectableObject):
     ----------
     unique_id : str
       unique id for the detection
+
+    Returns
+    -------
+    A Detection object
     """
     if hasattr(self,'client'):
       return DetectionService(self.client).get(int(unique_id))
@@ -290,6 +382,14 @@ class Detection(SelectableObject):
   def list_events(self):
     """
     List events for the current detection
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of Event objects
     """
     try:
       return DetectionService(self.client).list_events(self.id)
@@ -299,7 +399,15 @@ class Detection(SelectableObject):
   def list_iocs(self):
     """
     List IOCs for the current detection
-  """
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of IndicatorOfCompromise objects
+    """
     try:
       return DetectionService(self.client).list_iocs(self.id)
     except Exception as e:
@@ -313,6 +421,10 @@ class Detection(SelectableObject):
     ----------
     params : dict
       parameters for the remediation status
+
+    Returns
+    -------
+    A Detection object
     """
     try:
       return DetectionService(self.client).update_remediation_status(self.id, params)
@@ -322,7 +434,15 @@ class Detection(SelectableObject):
   def mark_acknowledged(self):
     """
     Mark the current detection as acknowledged
-  """
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A Detection object
+    """
     try:
       return DetectionService(self.client).mark_acknowledged(self.id)
     except Exception as e:
@@ -331,7 +451,15 @@ class Detection(SelectableObject):
   def list_timeline(self):
     """
     List the timeline for the current detection
-  """
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of Timeline objects
+    """
     try:
       return DetectionService(self.client).list_timeline(self.id)
     except Exception as e:
@@ -340,6 +468,14 @@ class Detection(SelectableObject):
   def list_detectors(self):
     """
     List detectors for the current detection
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of Detector objects
     """
     try:
       return DetectionService(self.client).list_detectors(self.id)
@@ -349,6 +485,14 @@ class Detection(SelectableObject):
   def list_related(self):
     """
     List related detections for the current detection
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of Detection objects
     """
     try:
       return DetectionService(self.client).list_related(self.id)
@@ -396,6 +540,13 @@ class Event(SelectableObject):
   def get_list(self):
     """
     Get a list of events
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+    A list of Event objects
     """
     if self.client:
       return EventService(self.client).list_events()
@@ -410,6 +561,10 @@ class Event(SelectableObject):
     ----------
     unique_id : str
       unique id for the event
+
+    Returns
+    -------
+    An Event object
     """
     if self.client:
       return EventService(self.client).get(int(unique_id))
@@ -430,6 +585,10 @@ class Event(SelectableObject):
       IOC type
     override_greylist : bool
       override greylist
+
+    Returns
+    -------
+    An EventActivity object
     """
     try:
       return EventService(self.client).mark_activity_as_ioc(self.id, activity_id, activity_path, ioc_type, override_greylist)
@@ -446,6 +605,10 @@ class Event(SelectableObject):
       activity id
     activity_path : str
       activity path
+
+    Returns
+    -------
+    An EventActivity object
     """
     try:
       return EventService(self.client).mark_activity_as_relevant(self.id, activity_id, activity_path)
@@ -460,6 +623,10 @@ class Event(SelectableObject):
     ----------
     activity_id : int
       activity id
+
+    Returns
+    -------
+    An EventActivity object
     """
     try:
       return EventService(self.client).get_activity(self.id, activity_id)
@@ -469,6 +636,14 @@ class Event(SelectableObject):
   def list_cached_activity_enrichments(self):
     """
     List cached activity enrichments for the current event
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A dict
     """
     try:
       return EventService(self.client).list_cached_activity_enrichments(self.id)
@@ -478,6 +653,14 @@ class Event(SelectableObject):
   def list_timeline_activites(self):
     """
     List timeline activities for the current event
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of EventTimelineActivity objects
     """
     try:
       return EventService(self.client).list_timeline_activities(self.id)
@@ -492,6 +675,10 @@ class Event(SelectableObject):
     ----------
     timeline_activity_id : int
       timeline activity id
+
+    Returns
+    -------
+    An EventTimelineActivity object
     """
     try:
       return EventService(self.client).delete_timeline_activity(self.id, timeline_activity_id)
@@ -563,6 +750,14 @@ class AttackTactic(SelectableObject):
   def get_list(self):
     """
     Get a list of attack tactics
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of AttackTactic objects
     """
     if hasattr(self,'client'):
       return DetectorService(self.client).list_tactics()
@@ -577,6 +772,10 @@ class AttackTactic(SelectableObject):
     ----------
     unique_id : str
       unique id for the attack tactic
+
+    Returns
+    -------
+    An AttackTactic object
     """
     if hasattr(self,'client'):
       return DetectorService(self.client).get_tactic(int(unique_id))
@@ -600,6 +799,14 @@ class AttackTechnique(SelectableObject):
   def get_list(self):
     """
     Get a list of attack techniques
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of AttackTechnique objects
     """
     if hasattr(self,'client'):
       return DetectorService(self.client).list_techniques()
@@ -613,7 +820,12 @@ class AttackTechnique(SelectableObject):
     Parameters
     ----------
     unique_id : str
-      unique id for the attack technique"""
+      unique id for the attack technique
+
+    Returns
+    -------
+    An AttackTechnique object
+    """
     if hasattr(self,'client'):
       return DetectorService(self.client).get_technique(int(unique_id))
     else:
@@ -635,6 +847,14 @@ class ReportingTag(SelectableObject):
   def get_list(self):
     """
     Get a list of reporting tags
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of ReportingTag objects
     """
     if hasattr(self, 'client'):
       return EndpointService(self.client).list_reporting_tags()
@@ -648,7 +868,12 @@ class ReportingTag(SelectableObject):
     Parameters
     ----------
     unique_id : str
-      unique id for the reporting tag"""
+      unique id for the reporting tag
+
+    Returns
+    -------
+    A ReportingTag object
+    """
     if hasattr(self, 'client'):
       temp = EndpointService(self.client).list_reporting_tags()
       for item in temp:
@@ -685,6 +910,14 @@ class EndpointUser(SelectableObject):
   def get_list(self):
     """
     Get a list of endpoint users
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of EndpointUser objects
     """
     if hasattr(self,'client'):
       return EndpointUserService(self.client).list_users()
@@ -699,6 +932,10 @@ class EndpointUser(SelectableObject):
     ----------
     unique_id : str
       unique id for the endpoint user
+
+    Returns
+    -------
+    An EndpointUser object
     """
     if hasattr(self,'client'):
       return EndpointUserService(self.client).get(int(unique_id))
@@ -713,6 +950,10 @@ class EndpointUser(SelectableObject):
     ----------
     reporting_tag : ReportingTag
       reporting tag to remove
+
+    Returns
+    -------
+    Any object
     """
     try:
       return EndpointUserService(self.client).remove_reporting_tag(reporting_tag.name, self.id)
@@ -729,6 +970,10 @@ class EndpointUser(SelectableObject):
       reporting tag to add
     params : dict
       parameters for the reporting tag
+
+    Returns
+    -------
+    Any object
     """
     try:
       return EndpointUserService(self.client).add_reporting_tag(reporting_tag.name, self.id, params)
@@ -743,6 +988,10 @@ class EndpointUser(SelectableObject):
     ----------
     params : dict
       parameters for the system activities
+
+    Returns
+    -------
+    A list of SystemActivity objects
     """
     try:
       return EndpointUserService(self.client).list_system_activities(self.id, params)
@@ -772,6 +1021,14 @@ class Endpoint(SelectableObject):
   def get_list(self):
     """
     Get a list of endpoints
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of Endpoint objects
     """
     if hasattr(self,'client'):
       return EndpointService(self.client).list_endpoints()
@@ -786,6 +1043,10 @@ class Endpoint(SelectableObject):
     ----------
     unique_id : str
       unique id for the endpoint
+
+    Returns
+    -------
+    An Endpoint object
     """
     if hasattr(self,'client'):
       return EndpointService(self.client).get(int(unique_id))
@@ -795,6 +1056,14 @@ class Endpoint(SelectableObject):
   def deisolate(self):
     """
     Deisolate the current endpoint
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    An Endpoint object
     """
     params = {'ids':[self.id]}
     try:
@@ -805,6 +1074,14 @@ class Endpoint(SelectableObject):
   def isolate(self):
     """
     Isolate the current endpoint
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    An Endpoint object
     """
     params = {'ids':[self.id]}
     try:
@@ -815,6 +1092,15 @@ class Endpoint(SelectableObject):
   def decommission(self, uninstall: bool = False):
     """
     Decommission the current endpoint
+
+    Parameters
+    ----------
+    uninstall : bool
+      uninstall the endpoint
+    
+    Returns
+    -------
+    An Endpoint object
     """
     try:
       return EndpointService(self.client).decommission(self.id, uninstall)
@@ -824,6 +1110,14 @@ class Endpoint(SelectableObject):
   def reinstate(self):
     """
     Reinstate the current endpoint
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    An Endpoint object
     """
     params = {'ids':[self.id]}
     try:
@@ -834,6 +1128,14 @@ class Endpoint(SelectableObject):
   def deactivate_safe_mode(self):
     """
     Deactivate safe mode for the current endpoint
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    An Endpoint object
     """
     params = {'ids':[self.id]}
     try:
@@ -844,6 +1146,14 @@ class Endpoint(SelectableObject):
   def activate_safe_mode(self):
     """
     Activate safe mode for the current endpoint
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    An Endpoint object
     """
     params = {'ids':[self.id]}
     try:
@@ -859,6 +1169,10 @@ class Endpoint(SelectableObject):
     ----------
     reporting_tag : ReportingTag
       reporting tag to remove
+
+    Returns
+    -------
+    Any object
     """
     try:
       return EndpointService(self.client).remove_reporting_tag(self.id, reporting_tag.name)
@@ -875,6 +1189,10 @@ class Endpoint(SelectableObject):
       reporting tag to add
     params : dict
       parameters for the reporting tag
+
+    Returns
+    -------
+    Any object
     """
     try:
       return EndpointService(self.client).add_reporting_tag(self.id, reporting_tag.name, params)
@@ -891,6 +1209,10 @@ class Endpoint(SelectableObject):
       date to start from
     include_system_accounts : bool
       include system accounts
+
+    Returns
+    -------
+    A list of EndpointUser objects
     """
     try:
       return EndpointService(self.client).list_endpoint_users(self.id, fromdate, include_system_accounts)
@@ -900,6 +1222,14 @@ class Endpoint(SelectableObject):
   def list_system_activities(self):
     """
     List system activities for the current endpoint
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of SystemActivity objects
     """
     try:
       return EndpointService(self.client).list_system_activities(self.id)
@@ -938,6 +1268,14 @@ class ExternalService(SelectableObject):
   def get_list(self):
     """
     Get a list of external services
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of ExternalService objects
     """
     if hasattr(self,'client'):
       return ExternalServicesService(self.client).list_external_services()
@@ -952,6 +1290,10 @@ class ExternalService(SelectableObject):
     ----------
     unique_id : str
       unique id for the external service
+
+    Returns
+    -------
+    An ExternalService object
     """
     if hasattr(self, 'client'):
       return ExternalServicesService(self.client).get(external_service_uuid=unique_id)
@@ -961,6 +1303,14 @@ class ExternalService(SelectableObject):
   def get_aws_list(self):
     """
     Get a list of AWS services
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of ExternalService objects
     """
     if hasattr(self, 'client'):
       return ExternalServicesService(self.client).list_aws_services()
@@ -975,6 +1325,10 @@ class ExternalService(SelectableObject):
     ----------
     unique_id : str
       unique id for the AWS service
+
+    Returns
+    -------
+    An ExternalService object
     """
     if hasattr(self, 'client'):
       return ExternalServicesService(self.client).get_aws_service(external_service_uuid=unique_id)
@@ -993,6 +1347,10 @@ class ExternalService(SelectableObject):
       AWS account id
     aws_assumed_role_arn : str
       AWS assumed role ARN
+
+    Returns
+    -------
+    An ExternalService object
     """
     if hasattr(self, 'client'):
       return ExternalServicesService(self.client).create_aws_service(description, aws_account_id, aws_assumed_role_arn)
@@ -1011,6 +1369,10 @@ class ExternalService(SelectableObject):
       description for the AWS service
     aws_assumed_role_arn : str
       AWS assumed role ARN
+
+    Returns
+    -------
+    An ExternalService object
     """
     try:
       return ExternalServicesService(self.client).update_aws_service(self.id, aws_account_id, description, aws_assumed_role_arn)
@@ -1020,6 +1382,14 @@ class ExternalService(SelectableObject):
   def delete_aws_item(self):
     """
     Delete the current AWS service
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
     """
     try:
       return ExternalServicesService(self.client).delete_aws_service(self.id)
@@ -1061,6 +1431,14 @@ class PortalRole(SelectableObject):
   def get_list(self):
     """
     Get a list of portal roles
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of PortalRole objects
     """
     if hasattr(self,'client'):
       return PortalRoleService(self.client).list_portal_roles()
@@ -1075,6 +1453,10 @@ class PortalRole(SelectableObject):
     ----------
     unique_id : str
       unique id for the portal role
+
+    Returns
+    -------
+    A PortalRole object
     """
     if hasattr(self,'client'):
       temp_list = PortalRoleService(self.client).list_portal_roles()
@@ -1111,6 +1493,14 @@ class ManagedPortalUser(SelectableObject):
   def get_list(self):
     """
     Get a list of managed portal users
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of ManagedPortalUser objects
     """
     if hasattr(self,'client'):
       return ManagedPortalUserService(self.client).list_users()
@@ -1125,6 +1515,10 @@ class ManagedPortalUser(SelectableObject):
     ----------
     unique_id : str 
       unique id for the managed portal user
+
+    Returns
+    -------
+    A ManagedPortalUser object
     """
     if hasattr(self,'client'):
       return ManagedPortalUserService(self.client).get(int(unique_id))
@@ -1139,6 +1533,10 @@ class ManagedPortalUser(SelectableObject):
     ----------
     params : dict
       parameters for the new managed portal user
+
+    Returns
+    -------
+    A ManagedPortalUser object
     """
     if hasattr(self,'client'):
       return ManagedPortalUserService(self.client).invite(params['email'])
@@ -1148,7 +1546,15 @@ class ManagedPortalUser(SelectableObject):
   def delete(self):
     """
     Delete the current managed portal user
-  """
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A ManagedPortalUser object
+    """
     try:
       return ManagedPortalUserService(self.client).delete(self.id)
     except Exception as e:
@@ -1157,6 +1563,14 @@ class ManagedPortalUser(SelectableObject):
   def disable_mfa(self):
     """
     Disable MFA for the current managed portal user
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A ManagedPortalUser object
     """
     try:
       return ManagedPortalUserService(self.client).disable_mfa(self.id)
@@ -1166,6 +1580,14 @@ class ManagedPortalUser(SelectableObject):
   def uninvite(self):
     """
     Uninvite the current managed portal user
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A ManagedPortalUser object
     """
     try:
       return ManagedPortalUserService(self.client).uninvite(self.id)
@@ -1175,6 +1597,14 @@ class ManagedPortalUser(SelectableObject):
   def reinvite(self):
     """
     Reinvite the current managed portal user
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A ManagedPortalUser object
     """
     try:
       return ManagedPortalUserService(self.client).reinvite(self.id)
@@ -1184,6 +1614,15 @@ class ManagedPortalUser(SelectableObject):
   def add_role(self, role: PortalRole):
     """
     Add a role to the current managed portal user
+
+    Parameters
+    ----------
+    role : PortalRole
+      role to add
+
+    Returns
+    -------
+    A ManagedPortalUser object
     """
     try:
       return ManagedPortalUserService(self.client).add_role(role.name, self.id)
@@ -1193,6 +1632,15 @@ class ManagedPortalUser(SelectableObject):
   def delete_role(self, role: PortalRole):
     """
     Delete a role from the current managed portal user
+
+    Parameters
+    ----------
+    role : PortalRole
+      role to delete
+
+    Returns
+    -------
+    A ManagedPortalUser object
     """
     try:
       return ManagedPortalUserService(self.client).delete_role(role.name, self.id)
@@ -1224,6 +1672,14 @@ class Report(SelectableObject):
   def get_list(self):
     """
     Get a list of reports
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of Report objects
     """
     if hasattr(self,'client'):
       return ReportLibraryService(self.client).list_reports()
@@ -1238,6 +1694,10 @@ class Report(SelectableObject):
     ----------
     unique_id : str
       unique id for the report
+
+    Returns
+    -------
+    A Report object
     """
     if hasattr(self,'client'):
       return ReportLibraryService(self.client).get(int(unique_id))
@@ -1247,6 +1707,14 @@ class Report(SelectableObject):
   def unfavorite(self):
     """
     Unfavorite the current report
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A Report object
     """
     try:
       return ReportLibraryService(self.client).unfavorite(self.name)
@@ -1256,6 +1724,13 @@ class Report(SelectableObject):
   def favorite(self):
     """
     Favorite the current report
+
+    Parameters
+    ----------
+
+    Returns
+    -------
+    A Report object
     """
     try:
       return ReportLibraryService(self.client).favorite(self.name)
@@ -1279,6 +1754,14 @@ class SharedFile(SelectableObject):
   def get_list(self):
     """
     Get a list of shared files
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of SharedFile objects
     """
     if hasattr(self,'client'):
       return SharedFileService(self.client).list_sharedfiles()
@@ -1293,6 +1776,10 @@ class SharedFile(SelectableObject):
     ----------
     unique_id : str
       unique id for the shared file
+    
+    Returns
+    -------
+    A SharedFile object
     """
     if hasattr(self,'client'):
       return SharedFileService(self.client).get(int(unique_id))
@@ -1316,6 +1803,14 @@ class TargetedProduct(SelectableObject):
   def get_list(self):
     """
     Get a list of targeted products
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of TargetedProduct objects
     """
     if hasattr(self,'client'):
       return TargetedProductService(self.client).list_products()
@@ -1330,6 +1825,10 @@ class TargetedProduct(SelectableObject):
     ----------
     unique_id : str
       unique id for the targeted product
+
+    Returns
+    -------
+    A TargetedProduct object
     """
     if hasattr(self,'client'):
       temp_list = TargetedProductService(self.client).list_products()
@@ -1570,6 +2069,14 @@ class ReportingTagAssociation(SelectableObject):
   def get_list(self):
     """
     Get a list of reporting tag associations
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of ReportingTagAssociation objects
     """
     if hasattr(self,'client'):
       return EndpointService(self.client).list_reporting_tags_associations()
@@ -1584,6 +2091,10 @@ class ReportingTagAssociation(SelectableObject):
     ----------
     unique_id : str
       unique id for the reporting tag association
+    
+    Returns
+    -------
+    A ReportingTagAssociation object
     """
     if hasattr(self,'client'):
       temp = EndpointService(self.client).list_reporting_tags_associations()
@@ -1622,6 +2133,10 @@ class ActivityMonitorService(object):
                      activity_monitor[active]
                      activity_monitor[file_modification_types_monitored]
                      activity_monitor[file_paths_monitored]
+
+    Returns
+    -------
+    ActivityMonitor object
     """
     required_keys = ['activity_monitor[name]',
                     'activity_monitor[type]',
@@ -1645,6 +2160,10 @@ class ActivityMonitorService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    list of ActivityMonitor objects
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, ActivityMonitorCollection)
@@ -1664,6 +2183,10 @@ class ActivityMonitorService(object):
       activity monitor id
     count_mode : bool
       show only a count and omit result details
+    
+    Returns
+    -------
+    list of ActivityMonitorMatch objects
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, ActivityMonitorMatchCollection)
@@ -1681,6 +2204,10 @@ class ActivityMonitorService(object):
     ----------
     activity_monitor_id : int
       activity monitor id
+    
+    Returns
+    -------
+    ActivityMonitor object
     """
     result = self.client.call_api(method='delete',service=f'/activity_monitors/{activity_monitor_id}', object_type=ActivityMonitorResource)
 
@@ -1697,6 +2224,10 @@ class ActivityMonitorService(object):
     ----------
     activity_monitor_id : int
       activity monitor id
+    
+    Returns
+    -------
+    ActivityMonitor object
     """
     result = self.client.call_api(method='get',service=f'/activity_monitors/{activity_monitor_id}', object_type=ActivityMonitorResource)
 
@@ -1713,6 +2244,10 @@ class ActivityMonitorService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+    
+    Returns
+    -------
+    list of ActivityMonitorMatch objects
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, ActivityMonitorCollection)
@@ -1730,6 +2265,10 @@ class ActivityMonitorService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    list of FileIntegrityMatch objects
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, FileIntegrityMatchCollection)
@@ -1743,6 +2282,14 @@ class ActivityMonitorService(object):
   def download_fim_matches(self) -> DownloadResponse:
     """
     Download all file integrity monitoring matches to CSV
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    DownloadResponse object
     """
     return self.client.call_api(method='get',service='/activity_monitor_matches/file_integrity_monitoring_matches/csv',
                           object_type=DownloadResponse)
@@ -1763,6 +2310,10 @@ class DetectorService(object):
     tactic_identifier : str
       tactic identifier (capitalized)
       example: Persistence
+  
+    Returns
+    -------
+    AttackTactic object
     """
     result = self.client.call_api(method='get',service=f'/detectors/attack_tactics/{tactic_identifier}', object_type=AttackTacticResource)
 
@@ -1779,6 +2330,10 @@ class DetectorService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    list of AttackTactic objects
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, AttackTacticCollection)
@@ -1797,6 +2352,10 @@ class DetectorService(object):
     technique_identifier : str
       technique identifier (uppercase)
       example: T1234
+
+    Returns
+    -------
+    AttackTechnique object
     """
     result = self.client.call_api(method='get',service=f'/detectors/attack_techniques/{technique_identifier}',
                            object_type=AttackTechniqueResource)
@@ -1814,6 +2373,10 @@ class DetectorService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+    
+    Returns
+    -------
+    list of AttackTechnique objects
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, AttackTechniqueCollection)
@@ -1840,6 +2403,10 @@ class EventService(object):
       Start date for query
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    list of Event objects
     """
     params, object_type = self.client.CheckCountMode(count_mode, EventCollection)
     if since != '':
@@ -1867,6 +2434,10 @@ class EventService(object):
       ioc type
     override_greylist : bool
       override greylist
+  
+    Returns
+    -------
+    EventActivity object
     """
     params = {}
     if activity_path:
@@ -1895,6 +2466,10 @@ class EventService(object):
       event activity id
     activity_path : str
       comma separated activity path
+    
+    Returns
+    -------
+    EventActivity object
     """
 
     params = {}
@@ -1918,6 +2493,10 @@ class EventService(object):
       event id
     activity_id : int
       event activity id
+    
+    Returns
+    -------
+    EventActivity object
     """
     result = self.client.call_api(method='get',service=f'/events/{event_id}/activities/{activity_id}', object_type=EventActivityResource)
 
@@ -1934,6 +2513,10 @@ class EventService(object):
     ----------
     event_id : int
       event id
+
+    Returns
+    -------
+    Event object
     """
     result = self.client.call_api(method='get',service=f'/events/{event_id}', object_type=EventResource)
 
@@ -1945,6 +2528,14 @@ class EventService(object):
   def download(self) -> RequestedCsvResponse:
     """
     Download CSV of analyzed events
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    RequestedCsvResponse object
     """
     return self.client.call_api(method='get',service='/events/analyzed/request_csv', object_type=RequestedCsvResponse)
 
@@ -1957,6 +2548,10 @@ class EventService(object):
     ----------
     event_id : int
       event id
+
+    Returns
+    -------
+    dict
     """
     result = self.client.call_api(method='get',service=f'/events/{event_id}/cached_activity_enrichments', object_type=dict)
 
@@ -1974,6 +2569,10 @@ class EventService(object):
     ----------
     event_id : int
       event id
+    
+    Returns
+    -------
+    list of EventTimelineActivity objects
     """
 
     return self.client.RecurseList(service=f'/events/{event_id}/timeline_activities', object_type=EventTimelineActivity)
@@ -1988,6 +2587,10 @@ class EventService(object):
       event id
     timeline_activity_id : int
       timeline activity id
+
+    Returns
+    -------
+    EventTimelineActivity object
     """
 
     result = self.client.call_api(method='delete',service=f'/events/{event_id}/timeline_activities/{timeline_activity_id}', object_type=EventTimelineActivity)
@@ -2012,6 +2615,10 @@ class SharedFileService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+    
+    Returns
+    -------
+    list of SharedFile objects
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, SharedFileCollection)
@@ -2029,6 +2636,10 @@ class SharedFileService(object):
     ----------
     uuid : int
       unique id of shared file
+
+    Returns
+    -------
+    Any
     """
     return self.client.call_api(method='get',service=f'/shared_files/{uuid}/download')
 
@@ -2040,6 +2651,10 @@ class SharedFileService(object):
     ----------
     uuid : int
       unique id of shared file
+      
+    Returns
+    -------
+    SharedFile object
     """
     result = self.client.call_api(method='get',service=f'/shared_files/{uuid}', object_type=SharedFileResource)
     
@@ -2063,6 +2678,10 @@ class ManagedPortalUserService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+    
+    Returns
+    -------
+    list of ManagedPortalUser objects
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, ManagedPortalUserCollection)
@@ -2080,6 +2699,10 @@ class ManagedPortalUserService(object):
     ----------
     user_id : int
       user id
+
+    Returns
+    -------
+    ManagedPortalUser object
     """
     result = self.client.call_api(method='delete',service=f'/managed_portal_users/{user_id}', object_type=ManagedPortalUserCollection)
 
@@ -2096,6 +2719,10 @@ class ManagedPortalUserService(object):
     ----------
     user_id : int
       user id
+
+    Returns
+    -------
+    ManagedPortalUser object
     """
     result = self.client.call_api(method='get',service=f'/managed_portal_users/{user_id}', object_type=ManagedPortalUserCollection)
 
@@ -2112,6 +2739,10 @@ class ManagedPortalUserService(object):
     ----------
     user_id : int
       user id
+
+    Returns
+    -------
+    ManagedPortalUser object
     """  
     result = self.client.call_api(method='delete',service=f'/managed_portal_users/{user_id}/mfa', object_type=ManagedPortalUserCollection)
 
@@ -2128,6 +2759,10 @@ class ManagedPortalUserService(object):
     ----------
     user_id : int
       user id
+
+    Returns
+    -------
+    ManagedPortalUser object
     """
     result = self.client.call_api(method='delete',service=f'/managed_portal_users/{user_id}/invite', object_type=ManagedPortalUserCollection)
 
@@ -2139,6 +2774,10 @@ class ManagedPortalUserService(object):
     ----------
     user_id : int
       user id
+
+    Returns
+    -------
+    ManagedPortalUser object
     """
     return self.client.call_api(method='post',service=f'/managed_portal_users/{user_id}/invite', object_type=ManagedPortalUserCollection)
 
@@ -2152,6 +2791,10 @@ class ManagedPortalUserService(object):
       name of role
     user_id : int
       user id
+
+    Returns
+    -------
+    PortalUserRoleCollection object
     """
     result = self.client.call_api(method='delete',service=f'/managed_portal_users/{user_id}/role/{role_name}', object_type=PortalUserRoleCollection)
 
@@ -2170,6 +2813,10 @@ class ManagedPortalUserService(object):
       name of role
     user_id : int
       user id
+
+    Returns
+    -------
+    PortalUserRoleCollection object
     """
     return self.client.call_api(method='post',service=f'/managed_portal_users/{user_id}/role/{role_name}', object_type=PortalUserRoleCollection)
 
@@ -2181,6 +2828,10 @@ class ManagedPortalUserService(object):
     ----------
     email : str
       email of invited user
+
+    Returns
+    -------
+    ManagedPortalUser object
     """
     result = self.client.call_api(method='post',service=f'/managed_portal_users/{email}/invite', object_type=ManagedPortalUserCollection)
 
@@ -2204,6 +2855,10 @@ class PortalRoleService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    PortalRoleCollection object
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, PortalRoleCollection)
@@ -2223,6 +2878,14 @@ class ReportLibraryService(object):
   def list_reports(self) -> Report:
     """
     List all reports
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    Report object
     """
     return self.client.RecurseList(service='/reports', object_type=Report)
 
@@ -2234,6 +2897,10 @@ class ReportLibraryService(object):
     ----------
     name : str
       name of report
+
+    Returns
+    -------
+    Report object
     """
     result = self.client.call_api(method='get',service=f'/reports/{name}', object_type=ReportResource)
 
@@ -2250,6 +2917,10 @@ class ReportLibraryService(object):
     ----------
     name : str
       name of report
+
+    Returns
+    -------
+    Any
     """
     return self.client.call_api(method='delete',service=f'/reports/{name}/favorite')
 
@@ -2261,18 +2932,38 @@ class ReportLibraryService(object):
     ----------
     name : str
       name of report
+
+    Returns
+    -------
+    Any
     """
     return self.client.call_api(method='put',service=f'/reports/{name}/favorite')
 
   def download_users_on_endpoints(self) -> RequestedCsvResponse:
     """
     Download CSV of users on endpoints
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    RequestedCsvResponse object
     """
     return self.client.call_api(method='get',service='/reports/users_on_endpoints/request_csv', object_type=RequestedCsvResponse)
 
   def download_detections_by_tactic(self) -> RequestedCsvResponse:
     """
     Download CSV of detections by observed tactic
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    RequestedCsvResponse object
     """
     return self.client.call_api(method='get',service='/reports/detections_by_observed_tactic/request_csv',
                            object_type=RequestedCsvResponse)
@@ -2280,6 +2971,14 @@ class ReportLibraryService(object):
   def download_detections_by_technique(self) -> RequestedCsvResponse:
     """
     Download CSV of detections by observed technique
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    RequestedCsvResponse object
     """
     return self.client.call_api(method='get',service='/reports/detections_by_observed_technique/request_csv',
                            object_type=RequestedCsvResponse)
@@ -2299,6 +2998,14 @@ class IgnoredTargetedProduct(SelectableObject):
   def get_list(self):
     """
     Get a list of ignored targeted products
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of IgnoredTargetedProduct objects
     """
     if hasattr(self,'client'):
       return TargetedProductService(self.client).list_ignored()
@@ -2313,6 +3020,10 @@ class IgnoredTargetedProduct(SelectableObject):
     ----------
     unique_id : str
       unique id for the ignored targeted product
+
+    Returns
+    -------
+    An IgnoredTargetedProduct object
     """
     if hasattr(self,'client'):
       temp_list = TargetedProductService(self.client).list_ignored()
@@ -2330,6 +3041,10 @@ class IgnoredTargetedProduct(SelectableObject):
     ----------
     params : dict
       dict containing key 'justification' and value of justification
+
+    Returns
+    -------
+    IgnoredTargetedProduct object
     """
     full_params = {'targeted_product_id': self.id, 'justification': params['justification']}
 
@@ -2341,6 +3056,14 @@ class IgnoredTargetedProduct(SelectableObject):
   def delete(self):
     """
     Delete current ignored targeted product
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    StandardSuccessResponse object
     """
     try:
       return TargetedProductService(self.client).delete_ignored(self.id)
@@ -2371,6 +3094,14 @@ class TelemetrySearchService(object):
   def download(self) -> RequestedCsvResponse:
     """
     Download audit logs to CSV
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    RequestedCsvResponse object
     """
 
     return self.client.call_api(method='get',service='/telemetry/request_csv', object_type=RequestedCsvResponse)
@@ -2383,6 +3114,12 @@ class TelemetrySearchService(object):
     ----------
     filter_query : str
       A string to fuzzy search by any telemetry attribute
+    count_mode : bool
+      show only a count and omit result details
+
+    Returns
+    -------
+    Am int or a TelemetrySearchCollection object
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, TelemetrySearchCollection)
@@ -2413,6 +3150,10 @@ class EndpointUserService(object):
       query string
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    int or EndpointUserCollection object
     """
     params, object_type = self.client.CheckCountMode(count_mode, EndpointUserCollection)
     if query != '':
@@ -2431,6 +3172,10 @@ class EndpointUserService(object):
     ----------
     endpoint_user_id : int
       endpoint user id
+
+    Returns
+    -------
+    EndpointUser object
     """
     result = self.client.call_api(method='get',service=f'/endpoint_users/{endpoint_user_id}', object_type=EndpointUserResource)
 
@@ -2449,6 +3194,10 @@ class EndpointUserService(object):
       reporting tag name
     endpoint_user_id : int
       endpoint user id
+
+    Returns
+    -------
+    Any
     """
     return self.client.call_api(method='delete',service=f'/endpoint_users/{endpoint_user_id}/reporting_tags/{reporting_tag}')
 
@@ -2464,6 +3213,10 @@ class EndpointUserService(object):
       endpoint user id
     params : dict
       dict containing key 'value' and value of reporting tag text
+
+    Returns
+    -------
+    Any
     """
     required_keys = ['value']
     self.client.CheckRequiredKeys(required_keys, params, 'add_reporting_tag')
@@ -2480,6 +3233,10 @@ class EndpointUserService(object):
       endpoint user id
     params : dict
       dict containing key 'types' with value of system activity types
+
+    Returns
+    -------
+    SystemActivity object
     """
     from .customer import SystemActivity
 
@@ -2489,6 +3246,14 @@ class EndpointUserService(object):
   def list_reporting_tags(self) -> dict:
     """
     List all reporting tags
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    dict
     """
     return self.client.call_api(method='get',service='/endpoint_users/reporting_tags', object_type=dict)
 
@@ -2507,6 +3272,10 @@ class DetectionService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    int or list of IndicatorOfCompromise objects
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, IndicatorOfCompromiseCollection)
@@ -2524,6 +3293,10 @@ class DetectionService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    int or list of DetectionSummary objects
     """
     
     params, object_type = self.client.CheckCountMode(count_mode, DetectionSummaryCollection)
@@ -2543,6 +3316,10 @@ class DetectionService(object):
       Start date for returned data
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    int or list of Detection objects
     """
     params, object_type = self.client.CheckCountMode(count_mode, DetectionCollection)
     if since != '':
@@ -2556,6 +3333,14 @@ class DetectionService(object):
   def download(self) -> RequestedCsvResponse:
     """
     Download a CSV of all detections
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    RequestedCsvResponse object
     """
     return self.client.call_api(method='get',service='/detections/request_csv',object_type=RequestedCsvResponse)
 
@@ -2569,6 +3354,10 @@ class DetectionService(object):
       detection id
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    int or list of Event objects
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, EventCollection)
@@ -2588,6 +3377,10 @@ class DetectionService(object):
       detection id
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    int or list of IndicatorOfCompromise objects
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, IndicatorOfCompromiseCollection)
@@ -2609,6 +3402,10 @@ class DetectionService(object):
       detection id
     params : dict
       dictionary containing 'remediated_state' key
+
+    Returns
+    -------
+    DetectionResource object
     """
     required_keys = ['remediated_state']
     self.client.CheckRequiredKeys(required_keys, params, 'update_remediation_status')
@@ -2624,6 +3421,10 @@ class DetectionService(object):
     ----------
     detection_id : int
       detection id
+
+    Returns
+    -------
+    DetectionResource object
     """
     return self.client.call_api(method='patch',service=f'/detections/{detection_id}/mark_acknowledged', object_type=DetectionResource)
 
@@ -2635,6 +3436,10 @@ class DetectionService(object):
     ----------
     detection_id : int
       detection id
+
+    Returns
+    -------
+    Detection object
     """
     result = self.client.call_api(method='get',service=f'/detections/{detection_id}', object_type=DetectionResource)
 
@@ -2653,6 +3458,10 @@ class DetectionService(object):
       detection id
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    int or list of Timeline objects
     """
 
     from .activity_timelines import Timeline
@@ -2673,6 +3482,10 @@ class DetectionService(object):
       detection id
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    int or list of Detector objects
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, DetectorCollection)
@@ -2692,6 +3505,10 @@ class DetectionService(object):
       detection id
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    int or list of Detection objects
     """
     params, object_type = self.client.CheckCountMode(count_mode, DetectionCollection)
 
@@ -2710,6 +3527,10 @@ class DetectionService(object):
     ----------
     detection_id : int
       detection id
+    
+    Returns
+    -------
+    dict
     """
 
     return self.client.RecurseList(service=f'/detections/{detection_id}/contributing_intel',
@@ -2726,6 +3547,10 @@ class DetectionService(object):
       detection id
     event_timeline_activity_id : int
       event timeline activity id
+
+    Returns
+    -------
+    DetectionResource object
     """
     return self.client.call_api(method='post',service=f'/detections/{detection_id}/mark_activity_of_occurrence',
                              object_type=DetectionResource, params={'event_timeline_activity_id': event_timeline_activity_id})
@@ -2751,6 +3576,10 @@ class EndpointService(object):
       filter query
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    int or list of Endpoint objects
     """
     params, object_type = self.client.CheckCountMode(count_mode, EndpointCollection)
     if query is not None:
@@ -2768,6 +3597,14 @@ class EndpointService(object):
   def download(self) -> RequestedCsvResponse:
     """
     Download CSV of endpoints
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    RequestedCsvResponse object
     """
     return self.client.call_api(method='get',service='/endpoints/request_csv',object_type=RequestedCsvResponse)
 
@@ -2779,6 +3616,10 @@ class EndpointService(object):
     ----------
     params : dict
       dict containing key 'ids' with value of endpoint ids
+
+    Returns
+    -------
+    Any
     """
     required_keys = ['ids']
     self.client.CheckRequiredKeys(required_keys, params, 'deisolate')
@@ -2793,6 +3634,10 @@ class EndpointService(object):
     ----------
     params : dict
       dict containing key 'ids' with value of endpoint ids
+
+    Returns
+    -------
+    Any
     """
     required_keys = ['ids']
     self.client.CheckRequiredKeys(required_keys, params, 'isolate')
@@ -2808,6 +3653,11 @@ class EndpointService(object):
     params : dict
       dict containing key 'ids' with value of endpoint ids
     uninstall_sensor : bool
+      uninstall sensor
+    
+    Returns
+    -------
+    Any
     """
     required_keys = ['ids']
     self.client.CheckRequiredKeys(required_keys, params, 'decommission')
@@ -2825,6 +3675,10 @@ class EndpointService(object):
     ----------
     params : dict
       dict containing key 'ids' with value of endpoint ids
+
+    Returns
+    -------
+    Any
     """
     required_keys = ['ids']
     self.client.CheckRequiredKeys(required_keys, params, 'reinstate')
@@ -2839,6 +3693,10 @@ class EndpointService(object):
     ----------
     params : dict
       dict containing key 'ids' with value of endpoint ids
+
+    Returns
+    -------
+    Any
     """
     required_keys = ['ids']
     self.client.CheckRequiredKeys(required_keys, params, 'deactivate_safe_mode')
@@ -2853,6 +3711,10 @@ class EndpointService(object):
     ----------
     params : dict
       dict containing key 'ids' with value of endpoint ids
+
+    Returns
+    -------
+    Any
     """
     required_keys = ['ids']
     self.client.CheckRequiredKeys(required_keys, params, 'activate_safe_mode')
@@ -2862,6 +3724,14 @@ class EndpointService(object):
   def list_reporting_tags(self) -> list:
     """
     List reporting tags for all endpoints
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    list of ReportingTag objects
     """
     result = self.client.get(service='/endpoints/reporting_tags', object_type=ReportingTagCollection)
 
@@ -2873,6 +3743,14 @@ class EndpointService(object):
   def list_reporting_tags_associations(self) -> Union[int, list[ReportingTagAssociation]]:
     """
     List reporting tag associations for all endpoints
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    list of ReportingTagAssociation objects
     """
 
     default_params = {"per_page": 100}
@@ -2892,6 +3770,10 @@ class EndpointService(object):
       endpoint id
     uninstall_sensor: bool
       uninstall sensor
+
+    Returns
+    -------
+    EndpointResource object
     """
     return self.client.call_api(method='delete',service=f'/endpoints/{endpoint_id}?uninstall_sensor={uninstall_sensor}',
                               object_type=EndpointResource)
@@ -2904,6 +3786,10 @@ class EndpointService(object):
     ----------
     endpoint_id : int
       endpoint id
+
+    Returns
+    -------
+    Endpoint object
     """
     result = self.client.call_api(method='get',service=f'/endpoints/{endpoint_id}', object_type=EndpointResource)
 
@@ -2922,6 +3808,10 @@ class EndpointService(object):
       endpoint id
     reporting_tag : str
       reporting tag name
+
+    Returns
+    -------
+    Any
     """
     return self.client.call_api(method='delete',service=f'/endpoints/{endpoint_id}/reporting_tags/{reporting_tag}')
 
@@ -2937,6 +3827,10 @@ class EndpointService(object):
       reporting tag name
     params : dict
       dict containing key 'value' with value of reporting tag text
+
+    Returns
+    -------
+    EndpointResource object
     """
     required_keys = ['value']
     self.client.CheckRequiredKeys(required_keys, params, 'add_reporting_tag')
@@ -2957,6 +3851,10 @@ class EndpointService(object):
     include_system_accounts : bool
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    int or list of EndpointUser objects
     """
     params, object_type = self.client.CheckCountMode(count_mode, EndpointUserCollection)
     if fromdate is not None:
@@ -2981,6 +3879,10 @@ class EndpointService(object):
       endpoint id
     params : dict
       dict containing key 'types' with value system activity types
+
+    Returns
+    -------
+    list of SystemActivity objects
     """
     required_keys = ['types']
     self.client.CheckRequiredKeys(required_keys, params, 'list_endpoint_system_activities')
@@ -2998,6 +3900,10 @@ class EndpointService(object):
     ----------
     sensor_id : int
       endpoint sensor id
+
+    Returns
+    -------
+    Endpoint object
     """
     result = self.client.call_api(method='get',service=f'/endpoints/sensor_id/{sensor_id}', object_type=EndpointResource)
 
@@ -3009,24 +3915,62 @@ class EndpointService(object):
   def download_recently_decommissioned(self) -> RequestedCsvResponse:
     """
     Download CSV of recently decommissioned endpoints
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    RequestedCsvResponse object
     """
     return self.client.call_api(method='get',service='/endpoints/recently_decommissioned/request_csv', object_type=RequestedCsvResponse)
 
   def download_newly_observed(self) -> RequestedCsvResponse:
     """
     Download CSV of newly observed endpoints
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    RequestedCsvResponse object
     """
     return self.client.call_api(method='get',service='/endpoints/newly_observed/request_csv', object_type=RequestedCsvResponse)
 
   def download_license_usage(self, year: int, month: int) -> RequestedCsvResponse:
     """
     Download CSV of license usage
+
+    Parameters
+    ----------
+    year : int
+      year
+    month : int
+      month
+    
+    Returns
+    -------
+    RequestedCsvResponse object
     """
     return self.client.call_api(method='get',service=f"/endpoints/license_usage/request_csv?year={year}&month={month}", object_type=RequestedCsvResponse)
 
   def download_license_usage_server_counts(self, year: int, month: int) -> RequestedCsvResponse:
     """
     Download CSV of license usage server counts
+
+    Parameters
+    ----------
+    year : int
+      year
+    month : int
+      month
+
+    Returns
+    -------
+    RequestedCsvResponse object
     """
     return self.client.call_api(method='get',service=f'/endpoints/license_usage/request_server_counts_csv?year={year}&month={month}', object_type=RequestedCsvResponse)
 
@@ -3045,6 +3989,10 @@ class TargetedProductService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    int or TargetedProductCollection object
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, TargetedProductCollection)
@@ -3062,6 +4010,10 @@ class TargetedProductService(object):
     ----------
     targeted_product_id : int
       ignored targeted product id
+
+    Returns
+    -------
+    StandardSuccessResponse object
     """
     result = self.client.call_api(method='delete',service=f'/customer/ignored_targeted_products/{targeted_product_id}',
                               object_type = IgnoredTargetedProductCollection)
@@ -3081,6 +4033,10 @@ class TargetedProductService(object):
       dict of attributes for new ignored targeted product
       required keys: targeted_product_id
                      justification
+    
+    Returns
+    -------
+    IgnoredTargetedProduct object
     """
     required_keys = ['targeted_product_id', 'justification']
     self.client.CheckRequiredKeys(required_keys, params, 'create_ignored_product')
@@ -3101,6 +4057,10 @@ class TargetedProductService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    int or IgnoredTargetedProductCollection
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, IgnoredTargetedProductCollection)
@@ -3122,6 +4082,14 @@ class CloudResourceScansService(object):
   def license_usage_csv(self) -> RequestedCsvResponse:
     """
     Download CSV of license usage
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    RequestedCsvResponse object
     """
     return self.client.call_api(method='get',service='/cloud_resource_scans/license_usage/request_csv', object_type=RequestedCsvResponse)
   
@@ -3137,6 +4105,14 @@ class ExternalServicesService(object):
     # TODO: Verify this is the correct format
     """
     List all external services
+
+    Parameters
+    ----------
+    None
+    
+    Returns
+    -------
+    list of ExternalService objects
     """
 
     return self.client.RecurseList(service='/external_services', object_type=ExternalService)
@@ -3149,6 +4125,10 @@ class ExternalServicesService(object):
     ----------
     external_service_uuid : int
       external service uuid
+
+    Returns
+    -------
+    ExternalService object
     """
 
     return self.client.call_api(method='get',service=f'/external_services/{external_service_uuid}', object_type=ExternalServiceResource)
@@ -3156,6 +4136,14 @@ class ExternalServicesService(object):
   def list_aws_services(self) -> list[ExternalService]:
     """
     List all AWS services
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    list of ExternalService objects
     """
 
     return self.client.RecurseList(service='/external_services/aws', object_type=ExternalServiceCollection)
@@ -3172,6 +4160,10 @@ class ExternalServicesService(object):
       list of AWS account ids
     aws_assumed_role_arn : list
       list of AWS assumed role ARNs
+
+    Returns
+    -------
+    list of ExternalService objects
     """
 
     params = {'external_services[description]': description, 'external_services[aws_account_id]': aws_account_id, 'external_services[aws_assumed_role_arn]': aws_assumed_role_arn}
@@ -3192,6 +4184,10 @@ class ExternalServicesService(object):
       description
     aws_assumed_role_arn : str
       AWS assumed role ARN
+
+    Returns
+    -------
+    ExternalService object
     """
 
     params = {}
@@ -3213,6 +4209,10 @@ class ExternalServicesService(object):
     ----------
     external_service_uuid : int
       external service uuid
+
+    Returns
+    -------
+    ExternalService object
     """
 
     return self.client.call_api(method='delete',service=f'/external_services/aws/{external_service_uuid}', object_type=ExternalServiceResource)
@@ -3225,6 +4225,10 @@ class ExternalServicesService(object):
     ----------
     external_service_uuid : int
       external service uuid
+
+    Returns
+    -------
+    ExternalService object
     """
 
     return self.client.call_api(method='get',service=f'/external_services/aws/{external_service_uuid}', object_type=ExternalServiceResource)
@@ -3260,7 +4264,11 @@ class SuppressionRuleService(object):
     uid : str
       uid
     sensor_id : str
-      sensor id    
+      sensor id
+
+    Returns
+    -------
+    list of SuppressionRule objects
     """
 
     query = []
@@ -3295,6 +4303,10 @@ class SuppressionRuleService(object):
     ----------
     suppression_rule_id : int
       suppression rule id
+
+    Returns
+    -------
+    Any
     """
 
     return self.client.call_api(method='delete',service=f'/suppression_rules/{suppression_rule_id}')
@@ -3307,6 +4319,10 @@ class SuppressionRuleService(object):
     ----------
     suppression_rule_id : int
       suppression rule id
+
+    Returns
+    -------
+    SuppressionRule object
     """
 
     return self.client.call_api(method='get',service=f'/suppression_rules/{suppression_rule_id}', object_type=SuppressionRuleResource)

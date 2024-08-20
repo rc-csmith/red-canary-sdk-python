@@ -24,9 +24,21 @@ class AuditLog(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the audit log
+ |      
+ |      Returns
+ |      -------
+ |      An AuditLog object
  |  
  |  get_list(self)
  |      Get a list of audit logs
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of AuditLog objects
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -63,6 +75,10 @@ class AuditLogService(builtins.object)
  |      ----------
  |      search_string : str
  |        query string to filter audit logs
+ |      
+ |      Returns
+ |      -------
+ |      RequestedCsvResponse object
  |  
  |  get(self, audit_log_id: int) -> rcapi.models.audit_log.AuditLog
  |      Get a single audit log
@@ -71,6 +87,10 @@ class AuditLogService(builtins.object)
  |      ----------
  |      id : int
  |        audit log id
+ |      
+ |      Returns
+ |      -------
+ |      An AuditLog object
  |  
  |  list_entries(self, actions: str = '', count_mode: bool = False) -> Union[int, list[rcapi.models.audit_log.AuditLog]]
  |      List audit logs
@@ -81,6 +101,10 @@ class AuditLogService(builtins.object)
  |        audit actions for search/filter
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      A list of AuditLog objects or an integer count
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -165,7 +189,9 @@ Python Library Documentation: class SelectableObject in module rcapi.models.comm
 class SelectableObject(BaseObject)
  |  SelectableObject(entry, type_mapping={})
  |  
- |  Formats selectable object as a basic object
+ |  A SelectableObject is a BaseObject with the ability to select a specific object from the API.
+ |  
+ |  Objects of this type can be called directly by the user.
  |  
  |  Method resolution order:
  |      SelectableObject

@@ -3,7 +3,9 @@ Python Library Documentation: class BaseObject in module rcapi.models.common
 class BaseObject(FinishedObject)
  |  BaseObject(entry, type_mapping={})
  |  
- |  Formats basic object returned from API into a FinishedObject
+ |  Formats basic object returned from API into a FinishedObject.
+ |  
+ |  Objects of this type can be called directly by the user.
  |  
  |  Method resolution order:
  |      BaseObject
@@ -358,6 +360,10 @@ class SearchService(builtins.object)
  |        endpoint hostname
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      A list of ResultForEndpointHostname objects or an integer count
  |  
  |  ip_address(self, ip_address: str, count_mode: bool = False) -> Union[int, rcapi.models.search.ResultForIpAddressCollection]
  |      Search for an IP address
@@ -368,6 +374,10 @@ class SearchService(builtins.object)
  |        IP address
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      A list of ResultForIpAddress objects or an integer count
  |  
  |  mac_address(self, mac_address: str, count_mode: bool = False) -> Union[int, rcapi.models.search.ResultForMacAddressCollection]
  |      Search for a MAC address
@@ -378,6 +388,10 @@ class SearchService(builtins.object)
  |        MAC address
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      A list of ResultForMacAddress objects or an integer count
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:

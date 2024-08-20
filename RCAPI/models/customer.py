@@ -31,9 +31,17 @@ class ExternalAlertSource(SelectableObject):
     if entry:
       super().__init__(entry, type_mapping)
 
-  def get_list(self):
+  def get_list(self) -> list:
     """
     Get a list of external alert sources
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of ExternalAlertSource objects
     """
     if hasattr(self,'client'):
       return ExternalAlertService(self.client).list_sources()
@@ -48,6 +56,10 @@ class ExternalAlertSource(SelectableObject):
     ----------
     unique_id : str
       ID of object
+
+    Returns
+    -------
+    An ExternalAlertSource object
     """
     if hasattr(self,'client'):
       return ExternalAlertService(self.client).get_source(int(unique_id))
@@ -64,6 +76,10 @@ class ExternalAlertSource(SelectableObject):
       dict containing attributes of new source platform
       required keys: name
                      source_platform_id
+
+    Returns
+    -------
+    An ExternalAlertSource object
     """
     try:
       return ExternalAlertService(self.client).create_source(params)
@@ -73,6 +89,14 @@ class ExternalAlertSource(SelectableObject):
   def delete(self):
     """
     Delete current external alert source
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A StandardSuccessResponse object
     """
     try:
       return ExternalAlertService(self.client).delete_source(self.id)
@@ -93,6 +117,14 @@ class ExternalAlertSourcePlatform(SelectableObject):
   def get_list(self):
     """
     Get a list of external alert source platforms
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of ExternalAlertSourcePlatform objects
     """
     if hasattr(self,'client'):
       return ExternalAlertService(self.client).list_source_platforms()
@@ -107,6 +139,10 @@ class ExternalAlertSourcePlatform(SelectableObject):
     ----------
     unique_id : str
       ID of object
+
+    Returns
+    -------
+    An ExternalAlertSourcePlatform object
     """
     if hasattr(self,'client'):
       return ExternalAlertService(self.client).get_source_platform(int(unique_id))
@@ -131,6 +167,14 @@ class ExternalAlert(SelectableObject):
   def get_list(self):
     """
     Get a list of external alerts
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of ExternalAlert objects
     """
     if hasattr(self,'client'):
       return ExternalAlertService(self.client).list_alerts()
@@ -145,6 +189,10 @@ class ExternalAlert(SelectableObject):
     ----------
     unique_id : str
       ID of object
+
+    Returns
+    -------
+    An ExternalAlert object
     """
     if hasattr(self,'client'):
       return ExternalAlertService(self.client).get(int(unique_id))
@@ -208,12 +256,28 @@ class CustomerService(object):
   def get_intel_reporting_stats(self) -> IntelReporting:
     """
     Get intel reporting stats
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    An IntelReporting object
     """
     return self.client.call_api(method='get',service='/customer/intel_reporting', object_type=IntelReporting)
   
   def list_system_activities(self) -> list[SystemActivity]:
     """
     List system activities
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    A list of SystemActivity objects
     """
     return self.client.RecurseList(service='/customer/system_activities', object_type=SystemActivity)
 
@@ -234,6 +298,10 @@ class ExternalAlertService(object):
       external alert source id
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    An ExternalAlertSource object
     """
 
     result = self.client.call_api(method='get',service=f'/customer/external_alert_sources/{external_alert_source_id}',
@@ -252,6 +320,10 @@ class ExternalAlertService(object):
     ----------
     external_alert_source_id : int
       external alert source id
+
+    Returns
+    -------
+    A StandardSuccessResponse object
     """
     result = self.client.call_api(method='delete',service=f'/customer/external_alert_sources/{external_alert_source_id}',
                               object_type=ExternalAlertSourceResource)
@@ -271,6 +343,10 @@ class ExternalAlertService(object):
       dict containing attributes of new source platform
       required keys: name
                      source_platform_id
+
+    Returns
+    -------
+    An ExternalAlertSource object
     """
     required_keys = ['name', 'source_platform_id']
     self.client.CheckRequiredKeys(required_keys, params, 'create_external_alert_source')
@@ -294,6 +370,10 @@ class ExternalAlertService(object):
       optional - defaults to all
     count_mode : bool
       show only a count and omit result details
+    
+    Returns
+    -------
+    A list of ExternalAlertSource objects or an integer count
     """
     params, object_type = self.client.CheckCountMode(count_mode, ExternalAlertSourceCollection)
     if alert_aggregator_id != -1:
@@ -314,6 +394,10 @@ class ExternalAlertService(object):
     ----------
     external_alert_source_platform_id : int
       external alert source platform id
+
+    Returns
+    -------
+    An ExternalAlertSourcePlatform object
     """
     result = self.client.call_api(method='get',service=f'/customer/external_alert_source_platform/{external_alert_source_platform_id}',
                            object_type = ExternalAlertSourcePlatformResource)
@@ -331,6 +415,10 @@ class ExternalAlertService(object):
     ----------
     count_mode : bool
       show only a count and omit result details
+
+    Returns
+    -------
+    A list of ExternalAlertSourcePlatform objects or an integer count
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, ExternalAlertSourcePlatformCollection)
@@ -352,6 +440,10 @@ class ExternalAlertService(object):
       show only a count and omit result details
     q : str
       query string for search/filter
+    
+    Returns
+    -------
+    A list of ExternalAlert objects or an integer count
     """
 
     params, object_type = self.client.CheckCountMode(count_mode, ExternalAlertCollection)
@@ -373,6 +465,10 @@ class ExternalAlertService(object):
     ----------
     external_alert_id : int
       ID of object
+
+    Returns
+    -------
+    An ExternalAlert object
     """
 
     result = self.client.call_api(method='get', service=f'/customer/external_alerts/{external_alert_id}', 
@@ -391,6 +487,10 @@ class ExternalAlertService(object):
     ----------
     external_alert_native_id : int
       Native ID of object
+
+    Returns
+    -------
+    An ExternalAlert object
     """
 
     result = self.client.call_api(method='get', service=f'/customer/external_alerts/native/{external_alert_native_id}',

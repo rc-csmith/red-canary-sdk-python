@@ -3,7 +3,9 @@ Python Library Documentation: class BaseObject in module rcapi.models.common
 class BaseObject(FinishedObject)
  |  BaseObject(entry, type_mapping={})
  |  
- |  Formats basic object returned from API into a FinishedObject
+ |  Formats basic object returned from API into a FinishedObject.
+ |  
+ |  Objects of this type can be called directly by the user.
  |  
  |  Method resolution order:
  |      BaseObject

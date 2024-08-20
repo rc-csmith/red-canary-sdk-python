@@ -55,6 +55,10 @@ class AutomateService(builtins.object)
  |      params : dict
  |        dictionary containing playbook id and other attributes
  |        required keys: playbook[id]
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  approve_action_execution(self, playbook_id: int) -> rcapi.models.exec.ActionExecution
  |      Approve action execution
@@ -63,6 +67,10 @@ class AutomateService(builtins.object)
  |      ----------
  |      playbook_id : int
  |        playbook id
+ |      
+ |      Returns
+ |      -------
+ |      An ActionExecution object
  |  
  |  copy_playbook(self, playbook_id: int) -> rcapi.models.exec.Playbook
  |      Make copy of existing playbook
@@ -71,6 +79,10 @@ class AutomateService(builtins.object)
  |      ----------
  |      playbook_id : int
  |        playbook id
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  create_on_demand_playbook(self, detection_id: int, indicator_id: list[int], action: list[str]) -> rcapi.models.exec.Playbook
  |      Create on-demand playbook
@@ -83,6 +95,10 @@ class AutomateService(builtins.object)
  |        list of indicator ids
  |      action : list[str]
  |        list of actions
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  create_playbook(self, name: str = None, description: str = None) -> rcapi.models.exec.Playbook
  |      Create playbook
@@ -93,6 +109,10 @@ class AutomateService(builtins.object)
  |        name of playbook
  |      description : str
  |        description of playbook
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  create_playbook_action(self, playbook_id: int, params: dict) -> rcapi.models.exec.PlaybookAction
  |      Create action for playbook
@@ -105,6 +125,10 @@ class AutomateService(builtins.object)
  |        dictionary of action attributes
  |        required keys: action[type]
  |                       action[row_order]
+ |      
+ |      Returns
+ |      -------
+ |      A PlaybookAction object
  |  
  |  create_trigger(self, params: dict) -> rcapi.models.exec.Trigger
  |      Create trigger
@@ -114,6 +138,10 @@ class AutomateService(builtins.object)
  |      params : dict
  |        dictionary containing attributes for trigger
  |        required keys: trigger[trigger]
+ |      
+ |      Returns
+ |      -------
+ |      A Trigger object
  |  
  |  create_trigger_condition(self, trigger_id: int, params: dict) -> rcapi.models.exec.TriggerCondition
  |      Create condition for specified trigger
@@ -128,6 +156,10 @@ class AutomateService(builtins.object)
  |                       condition[attribute_name]
  |                       condition[matcher]
  |                       condition[value] OR condition[value][]
+ |      
+ |      Returns
+ |      -------
+ |      A TriggerCondition object
  |  
  |  delete_playbook(self, playbook_id: int) -> rcapi.models.exec.Playbook
  |      Delete playbook
@@ -136,6 +168,10 @@ class AutomateService(builtins.object)
  |      ----------
  |      playbook_id : int
  |        playbook id
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  delete_playbook_action(self, playbook_id: int, action_id: int) -> Union[rcapi.models.general.StandardErrorResponse, rcapi.models.general.StandardSuccessResponse]
  |      Delete action from playbook
@@ -146,6 +182,10 @@ class AutomateService(builtins.object)
  |        playbook id
  |      action_id : int
  |        action id
+ |      
+ |      Returns
+ |      -------
+ |      A StandardSuccessResponse object
  |  
  |  delete_trigger(self, trigger_id: int) -> Union[rcapi.models.general.StandardSuccessResponse, rcapi.models.general.StandardErrorResponse]
  |      Delete trigger
@@ -154,6 +194,10 @@ class AutomateService(builtins.object)
  |      ----------
  |      trigger_id : int
  |        trigger id
+ |      
+ |      Returns
+ |      -------
+ |      A StandardSuccessResponse object
  |  
  |  delete_trigger_condition(self, trigger_id: int, condition_id: int) -> Union[rcapi.models.general.StandardSuccessResponse, rcapi.models.general.StandardErrorResponse]
  |      Delete trigger condition
@@ -166,6 +210,10 @@ class AutomateService(builtins.object)
  |        condition id
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      A StandardSuccessResponse object
  |  
  |  deny_action_execution(self, playbook_id: int) -> rcapi.models.exec.ActionExecution
  |      Deny action execution
@@ -174,6 +222,10 @@ class AutomateService(builtins.object)
  |      ----------
  |      playbook_id : int
  |        playbook id
+ |      
+ |      Returns
+ |      -------
+ |      An ActionExecution object
  |  
  |  get_action_execution(self, action_execution_id: int, exclude_playbook: bool = False, exclude_playbook_execution: bool = False, exclude_playbook_available_actions: bool = False) -> rcapi.models.exec.ActionExecution
  |      Get action execution
@@ -188,9 +240,21 @@ class AutomateService(builtins.object)
  |        exclude playbook execution
  |      exclude_playbook_available_actions : bool
  |        exclude playbook available actions
+ |      
+ |      Returns
+ |      -------
+ |      An ActionExecution object
  |  
  |  get_configuration(self) -> rcapi.models.exec.Configuration
  |      Get configuration
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A Configuration object
  |  
  |  get_playbook_action_runtime_attributes(self, playbook_id: int, action_id: int, runtime_attributes: int) -> dict
  |      Get runtime attributes for playbook action
@@ -203,6 +267,10 @@ class AutomateService(builtins.object)
  |        action id
  |      runtime_attributes : int
  |        runtime attributes
+ |      
+ |      Returns
+ |      -------
+ |      A dictionary of runtime attributes
  |  
  |  get_playbook_execution(self, playbook_id: int, execution_id: int) -> rcapi.models.exec.PlaybookExecution
  |      Get playbook execution
@@ -213,6 +281,10 @@ class AutomateService(builtins.object)
  |        playbook id
  |      execution_id : int
  |        execution id
+ |      
+ |      Returns
+ |      -------
+ |      A PlaybookExecution object
  |  
  |  get_playbook_execution_actions(self, playbook_id: int, execution_id: int) -> list[rcapi.models.exec.ActionExecution]
  |      Get actions for playbook execution
@@ -223,6 +295,10 @@ class AutomateService(builtins.object)
  |        playbook id
  |      execution_id : int
  |        execution id
+ |      
+ |      Returns
+ |      -------
+ |      A list of ActionExecution objects
  |  
  |  list_playbook_action_history(self, playbook_id: int) -> rcapi.models.exec.Playbook
  |      List playbook action history
@@ -231,6 +307,10 @@ class AutomateService(builtins.object)
  |      ----------
  |      playbook_id : int
  |        playbook id
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  list_playbook_execution(self, playbook_id: int) -> list[rcapi.models.exec.PlaybookExecution]
  |      List playbook executions
@@ -239,6 +319,10 @@ class AutomateService(builtins.object)
  |      ----------
  |      playbook_id : int
  |        playbook id
+ |      
+ |      Returns
+ |      -------
+ |      A list of PlaybookExecution objects
  |  
  |  list_playbook_history(self, playbook_id: int) -> rcapi.models.exec.Playbook
  |      List playbook history
@@ -247,9 +331,21 @@ class AutomateService(builtins.object)
  |      ----------
  |      playbook_id : int
  |        playbook id
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
- |  list_playbooks(self) -> Union[int, list[rcapi.models.exec.Playbook]]
+ |  list_playbooks(self) -> list[rcapi.models.exec.Playbook]
  |      List all playbooks
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of Playbook objects
  |  
  |  list_trigger_conditions(self, trigger_id: int, count_mode: bool = False) -> Union[int, list[rcapi.models.exec.TriggerCondition]]
  |      List conditions for trigger
@@ -260,6 +356,10 @@ class AutomateService(builtins.object)
  |        trigger id
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      A list of TriggerCondition objects or an integer count
  |  
  |  list_triggers(self, count_mode: bool = False) -> Union[int, list[rcapi.models.exec.Trigger]]
  |      List all triggers
@@ -268,6 +368,10 @@ class AutomateService(builtins.object)
  |      ----------
  |      count_mode : bool
  |        show only a count and omit result details
+ |      
+ |      Returns
+ |      -------
+ |      A list of Trigger objects or an integer count
  |  
  |  remove_trigger_playbook(self, playbook_id: int, trigger_id: int) -> Union[rcapi.models.general.StandardSuccessResponse, rcapi.models.general.StandardErrorResponse]
  |      Detach playbook from trigger
@@ -278,6 +382,10 @@ class AutomateService(builtins.object)
  |        playbook id
  |      trigger_id: int
  |        trigger id
+ |      
+ |      Returns
+ |      -------
+ |      A StandardSuccessResponse object
  |  
  |  test_json(self, params: Optional[dict] = None) -> rcapi.models.exec.InterpolationResponse
  |      Check if JSON is formatted properly
@@ -288,6 +396,10 @@ class AutomateService(builtins.object)
  |        dictionary containing json string to be tested and accessor
  |        required keys: json_str
  |                       accessor
+ |      
+ |      Returns
+ |      -------
+ |      An InterpolationResponse object
  |  
  |  update_playbook(self, playbook_id: int, params: dict) -> rcapi.models.exec.Playbook
  |      Update playbook
@@ -299,6 +411,10 @@ class AutomateService(builtins.object)
  |      params : dict
  |        dictionary of playbook attributes
  |        required_keys : playbook[id]
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  update_playbook_action(self, playbook_id: int, action_id: int, params: Optional[dict] = None) -> rcapi.models.exec.PlaybookAction
  |      Update action in playbook
@@ -311,6 +427,10 @@ class AutomateService(builtins.object)
  |        action id
  |      params : dict
  |        dictionary of attributes for action
+ |      
+ |      Returns
+ |      -------
+ |      A PlaybookAction object
  |  
  |  update_trigger(self, trigger_id: int, params: dict) -> rcapi.models.exec.Trigger
  |      Update existing trigger
@@ -322,6 +442,10 @@ class AutomateService(builtins.object)
  |      params : dict
  |        dictionary containing details for trigger
  |        required keys: trigger[id]
+ |      
+ |      Returns
+ |      -------
+ |      A Trigger object
  |  
  |  ----------------------------------------------------------------------
  |  Data descriptors defined here:
@@ -338,7 +462,9 @@ Python Library Documentation: class BaseObject in module rcapi.models.common
 class BaseObject(FinishedObject)
  |  BaseObject(entry, type_mapping={})
  |  
- |  Formats basic object returned from API into a FinishedObject
+ |  Formats basic object returned from API into a FinishedObject.
+ |  
+ |  Objects of this type can be called directly by the user.
  |  
  |  Method resolution order:
  |      BaseObject
@@ -503,9 +629,21 @@ class Playbook(rcapi.models.common.SelectableObject)
  |      ----------
  |      params : dict
  |        dictionary containing attributes for action
+ |      
+ |      Returns
+ |      -------
+ |      A PlaybookAction object
  |  
  |  copy(self)
  |      Copy current playbook
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  create_item(self, params: Optional[dict] = None)
  |      Create playbook
@@ -514,9 +652,21 @@ class Playbook(rcapi.models.common.SelectableObject)
  |      ----------
  |      params : dict
  |        dictionary containing attributes for playbook
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  delete(self)
  |      Delete current playbook
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  get_item(self, unique_id: str)
  |      Get a single playbook
@@ -525,12 +675,32 @@ class Playbook(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the playbook
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  get_list(self)
  |      Get a list of playbooks
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of Playbook objects
  |  
  |  list_actions(self)
  |      List actions for current playbook
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of PlaybookAction objects
  |  
  |  remove_action(self, action: rcapi.models.exec.PlaybookAction)
  |      Remove action from current playbook
@@ -539,6 +709,10 @@ class Playbook(rcapi.models.common.SelectableObject)
  |      ----------
  |      action : PlaybookAction
  |        PlaybookAction object
+ |      
+ |      Returns
+ |      -------
+ |      A PlaybookAction object
  |  
  |  update(self, params: dict)
  |      Update current playbook
@@ -547,6 +721,10 @@ class Playbook(rcapi.models.common.SelectableObject)
  |      ----------
  |      params : dict
  |        dictionary containing attributes for playbook
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -590,6 +768,10 @@ class PlaybookAction(rcapi.models.common.BaseObject)
  |      ----------
  |      params : dict
  |        dictionary containing attributes for playbook action
+ |      
+ |      Returns
+ |      -------
+ |      A PlaybookAction object
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
@@ -681,7 +863,9 @@ Python Library Documentation: class SelectableObject in module rcapi.models.comm
 class SelectableObject(BaseObject)
  |  SelectableObject(entry, type_mapping={})
  |  
- |  Formats selectable object as a basic object
+ |  A SelectableObject is a BaseObject with the ability to select a specific object from the API.
+ |  
+ |  Objects of this type can be called directly by the user.
  |  
  |  Method resolution order:
  |      SelectableObject
@@ -805,6 +989,10 @@ class Trigger(rcapi.models.common.SelectableObject)
  |      ----------
  |      params : dict
  |        dictionary containing attributes for condition
+ |      
+ |      Returns
+ |      -------
+ |      A TriggerCondition object
  |  
  |  add_playbook(self, playbook: rcapi.models.exec.Playbook)
  |      Attach playbook to current trigger
@@ -813,6 +1001,10 @@ class Trigger(rcapi.models.common.SelectableObject)
  |      ----------
  |      playbook : Playbook
  |        Playbook object
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  create_item(self, params: dict)
  |      Create trigger
@@ -821,9 +1013,21 @@ class Trigger(rcapi.models.common.SelectableObject)
  |      ----------
  |      params : dict
  |        dictionary containing attributes for trigger
+ |      
+ |      Returns
+ |      -------
+ |      A Trigger object
  |  
  |  delete(self)
  |      Delete current trigger
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A Trigger object
  |  
  |  get_item(self, unique_id: str)
  |      Get a single trigger
@@ -832,12 +1036,32 @@ class Trigger(rcapi.models.common.SelectableObject)
  |      ----------
  |      unique_id : str
  |        unique id for the trigger
+ |      
+ |      Returns
+ |      -------
+ |      A Trigger object
  |  
  |  get_list(self)
  |      Get a list of triggers
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of Trigger objects
  |  
  |  list_conditions(self)
  |      List conditions for current trigger
+ |      
+ |      Parameters
+ |      ----------
+ |      None
+ |      
+ |      Returns
+ |      -------
+ |      A list of TriggerCondition objects
  |  
  |  remove_condition(self, condition: rcapi.models.exec.TriggerCondition)
  |      Remove condition from current trigger
@@ -846,6 +1070,10 @@ class Trigger(rcapi.models.common.SelectableObject)
  |      ----------
  |      condition : TriggerCondition
  |        TriggerCondition object
+ |      
+ |      Returns
+ |      -------
+ |      A TriggerCondition object
  |  
  |  remove_playbook(self, playbook: rcapi.models.exec.Playbook)
  |      Detach playbook from current trigger
@@ -854,6 +1082,10 @@ class Trigger(rcapi.models.common.SelectableObject)
  |      ----------
  |      playbook : Playbook
  |        Playbook object
+ |      
+ |      Returns
+ |      -------
+ |      A Playbook object
  |  
  |  update(self, params: dict)
  |      Update current trigger
@@ -862,6 +1094,10 @@ class Trigger(rcapi.models.common.SelectableObject)
  |      ----------
  |      params : dict
  |        dictionary containing attributes for trigger
+ |      
+ |      Returns
+ |      -------
+ |      A Trigger object
  |  
  |  ----------------------------------------------------------------------
  |  Methods inherited from rcapi.models.common.FinishedObject:
