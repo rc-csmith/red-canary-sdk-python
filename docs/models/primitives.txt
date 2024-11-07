@@ -1,0 +1,455 @@
+Python Library Documentation: class BaseObject in module rcapi.models.common
+
+class BaseObject(FinishedObject)
+ |  BaseObject(entry, type_mapping={})
+ |  
+ |  Formats basic object returned from API into a FinishedObject.
+ |  
+ |  Objects of this type can be called directly by the user.
+ |  
+ |  Method resolution order:
+ |      BaseObject
+ |      FinishedObject
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, entry, type_mapping={})
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from FinishedObject:
+ |  
+ |  to_json(self)
+ |      Return data in json format
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from FinishedObject:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+
+Python Library Documentation: class Binary in module rcapi.models.primitives
+
+class Binary(rcapi.models.common.BaseObject)
+ |  Binary(entry)
+ |  
+ |  Binary object
+ |  
+ |  Method resolution order:
+ |      Binary
+ |      rcapi.models.common.BaseObject
+ |      rcapi.models.common.FinishedObject
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, entry)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  to_json(self)
+ |      Return data in json format
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+
+Python Library Documentation: class BinaryDigitalSignature in module rcapi.models.primitives
+
+class BinaryDigitalSignature(rcapi.models.common.BaseObject)
+ |  BinaryDigitalSignature(entry, type_mapping={})
+ |  
+ |  Binary Digital Signature object
+ |  
+ |  Method resolution order:
+ |      BinaryDigitalSignature
+ |      rcapi.models.common.BaseObject
+ |      rcapi.models.common.FinishedObject
+ |      builtins.object
+ |  
+ |  Methods inherited from rcapi.models.common.BaseObject:
+ |  
+ |  __init__(self, entry, type_mapping={})
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  to_json(self)
+ |      Return data in json format
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+
+Python Library Documentation: class BinaryService in module rcapi.models.primitives
+
+class BinaryService(builtins.object)
+ |  BinaryService(client)
+ |  
+ |  Binary Service class
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, client)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  get(self, binary_hash: str) -> rcapi.models.primitives.Binary
+ |      Get a binary
+ |      
+ |      Parameters
+ |      ----------
+ |      binary_hash : str
+ |        The hash of the binary to retrieve
+ |      
+ |      Returns
+ |      -------
+ |      A Binary object
+ |  
+ |  get_edr_link(self, binary_hash: str) -> rcapi.models.primitives.EDRLink
+ |      Get the EDR link for a binary
+ |      
+ |      Parameters
+ |      ----------
+ |      binary_hash : str
+ |        The hash of the binary to retrieve
+ |      
+ |      Returns
+ |      -------
+ |      An EDRLink object
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+
+Python Library Documentation: class Domain in module rcapi.models.primitives
+
+class Domain(rcapi.models.common.BaseObject)
+ |  Domain(entry, type_mapping={})
+ |  
+ |  Domain object
+ |  
+ |  Method resolution order:
+ |      Domain
+ |      rcapi.models.common.BaseObject
+ |      rcapi.models.common.FinishedObject
+ |      builtins.object
+ |  
+ |  Methods inherited from rcapi.models.common.BaseObject:
+ |  
+ |  __init__(self, entry, type_mapping={})
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  to_json(self)
+ |      Return data in json format
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+
+Python Library Documentation: class EDRLink in module rcapi.models.primitives
+
+class EDRLink(rcapi.models.common.BaseObject)
+ |  EDRLink(entry, type_mapping={})
+ |  
+ |  EDR Link object
+ |  
+ |  Method resolution order:
+ |      EDRLink
+ |      rcapi.models.common.BaseObject
+ |      rcapi.models.common.FinishedObject
+ |      builtins.object
+ |  
+ |  Methods inherited from rcapi.models.common.BaseObject:
+ |  
+ |  __init__(self, entry, type_mapping={})
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  to_json(self)
+ |      Return data in json format
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+
+Python Library Documentation: class EndpointHostname in module rcapi.models.primitives
+
+class EndpointHostname(rcapi.models.common.BaseObject)
+ |  EndpointHostname(entry, type_mapping={})
+ |  
+ |  Endpoint Hostname object
+ |  
+ |  Method resolution order:
+ |      EndpointHostname
+ |      rcapi.models.common.BaseObject
+ |      rcapi.models.common.FinishedObject
+ |      builtins.object
+ |  
+ |  Methods inherited from rcapi.models.common.BaseObject:
+ |  
+ |  __init__(self, entry, type_mapping={})
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  to_json(self)
+ |      Return data in json format
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+
+Python Library Documentation: class File in module rcapi.models.primitives
+
+class File(rcapi.models.common.BaseObject)
+ |  File(entry)
+ |  
+ |  File object
+ |  
+ |  Method resolution order:
+ |      File
+ |      rcapi.models.common.BaseObject
+ |      rcapi.models.common.FinishedObject
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, entry)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  to_json(self)
+ |      Return data in json format
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+
+Python Library Documentation: class IpAddress in module rcapi.models.primitives
+
+class IpAddress(rcapi.models.common.BaseObject)
+ |  IpAddress(entry, type_mapping={})
+ |  
+ |  IpAddress object
+ |  
+ |  Method resolution order:
+ |      IpAddress
+ |      rcapi.models.common.BaseObject
+ |      rcapi.models.common.FinishedObject
+ |      builtins.object
+ |  
+ |  Methods inherited from rcapi.models.common.BaseObject:
+ |  
+ |  __init__(self, entry, type_mapping={})
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  to_json(self)
+ |      Return data in json format
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+
+Python Library Documentation: class MacAddress in module rcapi.models.primitives
+
+class MacAddress(rcapi.models.common.BaseObject)
+ |  MacAddress(entry, type_mapping={})
+ |  
+ |  MacAddress object
+ |  
+ |  Method resolution order:
+ |      MacAddress
+ |      rcapi.models.common.BaseObject
+ |      rcapi.models.common.FinishedObject
+ |      builtins.object
+ |  
+ |  Methods inherited from rcapi.models.common.BaseObject:
+ |  
+ |  __init__(self, entry, type_mapping={})
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  to_json(self)
+ |      Return data in json format
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+
+Python Library Documentation: class OperatingSystemProcess in module rcapi.models.primitives
+
+class OperatingSystemProcess(rcapi.models.common.BaseObject)
+ |  OperatingSystemProcess(entry)
+ |  
+ |  Operating System Process object
+ |  
+ |  Method resolution order:
+ |      OperatingSystemProcess
+ |      rcapi.models.common.BaseObject
+ |      rcapi.models.common.FinishedObject
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, entry)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  to_json(self)
+ |      Return data in json format
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+
+Python Library Documentation: class ProcessCommandLine in module rcapi.models.primitives
+
+class ProcessCommandLine(rcapi.models.common.BaseObject)
+ |  ProcessCommandLine(entry, type_mapping={})
+ |  
+ |  Process Command Line object
+ |  
+ |  Method resolution order:
+ |      ProcessCommandLine
+ |      rcapi.models.common.BaseObject
+ |      rcapi.models.common.FinishedObject
+ |      builtins.object
+ |  
+ |  Methods inherited from rcapi.models.common.BaseObject:
+ |  
+ |  __init__(self, entry, type_mapping={})
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  to_json(self)
+ |      Return data in json format
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+
+Python Library Documentation: class RegistryKey in module rcapi.models.primitives
+
+class RegistryKey(rcapi.models.common.BaseObject)
+ |  RegistryKey(entry, type_mapping={})
+ |  
+ |  Registry Key object
+ |  
+ |  Method resolution order:
+ |      RegistryKey
+ |      rcapi.models.common.BaseObject
+ |      rcapi.models.common.FinishedObject
+ |      builtins.object
+ |  
+ |  Methods inherited from rcapi.models.common.BaseObject:
+ |  
+ |  __init__(self, entry, type_mapping={})
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  to_json(self)
+ |      Return data in json format
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rcapi.models.common.FinishedObject:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+

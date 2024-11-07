@@ -1,0 +1,45 @@
+Python Library Documentation: class rcapi in module rcapi.rest_api
+
+class rcapi(builtins.object)
+ |  rcapi(url: Optional[str] = None, key: Optional[str] = None) -> None
+ |  
+ |  Initiate rcapi
+ |  
+ |  Parameters
+ |  ----------
+ |  url : str
+ |    URL of Red Canary subdomain of the form https://subdomain.my.redcanary.co
+ |    Can be defined via environment variable RED_CANARY_CUSTOMER_ID
+ |  
+ |  key : str
+ |    API key for Red Canary subdomain
+ |    Can be defined via environment variable RED_CANARY_AUTH_TOKEN
+ |  
+ |  Methods defined here:
+ |  
+ |  TestConnection(self) -> bool
+ |      Test connection
+ |  
+ |  __init__(self, url: Optional[str] = None, key: Optional[str] = None) -> None
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  create(self, object_type, params: dict = {}) -> object
+ |      Create a new instance of a given object type
+ |  
+ |  select(self, object_type, unique_id: Optional[str] = None) -> object
+ |      Select by object type
+ |      
+ |      Returns a single object if a unique_id is provided
+ |      
+ |      Returns the object for querying if no unique_id is provided
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+
+

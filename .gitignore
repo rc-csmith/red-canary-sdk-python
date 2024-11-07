@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# macOS / OS X
+.DS_Store
+
 # C extensions
 *.so
 

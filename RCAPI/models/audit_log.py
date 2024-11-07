@@ -1,78 +1,141 @@
-import six
+"""
+Audit Log
+"""
+from typing import Union
+from .common import SelectableObject, Collection, Resource
+from .general import PortalUser, RequestedCsvResponse
 
-def AuditLog(object):
-  def __init__(self, auditlog):
-    self._auditlog = auditlog
-  
-  def to_json(self):
-    orig_json = self.__dict__
-    non_empty_json = {k: v for (k, v) in six.iteritems(orig_json) if v is not None}
-    return non_empty_json
+class AuditLog(SelectableObject):
+  """
+  Audit Log object
+  """
+  def __init__(self, entry=None, client=None):
+    type_mapping = {
+      'by_user': PortalUser,
+      'web_request_user': PortalUser
+    }
+    if client:
+      self.client = client
 
-  @property
-  def type(self):
-    return self._auditlog.get('type')
-  
-  @property
-  def id(self):
-    return self._auditlog.get('id')
-  
-  @property
-  def attributes(self):
-    return Attributes(self._auditlog.get('attributes'))
+    if entry:
+      super().__init__(entry, type_mapping)
+    
+  def get_list(self):
+    """
+    Get a list of audit logs
 
-def Attributes(object):
-  def __init__(self, attributes):
-    self._attributes = attributes
-  
-  @property
-  def action(self):
-    return self._attributes.get('action')
-  
-  @property
-  def created_at(self):
-    return self._attributes.get('created_at')
-  
-  @property
-  def description(self):
-    return self._attributes.get('description')
-  
-  @property
-  def by_user(self):
-    return UserInfo(self._attributes.get('by_user'))
-  
-  @property
-  def web_request_user(self):
-    return UserInfo(self._attributes.get('web_request_user'))
+    Parameters
+    ----------
+    None
 
-  @property
-  def web_request_ip(self):
-    return self._attributes.get('web_request_ip')
+    Returns
+    -------
+    A list of AuditLog objects
+    """
+    if hasattr(self, 'client'):
+      return AuditLogService(self.client).list_entries()
+    else:
+      raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to generate a list")
 
-  @property
-  def web_request_user_agent(self):
-    return self._attributes.get('web_request_user_agent')
+  def get_item(self, unique_id: str):
+    """
+    Get a single audit log
 
-class UserInfo(object):
-  def __init__(self, userinfo):
-    self._user_info = userinfo
+    Parameters
+    ----------
+    unique_id : str
+      unique id for the audit log
 
-  @property
-  def type(self):
-    return self._user_info.get('type')
-  
-  @property
-  def id(self):
-    return (self._user_info.get('attributes')).get('id')
-  
-  @property
-  def email(self):
-    return (self._user_info.get('attributes')).get('email')
-  
-  @property
-  def name(self):
-    return (self._user_info.get('attributes')).get('name')
-  
-  @property
-  def user(self):
-    return (self._user_info.get('attributes')).get('name_and_email')
+    Returns
+    -------
+    An AuditLog object
+    """
+    if hasattr(self, 'client'):
+      return AuditLogService(self.client).get(int(unique_id))
+    else:
+      raise SyntaxError(f"Class {self.__class__.__name__} cannot be used to get an item")
+
+class AuditLogCollection(Collection):
+  """
+  Audit Log collection object
+  """
+  def __init__(self, entry, client=None):
+    super().__init__(entry, AuditLog, client=client)
+
+class AuditLogResource(Resource):
+  """
+  Audit Log resource object
+  """
+  def __init__(self, entry, client=None):
+    super().__init__(entry, AuditLog, client=client)
+
+class AuditLogService(object):
+  """
+  Audit Log Service class
+  """
+  def __init__(self, client):
+    self.client = client
+
+  def list_entries(self, actions: str = '', count_mode: bool = False) -> Union[int, list[AuditLog]]:
+    """
+    List audit logs
+
+    Parameters
+    ----------
+    actions : str
+      audit actions for search/filter
+    count_mode : bool
+      show only a count and omit result details
+
+    Returns
+    -------
+    A list of AuditLog objects or an integer count
+    """
+    params, object_type = self.client.CheckCountMode(count_mode, AuditLogCollection)
+
+    if actions != '':
+      params['actions'] = actions
+
+    if count_mode:
+      return self.client.call_api(method='get',service='/audit_logs',object_type=object_type, params=params)
+    else:
+      return self.client.RecurseList(service='/audit_logs', object_type=object_type, params=params)
+
+  def download(self, search_string: str = '') -> RequestedCsvResponse:
+    """
+    Download audit logs to CSV
+
+    Parameters
+    ----------
+    search_string : str
+      query string to filter audit logs
+
+    Returns
+    -------
+    RequestedCsvResponse object
+    """
+    params = {}
+    if search_string != '':
+      params['search_string'] = search_string
+
+    return self.client.call_api(method='get',service='/audit_logs/request_csv',object_type=RequestedCsvResponse, params=params)
+
+  def get(self, audit_log_id: int) -> AuditLog:
+    """
+    Get a single audit log
+
+    Parameters
+    ----------
+    id : int
+      audit log id
+
+    Returns
+    -------
+    An AuditLog object
+    """
+    result = self.client.call_api(method='get',service=f'/audit_logs/{audit_log_id}',object_type=AuditLogResource)
+
+    if isinstance(result, AuditLogResource):
+      return result.data[0]
+    else:
+      return result
